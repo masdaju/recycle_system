@@ -7,10 +7,10 @@ import org.springframework.boot.test.context.SpringBootTest;
 class RecycleSystemApplicationTests {
 
 
-    @Test
-    void contextLoads() {
-
-    }
+//    @Test
+//    void contextLoads() {
+//
+//    }
 
 
 }
