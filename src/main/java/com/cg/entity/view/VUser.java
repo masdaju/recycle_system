@@ -62,6 +62,7 @@ public class VUser implements Serializable {
 
     private String email;
     private Date createTime;
+    private Integer status;
     private BigDecimal amount;
     @TableField(exist = false)
     private static final long serialVersionUID = 1L;

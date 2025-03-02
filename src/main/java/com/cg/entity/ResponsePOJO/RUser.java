@@ -57,6 +57,7 @@ public class RUser implements Serializable {
     private String roleName;
     private String roleValue;
     private Date createTime;
+    private Integer status;
     /**
      *可以访问的资源
      */

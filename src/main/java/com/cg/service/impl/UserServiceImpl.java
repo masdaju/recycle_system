@@ -40,6 +40,9 @@ public class UserServiceImpl extends ServiceImpl<UserMapper, User>
         BCryptPasswordEncoder encoder = new BCryptPasswordEncoder();
         wrapper.eq(VUser::getAccount,account);
         VUser vUser = vUserService.getOne(wrapper);
+        if (vUser.getStatus()==0) {
+            return SaResult.error("账号已被禁用");
+        }
         if (ObjectUtils.isEmpty(vUser)) {
             return SaResult.error("账号不存在");
         }else {

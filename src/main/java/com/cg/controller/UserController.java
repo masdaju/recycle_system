@@ -169,11 +169,22 @@ public class UserController {
 
     @PostMapping(value = "/update")
     public SaResult update(@RequestBody User params) {
-       LambdaUpdateWrapper<User> wrapper = new LambdaUpdateWrapper<>();
-       wrapper.eq(User::getId,StpUtil.getLoginIdAsLong())
-               .set(User::getMobile,params.getMobile())
-               .set(User::getEmail,params.getEmail()).set(User::getName,params.getName());
-        userService.update(wrapper);
+        //如果id为空说明是用户本人操作更新自己的信息
+        if (params.getId() == null) {
+            LambdaUpdateWrapper<User> wrapper = new LambdaUpdateWrapper<>();
+            wrapper.eq(User::getId, StpUtil.getLoginIdAsLong())
+                    .set(params.getMobile() != null, User::getMobile, params.getMobile())
+                    .set(params.getEmail() != null, User::getEmail, params.getEmail())
+                    .set(params.getName() != null, User::getName, params.getName());
+            userService.update(wrapper);
+        }
+        //如果id不为空说明是管理员操作更新用户信息
+        userService.updateById(params);
+        if (params.getStatus() == 0){
+            //如果用户被禁用则踢出登录
+            StpUtil.kickout(params.getId());
+        return SaResult.ok("updated successfully");
+        }
         return SaResult.ok("updated successfully");
     }
 }

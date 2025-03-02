@@ -10,6 +10,7 @@ import org.springframework.data.redis.core.StringRedisTemplate;
 import org.springframework.data.redis.core.ValueOperations;
 import org.springframework.web.bind.annotation.*;
 
+import java.util.List;
 import java.util.concurrent.TimeUnit;
 
 /**
@@ -37,11 +38,11 @@ public class WasteClassifyController {
         String s = classify.get("classify");
         if (s == null||name != null||current != null||pageSize != null) {
         Page<WasteClassify> aPage =wasteClassifyService.getClassify(name, current, pageSize);
-            classify.set("classify", JSON.toJSONString(aPage), 5,TimeUnit.MINUTES);
+            classify.set("classify", JSON.toJSONString(aPage), 30,TimeUnit.SECONDS);
         return SaResult.data(aPage);
         }
         //刷新过期时间
-        stringRedisTemplate.expire("classify", 5, TimeUnit.MINUTES);
+        stringRedisTemplate.expire("classify", 30, TimeUnit.SECONDS);
         Page aPage = JSON.parseObject(s, Page.class);
         return SaResult.data(aPage);
     }
@@ -60,16 +61,18 @@ public class WasteClassifyController {
     public SaResult create(@RequestBody WasteClassify params) {
         try {
             wasteClassifyService.save(params);
+            stringRedisTemplate.delete("classify");
             return SaResult.ok("废品分类创建成功");
         } catch (Exception e) {
             return SaResult.error("废品分类创建失败: " + e.getMessage());
         }
     }
 
-    @PostMapping(value = "/delete/{id}")
-    public SaResult delete(@PathVariable("id") String id) {
+    @PostMapping(value = "/delete")
+    public SaResult delete(@RequestBody List<Long> ids) {
         try {
-            wasteClassifyService.removeById(id);
+            wasteClassifyService.removeByIds(ids);
+            stringRedisTemplate.delete("classify");
             return SaResult.ok("废品分类删除成功");
         } catch (Exception e) {
             return SaResult.error("废品分类删除失败: " + e.getMessage());
