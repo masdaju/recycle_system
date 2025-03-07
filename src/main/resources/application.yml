@@ -87,3 +87,4 @@ undertow:
     region-buffers: 100
     max-idle-buffers: 20
     max-direct-memory: 10485760
+

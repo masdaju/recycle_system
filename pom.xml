@@ -129,17 +129,6 @@
 <!--                    <version>2.0.5</version>-->
 <!--                </dependency>-->
 
-        <!--        <dependency>-->
-        <!--            <groupId>org.apache.poi</groupId>-->
-        <!--            <artifactId>poi-ooxml</artifactId>-->
-        <!--            <version>5.3.0</version> &lt;!&ndash; 使用最新版本 &ndash;&gt;-->
-        <!--        </dependency>-->
-        <!--        <dependency>-->
-        <!--            <groupId>org.apache.poi</groupId>-->
-        <!--            <artifactId>poi-scratchpad</artifactId>-->
-        <!--            <version>5.2.3</version>-->
-        <!--        </dependency>-->
-        <!--        &lt;!&ndash; https://mvnrepository.com/artifact/cn.hutool/hutool-all &ndash;&gt;-->
         <dependency>
             <groupId>cn.hutool</groupId>
             <artifactId>hutool-all</artifactId>

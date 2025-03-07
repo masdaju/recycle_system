@@ -73,7 +73,7 @@ public class RequestWasteController {
             userService.update(wrapper1);
             return SaResult.data(amount);
         }catch (Exception e){
-            return SaResult.error("废品数量不足");
+            return SaResult.error("更新失败: " + e.getMessage());
         }finally {
             lock.unlock();
         }
