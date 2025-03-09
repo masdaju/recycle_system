@@ -11,7 +11,6 @@ import org.springframework.stereotype.Service;
 
 import java.util.ArrayList;
 import java.util.List;
-import java.util.Map;
 import java.util.stream.Collectors;
 
 import static com.cg.utils.ListUtils.findAllChildren;
@@ -83,7 +82,6 @@ public class ResourcesServiceImpl extends ServiceImpl<ResourcesMapper, Resources
         dbList.forEach(item -> {
             // 如果子节点的父ID与父节点的ID匹配
             if(item.getPid().equals(parent.getId())){
-
                 List<Resources> childList = buildTreeNode(dbList,item);
                 item.setChildren(childList);
                 // 将VO对象添加到子节点列表中
