@@ -11,6 +11,7 @@ import org.springframework.stereotype.Service;
 
 import java.util.ArrayList;
 import java.util.List;
+import java.util.Map;
 import java.util.stream.Collectors;
 
 import static com.cg.utils.ListUtils.findAllChildren;
@@ -24,11 +25,10 @@ import static com.cg.utils.ListUtils.findAllChildren;
 public class ResourcesServiceImpl extends ServiceImpl<ResourcesMapper, Resources>
     implements ResourcesService{
     private static final Long ROOT_PID = 0L;
-
-
-
+    
     @Override
     public SaResult tree(Integer CurrentPage,Integer PageSize,String name) {
+
         //通过分页方式查询pid为0的父节点
         LambdaQueryWrapper<Resources> lqw = new LambdaQueryWrapper<>();
         lqw.eq(Resources::getPid,ROOT_PID)

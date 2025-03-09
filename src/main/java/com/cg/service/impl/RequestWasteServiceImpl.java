@@ -18,6 +18,7 @@ import org.springframework.stereotype.Service;
 import org.springframework.transaction.annotation.Transactional;
 
 import java.math.BigDecimal;
+import java.math.RoundingMode;
 import java.util.ArrayList;
 import java.util.HashMap;
 import java.util.List;
@@ -43,42 +44,99 @@ public class RequestWasteServiceImpl extends ServiceImpl<RequestWasteMapper, Req
     private VehiclesMapper vehiclesMapper;
     @Autowired
     private VWasteService vWasteMapper;
+//    @Override
+//    @Transactional
+//    public BigDecimal checkQuantity(Map<Long, BigDecimal> map, Long requestId) {
+//
+//        map.forEach((k, v) -> {
+//            LambdaUpdateWrapper<RequestWaste> wrapper = new LambdaUpdateWrapper<>();
+//            wrapper.eq(RequestWaste::getRequestId, requestId).eq(RequestWaste::getWasteId, k).set(RequestWaste::getQuantity, v);
+//            update(wrapper);
+//        });
+//        LambdaQueryWrapper<VWaste> queryWrapper = new LambdaQueryWrapper<>();
+//        queryWrapper.eq(VWaste::getRequestId, requestId);
+//        List<VWaste> requestPrices  = vWasteMapper.list(queryWrapper);
+//
+//        List<BigDecimal> results = new ArrayList<>();
+//        // 遍历 requestPrices 列表
+//        requestPrices.forEach(requestPrice -> {
+//            results.add(map.get(requestPrice.getWasteId()).multiply(requestPrice.getPrice()));
+//
+//        });
+//        // 计算总和
+//        BigDecimal totalSum  = results.stream().reduce(BigDecimal.ZERO, BigDecimal::add);
+//        //更新运输计划状态
+//        LambdaQueryWrapper<TransportSchedules> wrapper = new LambdaQueryWrapper<>();
+//        wrapper.eq(TransportSchedules::getRequestId, requestId);
+//        TransportSchedules transportSchedules = transportSchedulesMapper.selectOne(wrapper);
+//        transportSchedules.setStatus(2);
+//        transportSchedulesMapper.updateById(transportSchedules);
+//        //更新车辆状态
+//        LambdaUpdateWrapper<Vehicles> wrapper3 = new LambdaUpdateWrapper<>();
+//        wrapper3.set(Vehicles::getStatus, 1).eq(Vehicles::getVehicleId, transportSchedules.getVehicleId());
+//        vehiclesMapper.update(wrapper3);
+//        //更新废品申请状态
+//        LambdaUpdateWrapper<WasteRequests> wrapper2 = new LambdaUpdateWrapper<>();
+//        wrapper2.eq(WasteRequests::getRequestId, requestId).set(WasteRequests::getStatus, 2);
+//        wasteRequestsMapper.update(wrapper2);
+//        //返回总金额
+//        return totalSum;
+//    }
+
+
     @Override
     @Transactional
     public BigDecimal checkQuantity(Map<Long, BigDecimal> map, Long requestId) {
+        updateWasteQuantities(map, requestId);
+        BigDecimal totalSum = calculateTotalAmount(map,requestId);
+        updateSystemStatuses(requestId);
+        return totalSum;
+    }
 
-        map.forEach((k, v) -> {
+    private void updateWasteQuantities(Map<Long, BigDecimal> map, Long requestId) {
+        // 更新废品质量
+        map.forEach((wasteId, quantity) -> {
             LambdaUpdateWrapper<RequestWaste> wrapper = new LambdaUpdateWrapper<>();
-            wrapper.eq(RequestWaste::getRequestId, requestId).eq(RequestWaste::getWasteId, k).set(RequestWaste::getQuantity, v);
+            wrapper.eq(RequestWaste::getRequestId, requestId)
+                    .eq(RequestWaste::getWasteId, wasteId)
+                    .set(RequestWaste::getQuantity, quantity);
             update(wrapper);
         });
-        LambdaQueryWrapper<VWaste> queryWrapper = new LambdaQueryWrapper<>();
-        queryWrapper.eq(VWaste::getRequestId, requestId);
-        List<VWaste> requestPrices  = vWasteMapper.list(queryWrapper);
+    }
 
-        List<BigDecimal> results = new ArrayList<>();
-        // 遍历 requestPrices 列表
-        requestPrices.forEach(requestPrice -> {
-            results.add(map.get(requestPrice.getWasteId()).multiply(requestPrice.getPrice()));
+    private BigDecimal calculateTotalAmount(Map<Long, BigDecimal> map,Long requestId) {
+        //获取废品信息
+        List<VWaste> requestPrices = vWasteMapper.list(
+                new LambdaQueryWrapper<VWaste>().eq(VWaste::getRequestId, requestId));
+        // 计算数总和值精确到小数点后两位并返回
+        return requestPrices.stream()
+                .map(rp -> rp.getPrice().multiply(map.get(rp.getWasteId())))
+                .reduce(BigDecimal.ZERO, BigDecimal::add).setScale(2, RoundingMode.HALF_DOWN);
+    }
 
-        });
-        // 计算总和
-        BigDecimal totalSum  = results.stream().reduce(BigDecimal.ZERO, BigDecimal::add);
-        //更新运输计划状态
-        LambdaQueryWrapper<TransportSchedules> wrapper = new LambdaQueryWrapper<>();
-        wrapper.eq(TransportSchedules::getRequestId, requestId);
-        TransportSchedules transportSchedules = transportSchedulesMapper.selectOne(wrapper);
+    private void updateSystemStatuses(Long requestId) {
+        updateTransportANDVehicle(requestId);
+        updateWasteRequestStatus(requestId);
+    }
+
+    private void updateWasteRequestStatus(Long requestId) {
+        //更新废品申请状态
+        LambdaUpdateWrapper<WasteRequests> wrapper = new LambdaUpdateWrapper<>();
+        wrapper.eq(WasteRequests::getRequestId, requestId).set(WasteRequests::getStatus, 2);
+        wasteRequestsMapper.update(wrapper);
+
+    }
+
+    private void updateTransportANDVehicle(Long requestId) {
+        //更新车辆状态和运输状态
+        LambdaQueryWrapper<TransportSchedules> queryWrapper = new LambdaQueryWrapper<>();
+        queryWrapper.eq(TransportSchedules::getRequestId, requestId);
+        TransportSchedules transportSchedules = transportSchedulesMapper.selectOne(queryWrapper);
         transportSchedules.setStatus(2);
         transportSchedulesMapper.updateById(transportSchedules);
         //更新车辆状态
-        LambdaUpdateWrapper<Vehicles> wrapper3 = new LambdaUpdateWrapper<>();
-        wrapper3.set(Vehicles::getStatus, 1).eq(Vehicles::getVehicleId, transportSchedules.getVehicleId());
-        vehiclesMapper.update(wrapper3);
-        //更新废品申请状态
-        LambdaUpdateWrapper<WasteRequests> wrapper2 = new LambdaUpdateWrapper<>();
-        wrapper2.eq(WasteRequests::getRequestId, requestId).set(WasteRequests::getStatus, 2);
-        wasteRequestsMapper.update(wrapper2);
-        //返回总金额
-        return totalSum;
+        LambdaUpdateWrapper<Vehicles> updateWrapper = new LambdaUpdateWrapper<>();
+        updateWrapper.set(Vehicles::getStatus, 1).eq(Vehicles::getVehicleId, transportSchedules.getVehicleId());
+        vehiclesMapper.update(updateWrapper);
     }
 }

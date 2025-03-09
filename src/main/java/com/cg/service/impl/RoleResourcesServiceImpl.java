@@ -6,6 +6,7 @@ import com.cg.entity.RoleResources;
 import com.cg.mapper.RoleResourcesMapper;
 import com.cg.service.RoleResourcesService;
 import org.springframework.stereotype.Service;
+import org.springframework.transaction.annotation.Transactional;
 
 import java.util.List;
 
@@ -21,6 +22,7 @@ public class RoleResourcesServiceImpl extends ServiceImpl<RoleResourcesMapper, R
     implements RoleResourcesService{
 
     @Override
+    @Transactional
     public boolean refresh(Long id, List<Long> resId) {
         LambdaQueryWrapper<RoleResources> wrapper = new LambdaQueryWrapper<>();
         wrapper.eq(RoleResources::getRoleId, id);
