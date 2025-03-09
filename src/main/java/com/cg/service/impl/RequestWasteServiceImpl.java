@@ -23,6 +23,8 @@ import java.util.ArrayList;
 import java.util.HashMap;
 import java.util.List;
 import java.util.Map;
+import java.util.concurrent.locks.Lock;
+import java.util.concurrent.locks.ReentrantLock;
 import java.util.stream.Collectors;
 
 /**
@@ -82,13 +84,21 @@ public class RequestWasteServiceImpl extends ServiceImpl<RequestWasteMapper, Req
 //        //返回总金额
 //        return totalSum;
 //    }
-    
+
     @Override
     @Transactional
     public BigDecimal checkQuantity(Map<Long, BigDecimal> map, Long requestId) {
-        updateWasteQuantities(map, requestId);
-        BigDecimal totalSum = calculateTotalAmount(map,requestId);
-        updateSystemStatuses(requestId);
+        ReentrantLock lock = new ReentrantLock();
+        BigDecimal totalSum = calculateTotalAmount(map, requestId);
+        try {
+            lock.lock();
+            updateWasteQuantities(map, requestId);
+            updateSystemStatuses(requestId);
+        }catch (Exception e){
+            throw new RuntimeException("更新失败");
+        }finally {
+            lock.unlock();
+        }
         return totalSum;
     }
 
