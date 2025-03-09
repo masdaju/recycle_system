@@ -82,8 +82,7 @@ public class RequestWasteServiceImpl extends ServiceImpl<RequestWasteMapper, Req
 //        //返回总金额
 //        return totalSum;
 //    }
-
-
+    
     @Override
     @Transactional
     public BigDecimal checkQuantity(Map<Long, BigDecimal> map, Long requestId) {
