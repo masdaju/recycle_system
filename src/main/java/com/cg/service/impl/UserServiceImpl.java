@@ -23,55 +23,96 @@ import org.springframework.util.ObjectUtils;
 import java.util.List;
 
 /**
-* @author MIZUGI
-* @description 针对表【sys_user(用户表)】的数据库操作Service实现
-* @createDate 2024-10-10 10:27:35
-*/
+ * @author MIZUGI
+ * @description 针对表【sys_user(用户表)】的数据库操作Service实现
+ * 该类实现了 UserService 接口，负责处理用户表相关的业务逻辑，主要包括用户登录和退出登录的功能。
+ * @createDate 2024-10-10 10:27:35
+ */
 @Service
 public class UserServiceImpl extends ServiceImpl<UserMapper, User>
-    implements UserService{
+        implements UserService {
+
+    // 自动注入 VUserService 实例，用于操作视图 VUser 相关的数据
     @Autowired
     private VUserService vUserService;
+    // 自动注入 VRoleService 实例，用于操作视图 VRole 相关的数据
     @Autowired
     private VRoleService vRoleService;
+
+    /**
+     * 用户登录方法
+     *
+     * @param account  用户账号
+     * @param password 用户密码
+     * @param header   登录设备信息
+     * @return 包含登录结果的 SaResult 对象
+     */
     @Override
     public SaResult login(String account, String password, String header) {
+        // 创建 LambdaUpdateWrapper 对象，用于构建查询 VUser 的条件
         LambdaUpdateWrapper<VUser> wrapper = new LambdaUpdateWrapper<>();
+        // 创建 BCryptPasswordEncoder 对象，用于密码的加密和验证
         BCryptPasswordEncoder encoder = new BCryptPasswordEncoder();
-        wrapper.eq(VUser::getAccount,account);
+        // 添加查询条件：根据用户账号进行筛选
+        wrapper.eq(VUser::getAccount, account);
+        // 调用 vUserService 的 getOne 方法，根据查询条件获取单个 VUser 对象
         VUser vUser = vUserService.getOne(wrapper);
-        if (vUser.getStatus()==0) {
+
+        // 检查用户状态，如果用户状态为 0，表示账号已被禁用
+        if (vUser.getStatus() == 0) {
             return SaResult.error("账号已被禁用");
         }
+
+        // 检查用户是否存在
         if (ObjectUtils.isEmpty(vUser)) {
             return SaResult.error("账号不存在");
-        }else {
-            if (encoder.matches(password,vUser.getPassword())) {
+        } else {
+            // 验证用户输入的密码是否正确
+            if (encoder.matches(password, vUser.getPassword())) {
+                // 创建 QueryWrapper 对象，用于构建查询 VRole 的条件
                 QueryWrapper<VRole> wrapper1 = new QueryWrapper<>();
+                // 添加查询条件：根据角色 ID、角色状态和状态进行筛选
                 wrapper1.eq("role_id", vUser.getRoleId()).eq("status", 1).eq("role_status", 1);
+                // 调用 vRoleService 的 list 方法，根据查询条件获取 VRole 列表
                 List<VRole> list = vRoleService.list(wrapper1);
-                List<String> resourceList =list.stream().map(VRole::getResValue).toList();
+                // 使用流操作，从 VRole 列表中提取资源值，并收集到一个列表中
+                List<String> resourceList = list.stream().map(VRole::getResValue).toList();
+                // 使用 Sa-Token 进行用户登录，传入用户 ID
                 StpUtil.login(vUser.getId());
+                // 创建 RUser 对象，用于封装返回给前端的用户信息
                 RUser rUser = new RUser();
-                BeanUtils.copyProperties(vUser,rUser);
+                // 使用 BeanUtils 复制 VUser 对象的属性到 RUser 对象中
+                BeanUtils.copyProperties(vUser, rUser);
+                // 设置 RUser 对象的资源列表
                 rUser.setResource(resourceList);
+                // 获取 Sa-Token 的信息
                 SaTokenInfo tokenInfo = StpUtil.getTokenInfo();
+                // 设置登录设备信息
                 tokenInfo.setLoginDevice(header);
+                // 设置 RUser 对象的 Sa-Token 信息
                 rUser.setSaTokenInfo(tokenInfo);
+                // 返回包含用户信息的 SaResult 对象
                 return SaResult.data(rUser);
             }
+            // 密码验证失败，返回错误信息
             return SaResult.error("密码错误");
         }
     }
 
+    /**
+     * 用户退出登录方法
+     *
+     * @param satoken 用户的 Sa-Token 值
+     * @param userId  用户 ID
+     * @return 包含退出登录结果的 SaResult 对象
+     */
     @Override
     public SaResult logout(String satoken, Integer userId) {
-            StpUtil.logoutByTokenValue(satoken);
-//            StpUtil.logout(userId);
+        // 根据 Sa-Token 值进行用户退出登录操作
+        StpUtil.logoutByTokenValue(satoken);
+        // 注释掉的代码：根据用户 ID 进行退出登录操作
+        // StpUtil.logout(userId);
+        // 返回退出登录成功的信息
         return SaResult.ok("退出成功");
     }
 }
-
-
-
-

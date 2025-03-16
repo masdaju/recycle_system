@@ -59,7 +59,7 @@ public class WasteController {
     //废品创建
     @PostMapping(value = "/create")
     public SaResult create(String params, @RequestParam MultipartFile file) {
-
+        // 将 JSON 字符串转换为 Waste 对象
         Waste waste = JSON.parseObject(params, Waste.class);
 
         if (wasteService.saveWaste(waste, file)) {
@@ -81,8 +81,7 @@ public class WasteController {
 
     @PostMapping(value = "/update")
     public SaResult update(String params, @RequestParam MultipartFile file) {
-        System.out.println(params);
-        System.out.println(file);
+        // 将 JSON 字符串转换为 Waste 对象
         Waste waste = JSON.parseObject(params, Waste.class);
 
         try {
