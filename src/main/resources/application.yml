@@ -1,3 +1,27 @@
+ssh:
+  #云端ip
+  host: your-ssh-host
+  #SSH隧道端口
+  port: your-ssh-port
+  #主机用户名
+  user: your-username
+  #主机密码
+  password: your-password
+
+remote:
+  db:
+    # 远程数据库地址
+    host: localhost
+    # 远程数据库端口
+    port: 3306
+
+#因为3306端口被本地的MYSQL数据库占用所以绑定到本地3307端口
+local:
+  bind:
+    port: 3307
+
+
+
 # Sa-Token 配置
 sa-token:
   # Token名称
@@ -14,7 +38,7 @@ sa-token:
   # 在多人登录同一账号时，是否共用一个 token （为 true 时所有登录共用一个 token, 为 false 时每次登录新建一个 token）
   is-share: false
   #jwt的密钥
-  jwt-secret-key: mas%dajusa^da#sdwqs@41$swadd
+  jwt-secret-key: your-jwt-secret-key
   alone-redis:
     # Redis数据库索引（默认为0）
     database: 0
@@ -41,9 +65,9 @@ spring:
 #    time-zone: GMT+8
   datasource:
     driver-class-name: com.mysql.cj.jdbc.Driver
-    url: jdbc:mysql://localhost:3306/recycle?useUnicode=true&characterEncoding=UTF-8&serverTimezone=UTC
-    username: root
-    password: aLJH030428
+    url: jdbc:mysql://localhost:${local.bind.port}/recycle?useUnicode=true&characterEncoding=UTF-8&serverTimezone=UTC
+    username: your-username
+    password: your-password
   data:
     # redis配置
     redis:

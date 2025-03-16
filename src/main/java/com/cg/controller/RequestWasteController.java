@@ -109,7 +109,7 @@ public class RequestWasteController {
             return SaResult.data(amount);
         } catch (Exception e) {
             // 若更新过程中出现异常，则返回错误信息
-            return SaResult.error("更新失败: " + e.getMessage());
+            return SaResult.error("未统计完成 " + e.getMessage());
         } finally {
             // 释放锁，确保锁一定会被释放
             lock.unlock();
