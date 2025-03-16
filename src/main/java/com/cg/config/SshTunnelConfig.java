@@ -29,6 +29,8 @@ public class SshTunnelConfig {
     @Value("${local.bind.port}")
     private int localPort;
 
+
+    
     private Session session;
 
     @PostConstruct
