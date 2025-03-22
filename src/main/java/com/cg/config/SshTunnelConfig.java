@@ -2,12 +2,14 @@ package com.cg.config;
 import com.jcraft.jsch.*;
 import jakarta.annotation.PostConstruct;
 import jakarta.annotation.PreDestroy;
+import lombok.extern.slf4j.Slf4j;
 import org.springframework.beans.factory.annotation.Value;
 import org.springframework.context.annotation.Configuration;
 
 import java.util.List;
 
 @Configuration
+@Slf4j
 public class SshTunnelConfig {
 
     @Value("${ssh.host}")
@@ -61,10 +63,11 @@ public class SshTunnelConfig {
 //        int redisPort = session.setPortForwardingL(localRedisPort, redisRemoteHost, redisRemotePort);
 //        System.out.println("SSH-Redis隧道已建立，本地端口: " + redisPort);
         for (int i = 0; i < localRedisPort.size(); i++) {
-            System.out.println(redisRemotePort.get(i) +"====="+localRedisPort.get(i));
+
+            log.info(redisRemotePort.get(i)+"==============="+redisRemotePort.get(i));
             int assignedRedisPort = session.setPortForwardingL(localRedisPort.get(i), redisRemoteHost, redisRemotePort.get(i));
-            System.out.println("SSH-Redis隧道已建立，本地端口: " + assignedRedisPort);
-        }
+            log.info("SSH-Redis隧道已建立，本地端口: " + assignedRedisPort);        }
+
 
     }
 
