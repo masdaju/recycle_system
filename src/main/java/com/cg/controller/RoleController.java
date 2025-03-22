@@ -8,6 +8,8 @@ import com.cg.entity.RoleResources;
 import com.cg.service.RoleResourcesService;
 import com.cg.service.RoleService;
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.cache.annotation.CacheEvict;
+import org.springframework.cache.annotation.Cacheable;
 import org.springframework.web.bind.annotation.*;
 
 /**
@@ -30,22 +32,17 @@ public class RoleController {
     private RoleResourcesService roleResourcesService;
 
     @GetMapping
+    @Cacheable(value = "rolePageCache", key = "#current + '::' + #pageSize", sync = true)
     public SaResult list(@RequestParam(required = false) Integer current,
                          @RequestParam(required = false) Integer pageSize,
                          @RequestParam(required = false) String name) {
         LambdaQueryWrapper<Role> wrapper = new LambdaQueryWrapper<>();
-        if (name == null) {
-            wrapper=null;
-        }else {
-            wrapper.like(Role::getName, name);
-        }
-        Page<Role> page;
+        wrapper.like(name!=null,Role::getName, name);
+        Page<Role> aPage;
         if (current == null || pageSize == null) {
-             page = new Page<>();
-        } else {
-             page = new Page<>(current, pageSize);
-        }
-        Page<Role> aPage =roleService.getPage(page, wrapper);
+            aPage =roleService.getPage(new Page<>(), wrapper);
+        } else
+            aPage =roleService.getPage(new Page<>(current, pageSize), wrapper);
         return SaResult.data(aPage);
     }
 
@@ -54,17 +51,21 @@ public class RoleController {
         return SaResult.data(roleService.getById(id));
     }
     @PostMapping(value = "/create")
+    @CacheEvict(value = "rolePageCache", allEntries = true)
     public SaResult create(@RequestBody Role params) {
         roleService.save(params);
-        LambdaQueryWrapper<Role> lambdaQueryWrapper = new LambdaQueryWrapper<>();
-        lambdaQueryWrapper.eq(Role::getName,params.getName());
-        Role one = roleService.getOne(lambdaQueryWrapper);
-        if (roleResourcesService.refresh(one.getId(), params.getResId())) {
+        System.out.println(params.getId());
+//        LambdaQueryWrapper<Role> lambdaQueryWrapper = new LambdaQueryWrapper<>();
+//        lambdaQueryWrapper.eq(Role::getId,params.getId());
+//        Role one = roleService.getOne(lambdaQueryWrapper);
+//        System.out.println(one);
+        if (roleResourcesService.refresh(params.getId(), params.getResId())) {
             return SaResult.error("update failed");
         }
         return SaResult.ok("created successfully");
     }
     @PostMapping(value = "/delete/{id}")
+    @CacheEvict(value = "rolePageCache", allEntries = true)
     public SaResult delete(@PathVariable("id") String id) {
         LambdaQueryWrapper<RoleResources> wrapper =new LambdaQueryWrapper<>();
         wrapper.eq(RoleResources::getRoleId,id);
@@ -73,8 +74,9 @@ public class RoleController {
         return SaResult.ok("deleted successfully");
     }
     @PostMapping(value = "/update")
+    @CacheEvict(value = "rolePageCache", allEntries = true)
     public SaResult update(@RequestBody Role params) {
-        if (!roleResourcesService.refresh(params.getId(), params.getResId())) {
+        if (roleResourcesService.refresh(params.getId(), params.getResId())) {
             return SaResult.error("update failed");
         }
         roleService.updateById(params);

@@ -8,6 +8,9 @@ import com.cg.entity.Waste;
 import com.cg.service.WasteService;
 import com.cg.utils.ListUtils;
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.cache.annotation.Cacheable;
+import org.springframework.context.event.EventListener;
+import org.springframework.data.redis.core.StringRedisTemplate;
 import org.springframework.web.bind.annotation.*;
 import org.springframework.web.multipart.MultipartFile;
 
@@ -27,8 +30,11 @@ public class WasteController {
 
     @Autowired
     private WasteService wasteService;
-
+@Autowired
+private StringRedisTemplate stringRedisTemplate;
     @GetMapping
+    //数据删除后大量的请求，会导致数据库压力过大，sync=true，表示同步执行缓存操作，避免数据库压力过大
+    @Cacheable(value = "wasteList", key = "#current + '::' + #pageSize",sync = true)
     public SaResult list(@RequestParam(required = false) Integer current,
                          @RequestParam(required = false) Integer pageSize,
                          @RequestParam(required = false) String name,
@@ -61,7 +67,7 @@ public class WasteController {
     public SaResult create(String params, @RequestParam MultipartFile file) {
         // 将 JSON 字符串转换为 Waste 对象
         Waste waste = JSON.parseObject(params, Waste.class);
-
+        stringRedisTemplate.delete("wasteList");
         if (wasteService.saveWaste(waste, file)) {
             return SaResult.ok("废品创建成功");
         }
@@ -73,6 +79,7 @@ public class WasteController {
     public SaResult delete(@RequestBody List<Long> ids) {
         try {
             wasteService.removeByIds(ids);
+            stringRedisTemplate.delete("wasteList");
             return SaResult.ok("废品删除成功");
         } catch (Exception e) {
             return SaResult.error("废品删除失败: " + e.getMessage());

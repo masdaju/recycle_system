@@ -28,6 +28,7 @@ public class SaTokenConfigure implements WebMvcConfigurer {
                 .excludePathPatterns("/sys-user/create");
 
     }
+    //配置静态资源映射
     public void addResourceHandlers(ResourceHandlerRegistry registry) {
         System.out.println("file:"+uploadPath);
         registry.addResourceHandler("/preview/**")

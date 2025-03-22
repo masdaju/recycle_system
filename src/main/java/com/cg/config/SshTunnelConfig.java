@@ -5,6 +5,8 @@ import jakarta.annotation.PreDestroy;
 import org.springframework.beans.factory.annotation.Value;
 import org.springframework.context.annotation.Configuration;
 
+import java.util.List;
+
 @Configuration
 public class SshTunnelConfig {
 
@@ -19,7 +21,7 @@ public class SshTunnelConfig {
 
     @Value("${ssh.password}")  // 可选：密码或私钥
     private String sshPassword;
-
+//数据库信息
     @Value("${remote.db.host}")
     private String remoteDbHost;
 
@@ -28,7 +30,18 @@ public class SshTunnelConfig {
 
     @Value("${local.bind.port}")
     private int localPort;
+    //redis信息
+    @Value("${redis.remote.host}")
+    //远程redis地址
+    private String redisRemoteHost;
+    @Value("${redis.remote.port}")
+    //远程redis端口
+    private List<Integer> redisRemotePort;
+    @Value("${local.redis.port}")
+    //绑定本地的端口
+    private List<Integer> localRedisPort;
     private Session session;
+
 
     @PostConstruct
     public void init() throws JSchException {
@@ -43,7 +56,16 @@ public class SshTunnelConfig {
         session.connect();
 
         int assignedPort = session.setPortForwardingL(localPort, remoteDbHost, remoteDbPort);
-        System.out.println("SSH 隧道已建立，本地端口: " + assignedPort);
+        System.out.println("SSH-Mysql隧道已建立，本地端口: " + assignedPort);
+        System.out.println(redisRemotePort +"====="+localRedisPort);
+//        int redisPort = session.setPortForwardingL(localRedisPort, redisRemoteHost, redisRemotePort);
+//        System.out.println("SSH-Redis隧道已建立，本地端口: " + redisPort);
+        for (int i = 0; i < localRedisPort.size(); i++) {
+            System.out.println(redisRemotePort.get(i) +"====="+localRedisPort.get(i));
+            int assignedRedisPort = session.setPortForwardingL(localRedisPort.get(i), redisRemoteHost, redisRemotePort.get(i));
+            System.out.println("SSH-Redis隧道已建立，本地端口: " + assignedRedisPort);
+        }
+
     }
 
     @PreDestroy

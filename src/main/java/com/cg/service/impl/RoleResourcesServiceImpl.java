@@ -47,9 +47,9 @@ public class RoleResourcesServiceImpl extends ServiceImpl<RoleResourcesMapper, R
         // 得到需要删除和新增的资源ID列表
         List<List<Long>> resultLists = compare(resourceList, resId);
 
-        // 打印需要删除的资源ID列表，用于调试
+        // 打印需要删除的资源ID列表
         System.out.println(resultLists.get(0));
-        // 打印需要新增的资源ID列表，用于调试
+        // 打印需要新增的资源ID列表
         System.out.println(resultLists.get(1));
 
         // 如果需要删除的资源ID列表不为空
@@ -79,6 +79,6 @@ public class RoleResourcesServiceImpl extends ServiceImpl<RoleResourcesMapper, R
             }
         }
         // 返回操作结果，这里固定返回 true
-        return true;
+        return false;
     }
 }

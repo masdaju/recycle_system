@@ -92,12 +92,6 @@
             <artifactId>sa-token-redis-jackson</artifactId>
             <version>1.39.0</version>
         </dependency>
-        <!-- Sa-Token插件：权限缓存与业务缓存分离 -->
-        <dependency>
-            <groupId>cn.dev33</groupId>
-            <artifactId>sa-token-alone-redis</artifactId>
-            <version>1.39.0</version>
-        </dependency>
         <dependency>
             <groupId>com.auth0</groupId>
             <artifactId>java-jwt</artifactId>
@@ -110,6 +104,11 @@
             <version>2.0.53</version>
         </dependency>
 
+<!--        <dependency>-->
+<!--            <groupId>cn.dev33</groupId>-->
+<!--            <artifactId>sa-token-alone-redis</artifactId>-->
+<!--            <version>1.39.0</version>-->
+<!--        </dependency>-->
         <!-- https://mvnrepository.com/artifact/org.springframework.security/spring-security-crypto -->
         <dependency>
             <groupId>org.springframework.security</groupId>
