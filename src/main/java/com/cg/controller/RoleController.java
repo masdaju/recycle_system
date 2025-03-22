@@ -32,7 +32,8 @@ public class RoleController {
     private RoleResourcesService roleResourcesService;
 
     @GetMapping
-    @Cacheable(value = "rolePageCache", key = "#current + '::' + #pageSize", sync = true)
+
+    @Cacheable(value = "rolePageCache", key = "#current + '::' + #pageSize", sync = true,condition = "#name==null")
     public SaResult list(@RequestParam(required = false) Integer current,
                          @RequestParam(required = false) Integer pageSize,
                          @RequestParam(required = false) String name) {

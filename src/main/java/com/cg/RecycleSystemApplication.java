@@ -21,12 +21,9 @@ public class RecycleSystemApplication {
     }
     private static void printResourceFile() {
         try {
-            // 从 classpath 中加载文件
-            ClassPathResource resource = new ClassPathResource("sysbanner.txt");
-            // 读取文件内容
+            ClassPathResource resource = new ClassPathResource("sysBanner.txt");
             String content = new String(FileCopyUtils.copyToByteArray(resource.getInputStream()), StandardCharsets.UTF_8);
-            // 打印日志
-            log.info("文件 [{}] 的内容如下：\n{}", "sysbanner.txt", content);
+            log.info("文件 [{}] 的内容如下：\n{}", "sysBanner.txt", content);
         } catch (IOException e) {
             log.error("读取文件时出现异常", e);
         }

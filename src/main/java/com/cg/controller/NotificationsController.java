@@ -7,6 +7,8 @@ import com.baomidou.mybatisplus.extension.plugins.pagination.Page;
 import com.cg.entity.Notifications;
 import com.cg.service.NotificationsService;
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.cache.annotation.CacheEvict;
+import org.springframework.cache.annotation.Cacheable;
 import org.springframework.web.bind.annotation.*;
 
 import java.util.Date;
@@ -39,6 +41,7 @@ public class NotificationsController {
      * @return 包含分页消息通知列表的 SaResult 对象
      */
     @GetMapping("/MyMsg")
+    @Cacheable(value = "notifications", key = "#current + '-' + #pageSize", sync = true,condition = "#startTime == null && #endTime == null")
     public SaResult list(@RequestParam(required = false) Integer current,
                          @RequestParam(required = false) Integer pageSize,
                          @RequestParam(required = false) String startTime,
@@ -89,6 +92,7 @@ public class NotificationsController {
      * @return 包含创建结果的 SaResult 对象
      */
     @PostMapping(value = "/setNotification")
+    @CacheEvict(value = "notifications", allEntries = true)
     public SaResult create(@RequestParam String message, @RequestParam Long userId) {
         try {
             // 创建 Notifications 对象，用于封装消息通知信息
@@ -116,6 +120,7 @@ public class NotificationsController {
      * @return 包含删除结果的 SaResult 对象
      */
     @PostMapping(value = "deleteByIds")
+    @CacheEvict(value = "notifications", allEntries = true)
     public SaResult getById(@RequestBody List<Long> ids) {
         // 打印要删除的ID列表，用于调试
         System.out.println(ids);
