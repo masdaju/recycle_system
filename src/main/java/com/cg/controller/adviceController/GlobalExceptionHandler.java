@@ -17,4 +17,10 @@ public class GlobalExceptionHandler {
         response.setStatus(401);
         return SaResult.error("请先登录"+e.getMessage());
     }
+    @ExceptionHandler(Exception.class)
+    public SaResult handleGeneralException(Exception e, HttpServletResponse response) {
+        e.printStackTrace();
+        response.setStatus(500);
+        return SaResult.error("发生未知异常: " + e.getMessage());
+    }
 }

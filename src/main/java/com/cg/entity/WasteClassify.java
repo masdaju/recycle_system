@@ -5,6 +5,7 @@ import com.baomidou.mybatisplus.annotation.TableField;
 import com.baomidou.mybatisplus.annotation.TableId;
 import com.baomidou.mybatisplus.annotation.TableName;
 import java.io.Serializable;
+import java.math.BigDecimal;
 
 import lombok.Data;
 import lombok.Getter;
@@ -36,4 +37,6 @@ public class WasteClassify implements Serializable {
     private Integer month;
     @TableField(exist = false)
     private Integer countNum;
+    @TableField(exist = false)
+    private BigDecimal quantity;
 }

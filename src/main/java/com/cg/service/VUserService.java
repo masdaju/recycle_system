@@ -10,4 +10,6 @@ import com.cg.entity.view.VUser;
 */
 public interface VUserService extends IService<VUser> {
 
+    VUser getUser(String account);
+
 }

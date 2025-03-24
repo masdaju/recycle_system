@@ -3,10 +3,13 @@ package com.cg.controller;
 import cn.dev33.satoken.util.SaResult;
 import com.baomidou.mybatisplus.core.conditions.query.LambdaQueryWrapper;
 import com.baomidou.mybatisplus.core.conditions.update.LambdaUpdateWrapper;
-import com.baomidou.mybatisplus.extension.plugins.pagination.Page;
-import com.cg.entity.*;
+import com.cg.entity.RequestWaste;
+import com.cg.entity.User;
 import com.cg.entity.view.VWaste;
-import com.cg.service.*;
+import com.cg.service.RequestWasteService;
+import com.cg.service.UserService;
+import com.cg.service.VWasteService;
+import com.cg.service.WasteRequestsService;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.web.bind.annotation.*;
 

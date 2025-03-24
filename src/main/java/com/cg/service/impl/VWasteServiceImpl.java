@@ -28,6 +28,12 @@ public class VWasteServiceImpl extends ServiceImpl<VWasteMapper, VWaste> impleme
     }
 
     @Override
+    public List<WasteClassify> getMessByType() {
+        return getBaseMapper().getMessByType();
+    }
+
+
+    @Override
     public List<WasteClassify> getTotalByReportDate(Integer year) {
         return baseMapper.getTotalByReportDate(year);
     }

@@ -58,7 +58,8 @@ public class SshTunnelConfig {
         session.connect();
 
         int assignedPort = session.setPortForwardingL(localPort, remoteDbHost, remoteDbPort);
-        System.out.println("SSH-Mysql隧道已建立，本地端口: " + assignedPort);
+//        System.out.println("SSH-Mysql隧道已建立，本地端口: " + assignedPort);
+        log.info("SSH-Mysql隧道已建立，本地端口: " + assignedPort);
         System.out.println(redisRemotePort +"====="+localRedisPort);
 //        int redisPort = session.setPortForwardingL(localRedisPort, redisRemoteHost, redisRemotePort);
 //        System.out.println("SSH-Redis隧道已建立，本地端口: " + redisPort);

@@ -13,6 +13,8 @@ public interface VWasteMapper extends BaseMapper<VWaste> {
     List<WasteClassify> getTotalByType();
 
     List<WasteClassify> getAllTotal();
+    List<WasteClassify> getMessByType();
 
     List<WasteClassify> getTotalByReportDate(Integer year);
+
 }

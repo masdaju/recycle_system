@@ -8,8 +8,8 @@ import com.cg.entity.Waste;
 import com.cg.service.WasteService;
 import com.cg.utils.ListUtils;
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.cache.annotation.CacheEvict;
 import org.springframework.cache.annotation.Cacheable;
-import org.springframework.context.event.EventListener;
 import org.springframework.data.redis.core.StringRedisTemplate;
 import org.springframework.web.bind.annotation.*;
 import org.springframework.web.multipart.MultipartFile;
@@ -34,7 +34,8 @@ public class WasteController {
 private StringRedisTemplate stringRedisTemplate;
     @GetMapping
     //数据删除后大量的请求，会导致数据库压力过大，sync=true，表示同步执行缓存操作，避免数据库压力过大
-    @Cacheable(value = "wasteList", key = "#current + '::' + #pageSize",sync = true)
+    //condition="#name==null||#classifyId==null"表示只有当name和classifyId都为空时，才执行缓存操作
+    @Cacheable(value = "wasteList", key = "#current + '::' + #pageSize",sync = true ,condition = "#name==null||#classifyId==null")
     public SaResult list(@RequestParam(required = false) Integer current,
                          @RequestParam(required = false) Integer pageSize,
                          @RequestParam(required = false) String name,

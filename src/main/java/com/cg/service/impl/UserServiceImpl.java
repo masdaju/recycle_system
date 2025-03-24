@@ -16,11 +16,17 @@ import com.cg.service.VRoleService;
 import com.cg.service.VUserService;
 import org.springframework.beans.BeanUtils;
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.cache.annotation.Cacheable;
+import org.springframework.data.redis.core.RedisTemplate;
+import org.springframework.data.redis.core.StringRedisTemplate;
 import org.springframework.security.crypto.bcrypt.BCryptPasswordEncoder;
 import org.springframework.stereotype.Service;
 import org.springframework.util.ObjectUtils;
 
+import java.security.Key;
 import java.util.List;
+import java.util.Objects;
+import java.util.concurrent.TimeUnit;
 
 /**
  * @author MIZUGI
@@ -38,6 +44,8 @@ public class UserServiceImpl extends ServiceImpl<UserMapper, User>
     // 自动注入 VRoleService 实例，用于操作视图 VRole 相关的数据
     @Autowired
     private VRoleService vRoleService;
+    @Autowired
+   private StringRedisTemplate stringRedisTemplate;
 
     /**
      * 用户登录方法
@@ -48,25 +56,29 @@ public class UserServiceImpl extends ServiceImpl<UserMapper, User>
      * @return 包含登录结果的 SaResult 对象
      */
     @Override
+
     public SaResult login(String account, String password, String header) {
-        // 创建 LambdaUpdateWrapper 对象，用于构建查询 VUser 的条件
-        LambdaUpdateWrapper<VUser> wrapper = new LambdaUpdateWrapper<>();
-        // 创建 BCryptPasswordEncoder 对象，用于密码的加密和验证
+//        LambdaUpdateWrapper<VUser> wrapper = new LambdaUpdateWrapper<>();
+//        wrapper.eq(VUser::getAccount, account);
+//        VUser vUser = vUserService.getOne(wrapper);
+
         BCryptPasswordEncoder encoder = new BCryptPasswordEncoder();
-        // 添加查询条件：根据用户账号进行筛选
-        wrapper.eq(VUser::getAccount, account);
-        // 调用 vUserService 的 getOne 方法，根据查询条件获取单个 VUser 对象
-        VUser vUser = vUserService.getOne(wrapper);
-
-        // 检查用户状态，如果用户状态为 0，表示账号已被禁用
-        if (vUser.getStatus() == 0) {
-            return SaResult.error("账号已被禁用");
-        }
-
+    //AOP不会代理Cacheable注解，所以需要手动获取缓存
+       // VUser vUser = getUser(account);
+        //
+        VUser vUser = vUserService.getUser(account);
         // 检查用户是否存在
         if (ObjectUtils.isEmpty(vUser)) {
             return SaResult.error("账号不存在");
-        } else {
+
+        } else {//用户存在的情况
+            if (vUser.getStatus() == 0) {
+                return SaResult.error("账号已被禁用");
+            }
+            if (Boolean.TRUE.equals(stringRedisTemplate.hasKey("login_error:" + account))&&Integer.parseInt(Objects.requireNonNull(stringRedisTemplate.opsForValue().get("login_error:" + account))) >= 5){
+                stringRedisTemplate.expire("login_error:" + account, 5, TimeUnit.MINUTES);
+                return SaResult.error("密码错误次数过多，账号已被锁定，请5分钟后再试");
+            }
             // 验证用户输入的密码是否正确
             if (encoder.matches(password, vUser.getPassword())) {
                 // 创建 QueryWrapper 对象，用于构建查询 VRole 的条件
@@ -91,14 +103,31 @@ public class UserServiceImpl extends ServiceImpl<UserMapper, User>
                 tokenInfo.setLoginDevice(header);
                 // 设置 RUser 对象的 Sa-Token 信息
                 rUser.setSaTokenInfo(tokenInfo);
+
+                //登录成功，删除登录错误次数
+                stringRedisTemplate.delete("login_error:" + account);
                 // 返回包含用户信息的 SaResult 对象
                 return SaResult.data(rUser);
+            }
+            if (Boolean.TRUE.equals(stringRedisTemplate.hasKey("login_error:" + account))){
+
+                stringRedisTemplate.opsForValue().increment("login_error:" + account,1);
+            }else {
+                //设置登录错误次数
+                stringRedisTemplate.opsForValue().set("login_error:" + account, "1", 5, TimeUnit.MINUTES);
             }
             // 密码验证失败，返回错误信息
             return SaResult.error("密码错误");
         }
     }
-
+    @Cacheable(value = "users", key = "#account")
+    public VUser getUser(String account) {
+        LambdaUpdateWrapper<VUser> wrapper = new LambdaUpdateWrapper<>();
+        // 添加查询条件：根据用户账号进行筛选
+        wrapper.eq(VUser::getAccount, account);
+        // 调用 vUserService 的 getOne 方法，根据查询条件获取单个 VUser 对象
+        return vUserService.getOne(wrapper);
+    }
     /**
      * 用户退出登录方法
      *

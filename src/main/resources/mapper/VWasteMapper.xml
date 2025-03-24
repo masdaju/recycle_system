@@ -40,5 +40,9 @@
             MONTH(report_date);
     </select>
 
-
+<select id="getMessByType" resultType="com.cg.entity.WasteClassify" >
+    SELECT cid, `name` , SUM(quantity) AS quantity
+    FROM v_waste
+    GROUP BY cid;
+</select>
 </mapper>
