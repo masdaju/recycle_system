@@ -7,6 +7,7 @@ import com.cg.entity.Role;
 import com.cg.entity.RoleResources;
 import com.cg.service.RoleResourcesService;
 import com.cg.service.RoleService;
+import lombok.extern.slf4j.Slf4j;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.cache.annotation.CacheEvict;
 import org.springframework.cache.annotation.Cacheable;
@@ -21,7 +22,7 @@ import org.springframework.web.bind.annotation.*;
  * @since 2024-10-13
  */
 @RestController
-
+@Slf4j
 @RequestMapping("/sys-role")
 public class RoleController {
 
@@ -55,11 +56,11 @@ public class RoleController {
     @CacheEvict(value = "rolePageCache", allEntries = true)
     public SaResult create(@RequestBody Role params) {
         roleService.save(params);
-        System.out.println(params.getId());
+
 //        LambdaQueryWrapper<Role> lambdaQueryWrapper = new LambdaQueryWrapper<>();
 //        lambdaQueryWrapper.eq(Role::getId,params.getId());
 //        Role one = roleService.getOne(lambdaQueryWrapper);
-//        System.out.println(one);
+
         if (roleResourcesService.refresh(params.getId(), params.getResId())) {
             return SaResult.error("update failed");
         }

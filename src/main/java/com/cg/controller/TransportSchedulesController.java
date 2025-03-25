@@ -5,6 +5,7 @@ import cn.dev33.satoken.util.SaResult;
 import com.baomidou.mybatisplus.extension.plugins.pagination.Page;
 import com.cg.entity.TransportSchedules;
 import com.cg.service.TransportSchedulesService;
+import lombok.extern.slf4j.Slf4j;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.http.HttpStatus;
 import org.springframework.http.ResponseEntity;
@@ -21,6 +22,7 @@ import java.util.List;
  * @since 2024-12-29
  */
 @RestController
+@Slf4j
 @RequestMapping("/transport-schedules")
 public class TransportSchedulesController {
 
@@ -81,7 +83,7 @@ public class TransportSchedulesController {
     }
     @PostMapping(value = "deleteByIds")
     public SaResult getById(@RequestBody List<Long> ids) {
-        System.out.println(ids);
+//        log.info(ids.toString());
         try {
             transportSchedulesService.removeBatchByIds(ids);
         } catch (Exception e) {

@@ -98,8 +98,6 @@ public class ReportsController {
      */
     @PostMapping(value = "deleteByIds")
     public SaResult getById(@RequestBody List<Long> ids) {
-        // 打印要删除的ID列表，用于调试
-        System.out.println(ids);
         try {
             // 调用服务层的批量删除方法，根据ID列表删除报告
             reportsService.removeBatchByIds(ids);

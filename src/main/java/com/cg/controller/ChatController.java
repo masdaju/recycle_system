@@ -65,7 +65,6 @@ public class ChatController {
     //发送消息
     @PostMapping(value = "/sendChatMessage")
     public SaResult create(@RequestBody ChatMessage params) {
-
         if (chatMessageService.sendChatMessage(params)) {
             return SaResult.ok("发送成功");
         }

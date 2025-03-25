@@ -82,6 +82,7 @@ public class RequestWasteController {
             // 若未查询到废品信息，则返回错误信息
             return SaResult.error("未找到指定申请对应的废品");
         }
+
     }
 
     /**
@@ -146,8 +147,7 @@ public class RequestWasteController {
      */
     @PostMapping(value = "deleteByIds")
     public SaResult getById(@RequestBody List<Long> ids) {
-        // 打印要删除的ID列表，用于调试
-        System.out.println(ids);
+
         try {
             // 调用 requestWasteService 的 removeBatchByIds 方法，根据ID列表删除废品申请
             requestWasteService.removeBatchByIds(ids);

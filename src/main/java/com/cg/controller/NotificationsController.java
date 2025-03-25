@@ -122,8 +122,6 @@ public class NotificationsController {
     @PostMapping(value = "deleteByIds")
     @CacheEvict(value = "notifications", allEntries = true)
     public SaResult getById(@RequestBody List<Long> ids) {
-        // 打印要删除的ID列表，用于调试
-        System.out.println(ids);
         try {
             // 调用服务层的批量删除方法，根据ID列表删除消息通知
             notificationsService.removeBatchByIds(ids);
