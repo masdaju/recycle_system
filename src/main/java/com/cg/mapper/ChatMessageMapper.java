@@ -10,6 +10,7 @@ public interface ChatMessageMapper extends BaseMapper<ChatMessage> {
     List<VRelation> getMyrelationship(Long uid);
 
     void addToMyrelationship(Long uid, Long friendId);
+//    查询最近500条聊天记录差多了OOM
 
     List<ChatMessage> getchatlist(String acceptUserAccount, String sendUserAccount);
     void toggleLongTermContact(Long uid, Long fid, int a);

@@ -13,10 +13,16 @@
         select * from v_relation where user_id=#{uid}
     </select>
     <select id="getchatlist" resultType="com.cg.entity.ChatMessage">
-        SELECT * FROM chat_message
-        WHERE (send_user_account = #{sendUserAccount} AND accept_user_account = #{acceptUserAccount})
-           OR (send_user_account = #{acceptUserAccount} AND accept_user_account = #{sendUserAccount})
-        ORDER BY send_time;
+        SELECT *
+        FROM (
+                 SELECT *
+                 FROM chat_message
+                 WHERE (send_user_account = #{sendUserAccount} AND accept_user_account = #{acceptUserAccount})
+                    OR (send_user_account = #{acceptUserAccount} AND accept_user_account = #{sendUserAccount})
+                 ORDER BY send_time DESC
+                     LIMIT 500
+             ) AS recent_messages
+        ORDER BY send_time ASC;
     </select>
 
 </mapper>

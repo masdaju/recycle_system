@@ -2,13 +2,17 @@ package com.cg.controller;
 
 import cn.dev33.satoken.stp.StpUtil;
 import cn.dev33.satoken.util.SaResult;
+import com.alibaba.fastjson2.JSON;
 import com.baomidou.mybatisplus.core.conditions.query.LambdaQueryWrapper;
 import com.cg.entity.ChatMessage;
 import com.cg.entity.User;
+import com.cg.entity.Waste;
 import com.cg.entity.view.VRelation;
 import com.cg.service.ChatMessageService;
 import com.cg.service.UserService;
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.cache.annotation.Cacheable;
+import org.springframework.data.redis.core.StringRedisTemplate;
 import org.springframework.web.bind.annotation.*;
 
 import java.util.Date;
@@ -21,6 +25,8 @@ public class ChatController {
     private ChatMessageService chatMessageService;
     @Autowired
     private UserService userService;
+    @Autowired
+    private StringRedisTemplate  stringRedisTemplate;
     //获取联系人列表
     @GetMapping("/getMyRelationship")
     public SaResult getMyRelationship() {
@@ -42,6 +48,7 @@ public class ChatController {
         return SaResult.ok();
     }
     @GetMapping("/getChatMessage")
+    @Cacheable(value = "chatMessage",key = "#sendUserAccount+'_'+#acceptUserAccount")
     public SaResult getChatMessage(@RequestParam String sendUserAccount, @RequestParam String acceptUserAccount)  {
         List<ChatMessage> chatMessages = chatMessageService.getchatlist(acceptUserAccount,sendUserAccount);
         return SaResult.data(chatMessages);
@@ -49,9 +56,23 @@ public class ChatController {
     //发送消息
     @PostMapping(value = "/sendChatMessage")
     public SaResult create(@RequestBody ChatMessage params) {
+
+        //更新缓存消息
+        if (Boolean.TRUE.equals(stringRedisTemplate.hasKey("chatMessage::" + params.getSendUserAccount() + "_" + params.getAcceptUserAccount())))
+        {
+            System.out.println("更新缓存消息");
+            String chatMessageList = stringRedisTemplate.opsForValue().get("chatMessage::" + params.getSendUserAccount() + "_" + params.getAcceptUserAccount());
+            //响应体获取
+            SaResult saResult = JSON.parseObject(chatMessageList, SaResult.class);
+
+//            List<ChatMessage> s= JSON.parseObject(chatMessages.getData(),List.class);
+            System.out.println(chatMessages.getData());
+
+            stringRedisTemplate.opsForValue().set("chatMessage::" + params.getSendUserAccount() + "_" + params.getAcceptUserAccount(), JSON.toJSONString(chatMessages));
+        }
+//        System.out.println("没有更新缓存消息");
         //设置发送时间
         params.setSendTime(new Date());
-        System.out.println(params);
         chatMessageService.save(params);
         return SaResult.ok("created successfully");
     }
