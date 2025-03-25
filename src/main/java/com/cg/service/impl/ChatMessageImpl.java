@@ -1,12 +1,17 @@
 package com.cg.service.impl;
 
+import cn.dev33.satoken.util.SaResult;
+import com.alibaba.fastjson2.JSON;
 import com.baomidou.mybatisplus.extension.service.impl.ServiceImpl;
 import com.cg.entity.ChatMessage;
 import com.cg.entity.view.VRelation;
 import com.cg.mapper.ChatMessageMapper;
 import com.cg.service.ChatMessageService;
+import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.data.redis.core.StringRedisTemplate;
 import org.springframework.stereotype.Service;
 
+import java.util.Date;
 import java.util.List;
 
 /**
@@ -15,7 +20,8 @@ import java.util.List;
  */
 @Service
 public class ChatMessageImpl extends ServiceImpl<ChatMessageMapper, ChatMessage> implements ChatMessageService {
-
+    @Autowired
+   private StringRedisTemplate stringRedisTemplate;
     /**
      * 根据用户的登录 ID 获取其好友关系列表。
      *
@@ -86,5 +92,26 @@ public class ChatMessageImpl extends ServiceImpl<ChatMessageMapper, ChatMessage>
                 // 若传入的状态值不是 0 或 1，则抛出运行时异常
                 throw new RuntimeException("参数错误");
         }
+    }
+
+    @Override
+    public boolean sendChatMessage(ChatMessage params) {
+        //设置发送时间
+        params.setSendTime(new Date());
+        save(params);
+        //更新缓存消息
+        if (Boolean.TRUE.equals(stringRedisTemplate.hasKey("chatMessage::" + params.getSendUserAccount() + "_" + params.getAcceptUserAccount())))
+        {
+            System.out.println("更新缓存消息");
+            String jsonString = stringRedisTemplate.opsForValue().get("chatMessage::" + params.getSendUserAccount() + "_" + params.getAcceptUserAccount());
+            SaResult saResult = JSON.parseObject(jsonString, SaResult.class);
+            System.out.println(saResult.getData());
+
+            List<ChatMessage> chatMessages = JSON.parseArray(saResult.getData().toString(), ChatMessage.class);
+            chatMessages.add(params);
+            saResult.setData(chatMessages);
+            stringRedisTemplate.opsForValue().set("chatMessage::" + params.getSendUserAccount() + "_" + params.getAcceptUserAccount(), JSON.toJSONString(saResult));
+        }
+        return true;
     }
 }

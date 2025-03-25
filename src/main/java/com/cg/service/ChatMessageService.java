@@ -15,4 +15,6 @@ public interface ChatMessageService extends IService<ChatMessage> {
     List<ChatMessage> getchatlist(String acceptUserAccount, String sendUserAccount);
 
     void toggleLongTermContact(Long loginIdAsLong, Long fid, Integer status);
+
+    boolean sendChatMessage(ChatMessage params);
 }
