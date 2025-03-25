@@ -3,6 +3,9 @@ package com.cg.controller;
 import cn.dev33.satoken.stp.StpUtil;
 import cn.dev33.satoken.util.SaResult;
 import com.alibaba.fastjson2.JSON;
+import com.alibaba.fastjson2.JSONArray;
+import com.alibaba.fastjson2.JSONObject;
+import com.alibaba.fastjson2.TypeReference;
 import com.baomidou.mybatisplus.core.conditions.query.LambdaQueryWrapper;
 import com.cg.entity.ChatMessage;
 import com.cg.entity.User;
@@ -17,6 +20,7 @@ import org.springframework.web.bind.annotation.*;
 
 import java.util.Date;
 import java.util.List;
+import java.util.concurrent.TimeUnit;
 
 @RestController
 public class ChatController {
@@ -48,9 +52,13 @@ public class ChatController {
         return SaResult.ok();
     }
     @GetMapping("/getChatMessage")
-    @Cacheable(value = "chatMessage",key = "#sendUserAccount+'_'+#acceptUserAccount")
     public SaResult getChatMessage(@RequestParam String sendUserAccount, @RequestParam String acceptUserAccount)  {
+        if (Boolean.TRUE.equals(stringRedisTemplate.hasKey("chatMessage::" + sendUserAccount + "_" + acceptUserAccount))) {
+            String s = stringRedisTemplate.opsForValue().get("chatMessage::" + sendUserAccount + "_" + acceptUserAccount);
+            return JSON.parseObject(s, SaResult.class);
+        }
         List<ChatMessage> chatMessages = chatMessageService.getchatlist(acceptUserAccount,sendUserAccount);
+        stringRedisTemplate.opsForValue().set("chatMessage::" + sendUserAccount + "_" + acceptUserAccount, JSON.toJSONString(SaResult.data(chatMessages)),7, TimeUnit.DAYS);
         return SaResult.data(chatMessages);
     }
     //发送消息
@@ -65,13 +73,12 @@ public class ChatController {
         if (Boolean.TRUE.equals(stringRedisTemplate.hasKey("chatMessage::" + params.getSendUserAccount() + "_" + params.getAcceptUserAccount())))
         {
             System.out.println("更新缓存消息");
-            String chatMessageList = stringRedisTemplate.opsForValue().get("chatMessage::" + params.getSendUserAccount() + "_" + params.getAcceptUserAccount());
-            //响应体获取
-            SaResult saResult = JSON.parseObject(chatMessageList, SaResult.class);
-            saResult.remove("@class"); // 删除类信息
-            List<ChatMessage> chatMessages = (List<ChatMessage>) saResult.getData();
-            System.out.println(params);
-            System.out.println(chatMessages);
+            String jsonString = stringRedisTemplate.opsForValue().get("chatMessage::" + params.getSendUserAccount() + "_" + params.getAcceptUserAccount());
+            SaResult saResult = JSON.parseObject(jsonString, SaResult.class);
+            System.out.println(saResult.getData());
+
+            List<ChatMessage> chatMessages = JSON.parseArray(saResult.getData().toString(), ChatMessage.class);
+            chatMessages.add(params);
             saResult.setData(chatMessages);
             stringRedisTemplate.opsForValue().set("chatMessage::" + params.getSendUserAccount() + "_" + params.getAcceptUserAccount(), JSON.toJSONString(saResult));
         }
