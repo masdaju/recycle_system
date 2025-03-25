@@ -57,6 +57,10 @@ public class ChatController {
     @PostMapping(value = "/sendChatMessage")
     public SaResult create(@RequestBody ChatMessage params) {
 
+
+        //设置发送时间
+        params.setSendTime(new Date());
+        chatMessageService.save(params);
         //更新缓存消息
         if (Boolean.TRUE.equals(stringRedisTemplate.hasKey("chatMessage::" + params.getSendUserAccount() + "_" + params.getAcceptUserAccount())))
         {
@@ -64,16 +68,13 @@ public class ChatController {
             String chatMessageList = stringRedisTemplate.opsForValue().get("chatMessage::" + params.getSendUserAccount() + "_" + params.getAcceptUserAccount());
             //响应体获取
             SaResult saResult = JSON.parseObject(chatMessageList, SaResult.class);
-
-//            List<ChatMessage> s= JSON.parseObject(chatMessages.getData(),List.class);
-            System.out.println(chatMessages.getData());
-
-            stringRedisTemplate.opsForValue().set("chatMessage::" + params.getSendUserAccount() + "_" + params.getAcceptUserAccount(), JSON.toJSONString(chatMessages));
+            saResult.remove("@class"); // 删除类信息
+            List<ChatMessage> chatMessages = (List<ChatMessage>) saResult.getData();
+            System.out.println(params);
+            System.out.println(chatMessages);
+            saResult.setData(chatMessages);
+            stringRedisTemplate.opsForValue().set("chatMessage::" + params.getSendUserAccount() + "_" + params.getAcceptUserAccount(), JSON.toJSONString(saResult));
         }
-//        System.out.println("没有更新缓存消息");
-        //设置发送时间
-        params.setSendTime(new Date());
-        chatMessageService.save(params);
         return SaResult.ok("created successfully");
     }
     @PostMapping("/toggleLongTermContact")
