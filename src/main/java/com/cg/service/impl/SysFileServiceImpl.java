@@ -23,9 +23,12 @@ import java.util.UUID;
  */
 @Service
 public class SysFileServiceImpl extends ServiceImpl<SysFileMapper, SysFile> implements SysFileService {
-    @Value("${upload.path}")
+    //文件上传服务器路径
+    @Value("${file.upload-path}")// /upload/
     private String uploadPath;
-
+    //地址拼接
+    @Value("${upload.path}") // /upload/
+    private String path;
     // 文件预览的 URL 前缀，通常从配置文件中读取
     @Value("${preview.url}")
     private String previewUrl;
@@ -50,18 +53,22 @@ public class SysFileServiceImpl extends ServiceImpl<SysFileMapper, SysFile> impl
             // 设置文件名
             sysFile.setFileName(uniqueFileName);
             // 设置文件在服务器上的存储路径
-            sysFile.setRealPath(uploadPath + uniqueFileName);
+            sysFile.setRealPath(path + uniqueFileName);
             // 设置文件的预览 URL
             sysFile.setFileUrl(previewUrl + uniqueFileName);
 
             // 创建文件对象，代表服务器上存储文件的位置
-            File diskFile = new File(sysFile.getRealPath());
+            File diskFile = new File(uploadPath + uniqueFileName);
             // 将上传的文件保存到服务器指定位置
             file.transferTo(diskFile);
+            log.debug("文件上传成功================="+ uploadPath+uniqueFileName);
             // 将文件信息保存到数据库
-            this.save(sysFile);
-            // 返回成功上传的文件信息
-            return uniqueFileName;
+            if (save(sysFile)) {
+                return uniqueFileName;
+            }else {
+                throw new RuntimeException("文件上传失败");
+            }
+
         } catch (IOException e) {
             log.error("文件上传失败", e);
             throw new RuntimeException(e);

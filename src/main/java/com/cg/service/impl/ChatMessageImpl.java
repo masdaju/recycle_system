@@ -111,6 +111,8 @@ public class ChatMessageImpl extends ServiceImpl<ChatMessageMapper, ChatMessage>
             chatMessages.add(params);
             saResult.setData(chatMessages);
             stringRedisTemplate.opsForValue().set("chatMessage::" + params.getSendUserAccount() + "_" + params.getAcceptUserAccount(), JSON.toJSONString(saResult));
+
+            stringRedisTemplate.opsForValue().set("chatMessage::" + params.getAcceptUserAccount() + "_" + params.getSendUserAccount(), JSON.toJSONString(saResult));
         }
         return true;
     }

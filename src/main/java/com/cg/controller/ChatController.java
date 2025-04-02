@@ -51,6 +51,7 @@ public class ChatController {
         }
         return SaResult.ok();
     }
+
     @GetMapping("/getChatMessage")
     public SaResult getChatMessage(@RequestParam String sendUserAccount, @RequestParam String acceptUserAccount)  {
         //判断缓存中是否存在如果存在则直接返回

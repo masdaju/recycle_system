@@ -15,6 +15,8 @@ import com.cg.utils.StringUtils;
 import jakarta.servlet.http.HttpServletRequest;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.beans.factory.annotation.Value;
+import org.springframework.cache.annotation.CacheEvict;
+import org.springframework.data.redis.core.StringRedisTemplate;
 import org.springframework.security.crypto.bcrypt.BCryptPasswordEncoder;
 import org.springframework.web.bind.annotation.*;
 import org.springframework.web.multipart.MultipartFile;
@@ -39,6 +41,8 @@ public class UserController {
 
     @Autowired
     private VUserService vuserService;
+    @Autowired
+    private StringRedisTemplate stringRedisTemplate;
 
     @PostMapping(value = "/login")
     public SaResult login(@RequestParam String account, @RequestParam String password, HttpServletRequest request) {
@@ -94,10 +98,11 @@ public class UserController {
     private String previewUrl;
     @PostMapping(value = "/uploadAvatar")
     public SaResult uploadAvatar( MultipartFile avatar) {
-//        String avatarUrl;
+        // 获取当前登录用户id
+        long loginId = StpUtil.getLoginIdAsLong();
         // 获取之前的旧头像
-
-        String preAvatar = userService.getById(StpUtil.getLoginIdAsLong()).getAvatarUrl();
+        User user = userService.getById(loginId);
+        String preAvatar = user.getAvatarUrl();
         LambdaQueryWrapper<SysFile> dwrapper = new LambdaQueryWrapper<>();
         if (preAvatar!=null) {
             dwrapper.eq( SysFile::getFileUrl, preAvatar);
@@ -107,10 +112,14 @@ public class UserController {
             //从磁盘里面移除就头像
             sysFileService.delFromDisk(realPath);
         }
+
+        if (Boolean.TRUE.equals(stringRedisTemplate.hasKey("user::" + user.getAccount()))) {
+            stringRedisTemplate.delete("users::" + user.getAccount());
+        }
         // 上传新的头像
         String avatarUrl = sysFileService.upload(avatar);
             LambdaUpdateWrapper<User> wrapper = new LambdaUpdateWrapper<>();
-            wrapper.set(User::getAvatarUrl, previewUrl + avatarUrl).eq(User::getId, StpUtil.getLoginIdAsLong());
+            wrapper.set(User::getAvatarUrl, previewUrl + avatarUrl).eq(User::getId, loginId);
             userService.update(wrapper);
         return SaResult.ok(previewUrl + avatarUrl);
     }
@@ -168,6 +177,7 @@ public class UserController {
     }
 
     @PostMapping(value = "/update")
+    @CacheEvict(value = "user", key = "#params.account")
     public SaResult update(@RequestBody User params) {
         //如果id为空说明是用户本人操作更新自己的信息
         if (params.getId() == null) {

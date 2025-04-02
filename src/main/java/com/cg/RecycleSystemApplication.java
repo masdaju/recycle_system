@@ -2,6 +2,7 @@ package com.cg;
 
 import lombok.extern.slf4j.Slf4j;
 import org.mybatis.spring.annotation.MapperScan;
+import org.springframework.beans.factory.annotation.Value;
 import org.springframework.boot.SpringApplication;
 import org.springframework.boot.autoconfigure.SpringBootApplication;
 import org.springframework.core.io.ClassPathResource;
@@ -17,6 +18,7 @@ public class RecycleSystemApplication {
 
     public static void main(String[] args) {
         SpringApplication.run(RecycleSystemApplication.class, args);
+
         printResourceFile();
     }
     private static void printResourceFile() {
