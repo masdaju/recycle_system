@@ -77,4 +77,16 @@ public class TransportSchedulesServiceImpl extends ServiceImpl<TransportSchedule
         return page(page, queryWrapper);
     }
 
+    @Override
+    public boolean updateStatus(Long id) {
+        try {
+            LambdaUpdateWrapper<WasteRequests> updateWrapper = new LambdaUpdateWrapper<>();
+            updateWrapper.set(WasteRequests::getStatus, 3).eq(WasteRequests::getRequestId, id);
+            wasteRequestsService.update(updateWrapper);
+        }catch (Exception e){
+            return false;
+        }
+       return true;
+    }
+
 }

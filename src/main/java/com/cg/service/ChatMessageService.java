@@ -17,4 +17,5 @@ public interface ChatMessageService extends IService<ChatMessage> {
     void toggleLongTermContact(Long loginIdAsLong, Long fid, Integer status);
 
     boolean sendChatMessage(ChatMessage params);
+
 }

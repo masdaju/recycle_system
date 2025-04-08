@@ -2,8 +2,10 @@ package com.cg.controller;
 
 import cn.dev33.satoken.stp.StpUtil;
 import cn.dev33.satoken.util.SaResult;
+import com.baomidou.mybatisplus.core.conditions.update.LambdaUpdateWrapper;
 import com.baomidou.mybatisplus.extension.plugins.pagination.Page;
 import com.cg.entity.TransportSchedules;
+import com.cg.entity.WasteRequests;
 import com.cg.service.TransportSchedulesService;
 import lombok.extern.slf4j.Slf4j;
 import org.springframework.beans.factory.annotation.Autowired;
@@ -56,7 +58,14 @@ public class TransportSchedulesController {
         }
         return SaResult.ok("添加成功");
     }
-
+    //审核不通过把状态设为3（审核不通过）
+    @PostMapping(value = "/notPass")
+    public SaResult updateStatus(@RequestParam Long id) {
+        if (transportSchedulesService.updateStatus(id)) {
+            return SaResult.ok("修改成功");
+        }
+        return SaResult.error("修改失败");
+    }
 
     @PostMapping(value = "/sendCar")
     public SaResult sedCar(@RequestBody TransportSchedules params) {

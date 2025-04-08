@@ -43,8 +43,6 @@ public class RoleServiceImpl extends ServiceImpl<RoleMapper, Role>
         Page<Role> aPage = page(page, wrapper);
         // 调用 RoleResourcesService 的 list 方法，获取所有的角色资源关联信息列表
         List<RoleResources> roleResourcesList = roleResourcesService.list();
-
-        // 使用 Java 8 的 Stream API 对角色资源关联信息列表进行处理
         // 根据角色ID进行分组，并将每个角色对应的资源ID收集到一个列表中
         // 最终得到一个以角色ID为键，资源ID列表为值的 Map
         Map<Long, List<Long>> roleIdToResIdsMap = roleResourcesList.stream()

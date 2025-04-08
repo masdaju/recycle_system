@@ -88,7 +88,7 @@ private StringRedisTemplate stringRedisTemplate;
     }
 
     @PostMapping(value = "/update")
-    public SaResult update(String params, @RequestParam MultipartFile file) {
+    public SaResult update(String params, @RequestParam(required = false) MultipartFile file) {
         // 将 JSON 字符串转换为 Waste 对象
         Waste waste = JSON.parseObject(params, Waste.class);
 

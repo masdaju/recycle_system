@@ -62,9 +62,9 @@ public class RoleController {
 //        Role one = roleService.getOne(lambdaQueryWrapper);
 
         if (roleResourcesService.refresh(params.getId(), params.getResId())) {
-            return SaResult.error("update failed");
+            return SaResult.error("创建成功");
         }
-        return SaResult.ok("created successfully");
+        return SaResult.ok("创建失败");
     }
     @PostMapping(value = "/delete/{id}")
     @CacheEvict(value = "rolePageCache", allEntries = true)

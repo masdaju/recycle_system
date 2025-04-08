@@ -42,25 +42,25 @@ public class WasteRequestsServiceImpl extends ServiceImpl<WasteRequestsMapper, W
      * @return 保存成功返回true，否则返回false
      */
     @Override
-    @Transactional
-    public boolean saveWasteRequests(Long requestId, List<Long> wid) {
-        // 如果废品ID列表不为空
-        if (!wid.isEmpty()) {
-            // 遍历废品ID列表
-            for (Long l : wid) {
-                // 创建RequestWaste对象
-                RequestWaste requestWaste = new RequestWaste();
-                // 设置请求ID
-                requestWaste.setRequestId(requestId);
-                // 设置废品ID
-                requestWaste.setWasteId(l);
-                // 调用RequestWasteService的save方法保存
-                requestWasteService.save(requestWaste);
+        @Transactional
+        public boolean saveWasteRequests(Long requestId, List<Long> wid) {
+            // 如果废品ID列表不为空
+            if (!wid.isEmpty()) {
+                // 遍历废品ID列表
+                for (Long l : wid) {
+                    // 创建RequestWaste对象
+                    RequestWaste requestWaste = new RequestWaste();
+                    // 设置请求ID
+                    requestWaste.setRequestId(requestId);
+                    // 设置废品ID
+                    requestWaste.setWasteId(l);
+                    // 调用RequestWasteService的save方法保存
+                    requestWasteService.save(requestWaste);
+                }
+                return true;
             }
-            return true;
+            return false;
         }
-        return false;
-    }
 
     /**
      * 更新废品请求及对应的废品信息

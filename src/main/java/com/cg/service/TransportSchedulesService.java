@@ -21,4 +21,6 @@ public interface TransportSchedulesService extends IService<TransportSchedules> 
     Page<TransportSchedules> getpage(Integer current, Integer pageSize, Integer status);
 
     Page<TransportSchedules> getpageForCollector(Integer current, Integer pageSize, Long collectorId, Integer status);
+
+    boolean updateStatus(Long id);
 }

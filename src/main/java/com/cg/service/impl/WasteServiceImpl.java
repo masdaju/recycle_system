@@ -71,22 +71,24 @@ public class WasteServiceImpl extends ServiceImpl<WasteMapper, Waste> implements
     @Override
     @Transactional
     public void updateWaste(Waste waste, MultipartFile file) {
-        // 获取废品当前的图片URL
-        String imgUrl = waste.getImgUrl();
-        // 拼接出图片在磁盘上的真实路径
-        String realPath = uploadPath + StringUtils.topath(imgUrl);
-        // 调用SysFileService的delFromDisk方法从磁盘上删除旧图片
-        sysFileService.delFromDisk(realPath);
-        // 创建查询条件包装器，根据文件URL查询SysFile记录
-        LambdaQueryWrapper<SysFile> wrapper = new LambdaQueryWrapper<>();
-        wrapper.eq(SysFile::getFileUrl, imgUrl);
-        // 调用SysFileService的remove方法从数据库中删除旧图片记录
-        sysFileService.remove(wrapper);
-        // 调用SysFileService的upload方法上传新文件，并获取新文件名
-        String filename = sysFileService.upload(file);
-        // 设置废品的新图片URL，拼接预览URL前缀和新文件名
-        waste.setImgUrl(previewUrl + filename);
-        // 调用父类的updateById方法根据ID更新废品信息到数据库
+        if (file != null && !file.isEmpty()) {
+            // 获取废品当前的图片URL
+            String imgUrl = waste.getImgUrl();
+            // 拼接出图片在磁盘上的真实路径
+            String realPath = uploadPath + StringUtils.topath(imgUrl);
+            // 调用SysFileService的delFromDisk方法从磁盘上删除旧图片
+            sysFileService.delFromDisk(realPath);
+            // 创建查询条件包装器，根据文件URL查询SysFile记录
+            LambdaQueryWrapper<SysFile> wrapper = new LambdaQueryWrapper<>();
+            wrapper.eq(SysFile::getFileUrl, imgUrl);
+            // 调用SysFileService的remove方法从数据库中删除旧图片记录
+            sysFileService.remove(wrapper);
+            // 调用SysFileService的upload方法上传新文件，并获取新文件名
+            String filename = sysFileService.upload(file);
+            // 设置废品的新图片URL，拼接预览URL前缀和新文件名
+            waste.setImgUrl(previewUrl + filename);
+            // 调用父类的updateById方法根据ID更新废品信息到数据库
+        }
         updateById(waste);
     }
 }

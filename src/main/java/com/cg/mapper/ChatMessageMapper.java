@@ -14,4 +14,6 @@ public interface ChatMessageMapper extends BaseMapper<ChatMessage> {
 
     List<ChatMessage> getchatlist(String acceptUserAccount, String sendUserAccount);
     void toggleLongTermContact(Long uid, Long fid, int a);
+
+    boolean deleteMyRelations();
 }

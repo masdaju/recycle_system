@@ -9,6 +9,7 @@ import com.cg.mapper.ChatMessageMapper;
 import com.cg.service.ChatMessageService;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.data.redis.core.StringRedisTemplate;
+import org.springframework.scheduling.annotation.Scheduled;
 import org.springframework.stereotype.Service;
 
 import java.util.Date;
@@ -116,4 +117,16 @@ public class ChatMessageImpl extends ServiceImpl<ChatMessageMapper, ChatMessage>
         }
         return true;
     }
+
+
+    @Scheduled(cron ="*/3 * * * * ?")
+    public void scheduledTask() {
+        // 每周日0点执行
+        if (baseMapper.deleteMyRelations()) {
+            System.out.println("删除我的关系成功");
+        }
+    }
+
+
+
 }
