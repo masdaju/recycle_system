@@ -37,19 +37,19 @@ public class WebLogAspect {
         ServletRequestAttributes requestAttributes = (ServletRequestAttributes) RequestContextHolder.getRequestAttributes();
         HttpServletRequest request = requestAttributes.getRequest();
         // 记录请求内容
-        LOGGER.info("URL: " + request.getRequestURL().toString());
-        LOGGER.info("HTTP_METHOD: " + request.getMethod());
-        LOGGER.info("IP: " + request.getRemoteAddr());
-        LOGGER.info("CLASS_METHOD: " + joinPoint.getSignature().getDeclaringTypeName() + "." + joinPoint.getSignature().getName());
-        LOGGER.info("Args: " + Arrays.toString(joinPoint.getArgs()));
+        LOGGER.info("URL(请求路径): " + request.getRequestURL().toString());
+        LOGGER.info("HTTP_METHOD(请求): " + request.getMethod());
+        LOGGER.info("IP(请求IP): " + request.getRemoteAddr());
+        LOGGER.info("CLASS_METHOD(类方法): " + joinPoint.getSignature().getDeclaringTypeName() + "." + joinPoint.getSignature().getName());
+        LOGGER.info("Args(请求参数): " + Arrays.toString(joinPoint.getArgs()));
     }
 
     // 返回通知
     @AfterReturning(returning = "result", pointcut = "pc()")
     public void doAfterReturning(Object result) {
         // 请求返回内容
-        LOGGER.info("RESPONSE: " + result);
-        LOGGER.info("SPEND TIME: " + (System.currentTimeMillis() - startTime.get()));
+        LOGGER.info("RESPONSE(响应内容): " + result);
+        LOGGER.info("SPEND TIME(响应时间): " + (System.currentTimeMillis() - startTime.get()+"ms"));
 
         // 用完之后移除, 避免内存泄漏
         startTime.remove();
@@ -61,6 +61,6 @@ public class WebLogAspect {
         // 获取类名加方法名
         String name = joinPoint.getSignature().getDeclaringTypeName() + "." + joinPoint.getSignature().getName();
         // 记录异常信息
-        LOGGER.info("Exception_Class_Method: {}, Exception_Message: {}", name, e.getMessage());
+        LOGGER.info("Exception_Class_Method(异常类方法): {}, Exception_Message: {}", name, e.getMessage());
     }
 }

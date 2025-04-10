@@ -23,6 +23,9 @@ public class PerformanceInterceptor implements InnerInterceptor {
             long endTime = System.currentTimeMillis();
             long sqlCost = endTime - startTime;
             String sql = boundSql.getSql();
+            if (sqlCost > 1000){
+                log.warn("Query SQL: {} 执行耗时: {} ms", sql, sqlCost);
+            }
             log.info("Query SQL: {} 执行耗时: {} ms", sql, sqlCost);
         }
     }
@@ -38,7 +41,13 @@ public class PerformanceInterceptor implements InnerInterceptor {
             long endTime = System.currentTimeMillis();
             long sqlCost = endTime - startTime;
             String sql = boundSql.getSql();
-            log.info("Update SQL: {} 执行耗时: {} ms", sql, sqlCost);
+            // 排除定时任务的sql
+            if (!sql.contains("INTERVAL")) {
+                if (sqlCost > 1000) {
+                    log.warn("Update SQL: {} 执行耗时: {} ms", sql, sqlCost);
+                }
+                log.info("Update SQL: {} 执行耗时: {} ms", sql, sqlCost);
+            }
         }
     }
 
