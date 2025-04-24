@@ -17,4 +17,5 @@ public interface UserService extends IService<User> {
 
     SaResult logout(String satoken, Integer userId);
 
+    String getCollectorName(Long requestId);
 }

@@ -10,12 +10,14 @@ import com.cg.entity.ResponsePOJO.RUser;
 import com.cg.entity.User;
 import com.cg.entity.view.VRole;
 import com.cg.entity.view.VUser;
+import com.cg.mapper.ChatMessageMapper;
 import com.cg.mapper.UserMapper;
 import com.cg.service.UserService;
 import com.cg.service.VRoleService;
 import com.cg.service.VUserService;
 import org.springframework.beans.BeanUtils;
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.cache.annotation.CacheEvict;
 import org.springframework.cache.annotation.Cacheable;
 import org.springframework.data.redis.core.RedisTemplate;
 import org.springframework.data.redis.core.StringRedisTemplate;
@@ -37,7 +39,8 @@ import java.util.concurrent.TimeUnit;
 @Service
 public class UserServiceImpl extends ServiceImpl<UserMapper, User>
         implements UserService {
-
+    @Autowired
+    private ChatMessageMapper chatMessageMapper;
     // 自动注入 VUserService 实例，用于操作视图 VUser 相关的数据
     @Autowired
     private VUserService vUserService;
@@ -63,7 +66,7 @@ public class UserServiceImpl extends ServiceImpl<UserMapper, User>
 //        VUser vUser = vUserService.getOne(wrapper);
 
         BCryptPasswordEncoder encoder = new BCryptPasswordEncoder();
-    //AOP不会代理Cacheable注解，所以需要手动获取缓存
+    //AOP不会代理Cacheable注解
        // VUser vUser = getUser(account);
         //
         VUser vUser = vUserService.getUser(account);
@@ -136,12 +139,21 @@ public class UserServiceImpl extends ServiceImpl<UserMapper, User>
      * @return 包含退出登录结果的 SaResult 对象
      */
     @Override
+//    @CacheEvict(value = "users", key = "#userId")
     public SaResult logout(String satoken, Integer userId) {
+        VUser user = vUserService.getOne(new QueryWrapper<VUser>().eq("id", userId));
+        String account = user.getAccount();
+        if (Boolean.TRUE.equals(stringRedisTemplate.hasKey("users::" + account))){
+            stringRedisTemplate.delete("users::" + account);
+        }
         // 根据 Sa-Token 值进行用户退出登录操作
         StpUtil.logoutByTokenValue(satoken);
-        // 注释掉的代码：根据用户 ID 进行退出登录操作
-        // StpUtil.logout(userId);
-        // 返回退出登录成功的信息
+
         return SaResult.ok("退出成功");
+    }
+
+    @Override
+    public String getCollectorName(Long requestId) {
+        return chatMessageMapper.getCollectorName(requestId);
     }
 }

@@ -14,7 +14,9 @@
           AND insert_time &lt;= DATE_SUB(CURRENT_DATE, INTERVAL 7 DAY);
     </delete>
 
-
+    <select id="getCollectorName" resultType="string">
+        SELECT u.account FROM sys_user AS u right JOIN transport_schedules AS ts on u.id=ts.collector_id WHERE ts.request_id=#{requestId}
+    </select>
     <select id="getMyrelationship" resultType="com.cg.entity.view.VRelation">
         select * from v_relation where user_id=#{uid}
     </select>

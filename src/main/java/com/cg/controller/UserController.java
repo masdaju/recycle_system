@@ -176,6 +176,10 @@ public class UserController {
         return SaResult.ok("deleted successfully");
     }
 
+    @GetMapping(value = "/getCollectorName")
+    public SaResult getCollectorName(@RequestParam Long requestId) {
+        return SaResult.data(userService.getCollectorName(requestId));
+    }
     @PostMapping(value = "/update")
     @CacheEvict(value = "user", key = "#params.account")
     public SaResult update(@RequestBody User params) {
