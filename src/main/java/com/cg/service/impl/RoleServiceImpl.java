@@ -58,7 +58,6 @@ public class RoleServiceImpl extends ServiceImpl<RoleMapper, Role>
         roles.forEach(role ->
                 role.setResId(roleIdToResIdsMap.getOrDefault(role.getId(), new ArrayList<>()))
         );
-
         // 返回包含角色列表的分页对象，此时每个角色对象中已包含其对应的资源ID列表
         return aPage;
     }

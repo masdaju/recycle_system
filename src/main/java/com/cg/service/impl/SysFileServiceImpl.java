@@ -81,13 +81,13 @@ public class SysFileServiceImpl extends ServiceImpl<SysFileMapper, SysFile> impl
             Path path = Paths.get(realPath);
             // 删除文件
             Files.delete(path);
-            System.out.println("文件已成功删除！");
+            log.trace("文件删除成功================="+ realPath);
         } catch (NoSuchFileException e) {
-            System.out.println("文件不存在: " + e);
+            log.error("文件不存在: " + e);
         } catch (DirectoryNotEmptyException e) {
-            System.out.println("目录不是空的: " + e);
+           log.warn("目录不为空: " + e);
         } catch (IOException e) {
-            System.out.println("删除文件时发生错误: " + e);
+            log.error("删除文件时发生错误: " + e);
         }
         return true;
     }

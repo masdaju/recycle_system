@@ -11,6 +11,7 @@ import com.cg.service.UserService;
 import com.cg.service.VWasteService;
 import com.cg.service.WasteRequestsService;
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.cache.annotation.CacheEvict;
 import org.springframework.web.bind.annotation.*;
 
 import java.math.BigDecimal;

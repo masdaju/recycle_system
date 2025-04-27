@@ -29,6 +29,9 @@ public class StpInterfaceImpl implements StpInterface {
         LambdaQueryWrapper<VUser> wrapper = new LambdaQueryWrapper<>();
         wrapper.eq(VUser::getId,loginId);
         VUser one = vUserService.getOne(wrapper);
+        if (one==null||one.getStatus().equals(0)){
+            return null;
+        }
         LambdaQueryWrapper<VRole> wrapper1 = new LambdaQueryWrapper<>();
         wrapper1.eq(VRole::getRoleId,one.getRoleId());
         List<VRole> list = vRoleService.list(wrapper1);

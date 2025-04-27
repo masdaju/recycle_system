@@ -29,8 +29,8 @@ public class FeedbacksController {
     @GetMapping
     public SaResult list(@RequestParam(required = false) Integer current
             , @RequestParam(required = false) Integer pageSize
-    ,@RequestParam(required = false) String rating
-    ,@RequestParam(required = false) Integer status) {
+            ,@RequestParam(required = false) String rating
+            ,@RequestParam(required = false) Integer status) {
 
         Page<Feedbacks> aPage = feedbacksService.getPage(current, pageSize,rating,status);
         return SaResult.data(aPage);

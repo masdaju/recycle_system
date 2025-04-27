@@ -1,5 +1,6 @@
 package com.cg.controller;
 
+import cn.dev33.satoken.annotation.SaCheckPermission;
 import cn.dev33.satoken.stp.StpUtil;
 import cn.dev33.satoken.util.SaResult;
 import com.alibaba.fastjson2.JSON;
@@ -38,6 +39,7 @@ public class ChatController {
     return SaResult.data(relations);
     }
     //添加联系人
+
     @PostMapping("/addToMyRelationship")
     public SaResult addToMyRelationship(@RequestParam String username) {
 

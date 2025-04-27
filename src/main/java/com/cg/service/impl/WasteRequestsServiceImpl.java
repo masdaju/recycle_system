@@ -95,8 +95,10 @@ public class WasteRequestsServiceImpl extends ServiceImpl<WasteRequestsMapper, W
 
         // 新增操作
         if (!resultLists.get(1).isEmpty()) {
+            //不要重复创建RequestWaste对象
+            RequestWaste requestWaste = new RequestWaste();
             for (Long l : resultLists.get(1)) {
-                RequestWaste requestWaste = new RequestWaste();
+//                RequestWaste requestWaste = new RequestWaste();
                 requestWaste.setRequestId(requestId);
                 requestWaste.setWasteId(l);
                 requestWasteService.save(requestWaste);
