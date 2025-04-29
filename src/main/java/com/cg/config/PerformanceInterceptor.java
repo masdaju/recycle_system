@@ -32,7 +32,7 @@ public class PerformanceInterceptor implements InnerInterceptor {
 
     @Override
     //增删改拦截
-    public boolean willDoUpdate(Executor executor, MappedStatement ms, Object parameter) throws SQLException {
+    public boolean willDoUpdate(Executor executor, MappedStatement ms, Object parameter) {
         long startTime = System.currentTimeMillis();
         BoundSql boundSql = ms.getBoundSql(parameter);
         try {

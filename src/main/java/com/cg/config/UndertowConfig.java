@@ -23,7 +23,6 @@ public class UndertowConfig {
 
     @Value("${undertow.websocket.max-direct-memory}")
     private int maxDirectMemory;
-
     @Bean
     public WebServerFactoryCustomizer<UndertowServletWebServerFactory> undertowCustomizer() {
         return factory -> {

@@ -140,6 +140,14 @@ public class RequestWasteController {
         }
     }
 
+
+    @GetMapping("/getFromMyRequest")
+    public SaResult getFromMyRequest(@RequestParam(required = false) Integer uid) {
+        BigDecimal myAmount = requestWasteService.getFromMyRequest(uid);
+        return SaResult.data(myAmount);
+    }
+
+
     /**
      * 根据ID列表批量删除废品申请
      *

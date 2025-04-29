@@ -2,6 +2,7 @@ package com.cg.service.impl;
 
 import com.baomidou.mybatisplus.core.conditions.query.LambdaQueryWrapper;
 import com.baomidou.mybatisplus.core.conditions.update.LambdaUpdateWrapper;
+import com.baomidou.mybatisplus.extension.service.impl.ServiceImpl;
 import com.cg.entity.RequestWaste;
 import com.cg.entity.TransportSchedules;
 import com.cg.entity.Vehicles;
@@ -11,21 +12,17 @@ import com.cg.mapper.RequestWasteMapper;
 import com.cg.mapper.TransportSchedulesMapper;
 import com.cg.mapper.VehiclesMapper;
 import com.cg.mapper.WasteRequestsMapper;
-import com.cg.service.*;
-import com.baomidou.mybatisplus.extension.service.impl.ServiceImpl;
+import com.cg.service.RequestWasteService;
+import com.cg.service.VWasteService;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 import org.springframework.transaction.annotation.Transactional;
 
 import java.math.BigDecimal;
 import java.math.RoundingMode;
-import java.util.ArrayList;
-import java.util.HashMap;
 import java.util.List;
 import java.util.Map;
-import java.util.concurrent.locks.Lock;
 import java.util.concurrent.locks.ReentrantLock;
-import java.util.stream.Collectors;
 
 /**
  * <p>
@@ -122,6 +119,20 @@ public class RequestWasteServiceImpl extends ServiceImpl<RequestWasteMapper, Req
         }
         return totalSum;
     }
+
+    @Override
+    public BigDecimal getFromMyRequest(Integer uid) {
+        List<WasteRequests> wasteRequests = wasteRequestsMapper.selectList(new LambdaQueryWrapper<WasteRequests>().eq(WasteRequests::getUserId, uid));
+        // 获取用户所有废品申请的ID
+        List<Long> longList = wasteRequests.stream().map(WasteRequests::getRequestId).toList();
+        //
+        LambdaQueryWrapper<VWaste> queryWrapper = new LambdaQueryWrapper<>();
+        queryWrapper.in(VWaste::getRequestId, longList);
+        List<VWaste> vWastes = vWasteMapper.list(queryWrapper);
+        // 计算总和
+        return vWastes.stream().map(VWaste::getPrice).reduce(BigDecimal.ZERO, BigDecimal::add);
+    }
+
 
     /**
      * 根据废品ID和对应数量更新废品的质量信息。

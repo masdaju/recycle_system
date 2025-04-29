@@ -18,4 +18,6 @@ public interface RequestWasteService extends IService<RequestWaste> {
 
 
     BigDecimal checkQuantity(Map<Long, BigDecimal> map, Long requestId);
+
+    BigDecimal getFromMyRequest(Integer uid);
 }
