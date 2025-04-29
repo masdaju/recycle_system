@@ -1,8 +1,12 @@
 ssh:
   #云端ip
+  host: ********
   #SSH隧道端口
+  port: ****
   #主机用户名
+  user: root
   #主机密码
+  password: *******
 
 remote:
   db:
@@ -29,7 +33,6 @@ sa-token:
   token-name: satoken
   # Token有效期
   timeout: 2592000
-  #  timeout: 2
   # Token风格
   token-style: tik
   #是否输出Sa-Token日志
@@ -46,13 +49,13 @@ sa-token:
 #    host: 127.0.0.1
 #    port: 6379
 #文件上传路径
-
 file:
   upload-path: F:\\\upload/\\
 #就是个字符串拼接用的数据库用的
 upload:
   path: F:/upload/
 preview:
+  url: http://localhost/preview/
   # 配置 Sa-Token 单独使用的 Redis 连接
 spring:
   application:
@@ -67,6 +70,8 @@ spring:
   datasource:
     driver-class-name: com.mysql.cj.jdbc.Driver
     url: jdbc:mysql://${remote.db.host}:${local.bind.port}/recycle?useUnicode=true&characterEncoding=UTF-8&serverTimezone=UTC
+    username: ******
+    password: ******
   data:
     # redis配置
     redis:
@@ -99,6 +104,9 @@ spring:
       transport:
         dashboard: localhost:9000
         port: 8081
+#  graphql:
+#    cors:
+#      allowed-origins: localhost:8080
 
 mybatis-plus:
   #  type-aliases-package: pojo
@@ -107,7 +115,6 @@ mybatis-plus:
     map-underscore-to-camel-case: true
 #    log-impl: org.apache.ibatis.logging.stdout.StdOutImpl
     cache-enabled: true
-# application.yml
 undertow:
   websocket:
     buffer-size: 1024
