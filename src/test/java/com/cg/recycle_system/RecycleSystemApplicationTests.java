@@ -1,5 +1,6 @@
 //package com.cg.recycle_system;
 //
+//import com.cg.service.UserService;
 //import org.junit.jupiter.api.Test;
 //import org.springframework.beans.factory.annotation.Autowired;
 //import org.springframework.boot.test.context.SpringBootTest;
@@ -11,15 +12,12 @@
 //
 //@SpringBootTest
 //class RecycleSystemApplicationTests {
+//    @Autowired
+//    UserService userService;
 //    @Test
-//
 //    void contextLoads() {
-//        List<byte[]> list = new ArrayList<>();
-//        while (list.size() != 3000) {
-//            // 每次创建一个 1MB 的字节数组并添加到列表中
-//            list.add(new byte[1024 * 1024]);
-//        }
-//        System.out.println(list.size());
+//
+//
 //    }
 //
 //

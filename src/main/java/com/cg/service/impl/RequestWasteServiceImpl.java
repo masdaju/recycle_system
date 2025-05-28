@@ -16,6 +16,7 @@ import com.cg.service.RequestWasteService;
 import com.cg.service.VWasteService;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
+import org.springframework.transaction.annotation.Propagation;
 import org.springframework.transaction.annotation.Transactional;
 
 import java.math.BigDecimal;
@@ -97,7 +98,8 @@ public class RequestWasteServiceImpl extends ServiceImpl<RequestWasteMapper, Req
      * @return 计算得到的总金额，精确到小数点后两位
      */
     @Override
-    @Transactional
+    //Propagation.REQUIRED: 如果当前存在事务，则加入该事务；如果当前没有事务，则创建一个新的事务
+    @Transactional(propagation = Propagation.REQUIRED)
     public BigDecimal checkQuantity(Map<Long, BigDecimal> map, Long requestId) {
         // 创建可重入锁，保证线程安全
         ReentrantLock lock = new ReentrantLock();

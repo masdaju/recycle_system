@@ -20,7 +20,6 @@ public class RecycleSystemApplication {
 
     public static void main(String[] args) {
         SpringApplication.run(RecycleSystemApplication.class, args);
-
         printResourceFile();
     }
     private static void printResourceFile() {

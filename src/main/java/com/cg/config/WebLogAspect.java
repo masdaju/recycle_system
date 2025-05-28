@@ -1,6 +1,7 @@
 package com.cg.config;
 
 import jakarta.servlet.http.HttpServletRequest;
+import lombok.extern.slf4j.Slf4j;
 import org.aspectj.lang.JoinPoint;
 import org.aspectj.lang.annotation.*;
 import org.slf4j.Logger;
@@ -18,9 +19,8 @@ import java.util.Arrays;
  */
 @Aspect
 @Component
+@Slf4j
 public class WebLogAspect {
-    private static final Logger LOGGER = LoggerFactory.getLogger(WebLogAspect.class);
-
     ThreadLocal<Long> startTime = new ThreadLocal<>();
 
     // 切入点
@@ -37,19 +37,19 @@ public class WebLogAspect {
         ServletRequestAttributes requestAttributes = (ServletRequestAttributes) RequestContextHolder.getRequestAttributes();
         HttpServletRequest request = requestAttributes.getRequest();
         // 记录请求内容
-        LOGGER.info("URL(请求路径): " + request.getRequestURL().toString());
-        LOGGER.info("HTTP_METHOD(请求): " + request.getMethod());
-        LOGGER.info("IP(请求IP): " + request.getRemoteAddr());
-        LOGGER.info("CLASS_METHOD(类方法): " + joinPoint.getSignature().getDeclaringTypeName() + "." + joinPoint.getSignature().getName());
-        LOGGER.info("Args(请求参数): " + Arrays.toString(joinPoint.getArgs()));
+        log.info("URL(请求路径): " + request.getRequestURL().toString());
+        log.info("HTTP_METHOD(请求): " + request.getMethod());
+        log.info("IP(请求IP): " + request.getRemoteAddr());
+        log.info("CLASS_METHOD(类方法): " + joinPoint.getSignature().getDeclaringTypeName() + "." + joinPoint.getSignature().getName());
+        log.info("Args(请求参数): " + Arrays.toString(joinPoint.getArgs()));
     }
 
     // 返回通知
     @AfterReturning(returning = "result", pointcut = "pc()")
     public void doAfterReturning(Object result) {
         // 请求返回内容
-        LOGGER.info("RESPONSE(响应内容): " + result);
-        LOGGER.info("SPEND TIME(响应时间): " + (System.currentTimeMillis() - startTime.get()+"ms"));
+        log.info("RESPONSE(响应内容): " + result);
+        log.info("SPEND TIME(响应时间): " + (System.currentTimeMillis() - startTime.get()+"ms"));
 
         // 用完之后移除, 避免内存泄漏
         startTime.remove();
@@ -61,6 +61,6 @@ public class WebLogAspect {
         // 获取类名加方法名
         String name = joinPoint.getSignature().getDeclaringTypeName() + "." + joinPoint.getSignature().getName();
         // 记录异常信息
-        LOGGER.info("Exception_Class_Method(异常类方法): {}, Exception_Message: {}", name, e.getMessage());
+        log.info("Exception_Class_Method(异常类方法): {}, Exception_Message: {}", name, e.getMessage());
     }
 }

@@ -4,7 +4,12 @@ import com.baomidou.mybatisplus.extension.service.impl.ServiceImpl;
 import com.cg.entity.SysFile;
 import com.cg.mapper.SysFileMapper;
 import com.cg.service.SysFileService;
+import com.jcraft.jsch.jce.MD5;
+import org.apache.commons.codec.digest.Crypt;
+import org.apache.commons.codec.digest.DigestUtils;
+import org.apache.commons.codec.digest.Md5Crypt;
 import org.springframework.beans.factory.annotation.Value;
+import org.springframework.security.crypto.bcrypt.BCryptPasswordEncoder;
 import org.springframework.stereotype.Service;
 import org.springframework.web.multipart.MultipartFile;
 
@@ -40,6 +45,7 @@ public class SysFileServiceImpl extends ServiceImpl<SysFileMapper, SysFile> impl
      * @return 上传结果封装对象 SaResult，包含成功上传的文件信息或错误信息
      */
     public String upload(MultipartFile file) {
+BCryptPasswordEncoder encoder = new BCryptPasswordEncoder();
         try {
             // 获取上传文件的原始文件名
             String originalFileName = file.getOriginalFilename();
@@ -61,7 +67,8 @@ public class SysFileServiceImpl extends ServiceImpl<SysFileMapper, SysFile> impl
             File diskFile = new File(uploadPath + uniqueFileName);
             // 将上传的文件保存到服务器指定位置
             file.transferTo(diskFile);
-            log.debug("文件上传成功================="+ uploadPath+uniqueFileName);
+//            String md5Hex = DigestUtils.md5Hex(file.getInputStream());
+//            sysFile.setMd5(md5Hex);
             // 将文件信息保存到数据库
             if (save(sysFile)) {
                 return uniqueFileName;

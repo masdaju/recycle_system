@@ -48,15 +48,16 @@ public class SshTunnelConfig {
     @PostConstruct
     public void init() throws JSchException {
         JSch jsch = new JSch();
-
+       try {
         // 使用密码认证
-         session = jsch.getSession(sshUser, sshHost, sshPort);
-         session.setPassword(sshPassword);
-
+        session = jsch.getSession(sshUser, sshHost, sshPort);
+        session.setPassword(sshPassword);
         // 关闭严格主机密钥检查（生产环境需谨慎）
         session.setConfig("StrictHostKeyChecking", "no");
         session.connect();
-
+    }catch (Exception e){
+           log.error("SSH连接失败,检查确认密码（密钥）/账号准确无误/确保服务器可以被正确连接",e);
+       }
         int assignedPort = session.setPortForwardingL(localPort, remoteDbHost, remoteDbPort);
 //        System.out.println("SSH-Mysql隧道已建立，本地端口: " + assignedPort);
         log.info("SSH-Mysql隧道已建立，本地端口: " + assignedPort);

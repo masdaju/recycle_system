@@ -35,6 +35,7 @@ public class RoleResourcesController {
         return SaResult.data(aPage);
     }
 
+
     @GetMapping(value = "/{id}")
     public SaResult getById(@PathVariable("id") String id) {
         return SaResult.data(roleResourcesService.getById(id));

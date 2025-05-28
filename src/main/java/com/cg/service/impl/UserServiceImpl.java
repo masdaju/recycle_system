@@ -74,10 +74,12 @@ public class UserServiceImpl extends ServiceImpl<UserMapper, User>
         if (ObjectUtils.isEmpty(vUser)) {
             return SaResult.error("账号不存在");
 
-        } else {//用户存在的情况
+        } else {
+            //用户存在的情况检查用户账号状态
             if (vUser.getStatus() == 0) {
                 return SaResult.error("账号已被禁用");
             }
+            //检查密码输错次数
             if (Boolean.TRUE.equals(stringRedisTemplate.hasKey("login_error:" + account))&&Integer.parseInt(Objects.requireNonNull(stringRedisTemplate.opsForValue().get("login_error:" + account))) >= 5){
                 stringRedisTemplate.expire("login_error:" + account, 5, TimeUnit.MINUTES);
                 return SaResult.error("密码错误次数过多，账号已被锁定，请5分钟后再试");
