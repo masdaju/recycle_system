@@ -3,6 +3,7 @@ package com.cg.controller;
 import cn.dev33.satoken.util.SaResult;
 import com.baomidou.mybatisplus.core.conditions.query.LambdaQueryWrapper;
 import com.baomidou.mybatisplus.extension.plugins.pagination.Page;
+import com.cg.annotations.cacheTime.CacheTime;
 import com.cg.entity.Role;
 import com.cg.entity.RoleResources;
 import com.cg.service.RoleResourcesService;
@@ -12,6 +13,8 @@ import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.cache.annotation.CacheEvict;
 import org.springframework.cache.annotation.Cacheable;
 import org.springframework.web.bind.annotation.*;
+
+import java.util.concurrent.TimeUnit;
 
 /**
  * <p>
@@ -31,9 +34,8 @@ public class RoleController {
     private RoleService roleService;
     @Autowired
     private RoleResourcesService roleResourcesService;
-
     @GetMapping
-
+    @CacheTime(value = 5, unit = TimeUnit.MINUTES)
     @Cacheable(value = "rolePageCache", key = "#current + '::' + #pageSize", sync = true,condition = "#name==null")
     public SaResult list(@RequestParam(required = false) Integer current,
                          @RequestParam(required = false) Integer pageSize,

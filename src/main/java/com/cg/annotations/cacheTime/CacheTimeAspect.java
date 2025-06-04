@@ -1,6 +1,5 @@
 package com.cg.annotations.cacheTime;
 
-import com.cg.annotations.cacheTime.CacheTime;
 import org.aspectj.lang.ProceedingJoinPoint;
 import org.aspectj.lang.annotation.Around;
 import org.aspectj.lang.annotation.Aspect;
@@ -48,12 +47,11 @@ public class CacheTimeAspect {
 
         return result;
     }
-
+    //
     private String generateKey(ProceedingJoinPoint joinPoint) {
         MethodSignature signature = (MethodSignature) joinPoint.getSignature();
         String methodName = signature.getName();
         Object[] args = joinPoint.getArgs();
-
         if (args == null || args.length == 0) {
             return methodName;
         }
