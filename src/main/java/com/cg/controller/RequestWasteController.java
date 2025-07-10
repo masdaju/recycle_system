@@ -95,11 +95,7 @@ public class RequestWasteController {
      */
     @PostMapping("checkQuantity")
     public SaResult checkQuantity(@RequestBody Map<Long, BigDecimal> map, @RequestParam Long requestId) {
-        // 创建一个可重入锁对象，用于保证同一时间只有一个线程可以执行该方法
-        ReentrantLock lock = new ReentrantLock();
-        try {
-            // 获取锁，保证线程安全
-            lock.lock();
+
             // 调用 requestWasteService 的 checkQuantity 方法，根据废品数量计算应更新的金额
             BigDecimal amount = requestWasteService.checkQuantity(map, requestId);
             // 创建 LambdaUpdateWrapper 对象，用于构建更新条件
@@ -112,13 +108,6 @@ public class RequestWasteController {
             userService.update(wrapper1);
             // 将计算得到的金额封装到 SaResult 对象中返回
             return SaResult.data(amount);
-        } catch (Exception e) {
-            // 若更新过程中出现异常，则返回错误信息
-            return SaResult.error("未统计完成 " + e.getMessage());
-        } finally {
-            // 释放锁，确保锁一定会被释放
-            lock.unlock();
-        }
     }
 
     /**
