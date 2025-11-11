@@ -1,4 +1,4 @@
-package com.cg.config;
+package com.cg.config.mybatis;
 
 import com.baomidou.mybatisplus.extension.plugins.inner.InnerInterceptor;
 import lombok.extern.slf4j.Slf4j;

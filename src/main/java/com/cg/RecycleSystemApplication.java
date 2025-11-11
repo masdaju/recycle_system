@@ -1,8 +1,11 @@
 package com.cg;
 
+import com.cg.config.canal.CanalClientService;
 import lombok.extern.slf4j.Slf4j;
 import org.mybatis.spring.annotation.MapperScan;
+import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.beans.factory.annotation.Value;
+import org.springframework.boot.CommandLineRunner;
 import org.springframework.boot.SpringApplication;
 import org.springframework.boot.autoconfigure.SpringBootApplication;
 import org.springframework.core.io.ClassPathResource;
@@ -16,12 +19,14 @@ import java.nio.charset.StandardCharsets;
 @MapperScan("com.cg.mapper")
 @EnableScheduling
 @Slf4j
-public class RecycleSystemApplication {
+public class RecycleSystemApplication implements CommandLineRunner {
 
     public static void main(String[] args) {
         SpringApplication.run(RecycleSystemApplication.class, args);
         printResourceFile();
     }
+
+
     private static void printResourceFile() {
         try {
             ClassPathResource resource = new ClassPathResource("sysBanner.txt");
@@ -30,5 +35,11 @@ public class RecycleSystemApplication {
         } catch (IOException e) {
             log.error("读取文件时出现异常", e);
         }
+    }
+    @Autowired
+    CanalClientService canalClientService;
+    @Override
+    public void run(String... args) {
+        canalClientService.start();
     }
 }

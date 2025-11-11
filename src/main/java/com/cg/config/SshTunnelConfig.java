@@ -4,12 +4,20 @@ import jakarta.annotation.PostConstruct;
 import jakarta.annotation.PreDestroy;
 import lombok.extern.slf4j.Slf4j;
 import org.springframework.beans.factory.annotation.Value;
+import org.springframework.boot.autoconfigure.condition.ConditionalOnProperty;
 import org.springframework.context.annotation.Configuration;
 
 import java.util.List;
 
+//必须要在数据库连接之前执行因此初始化配置要早于数据库
 @Configuration
+
 @Slf4j
+@ConditionalOnProperty(
+        name = "ssh.tunnel.enable",  // 配置文件中的开关参数名（自定义，语义清晰）
+        havingValue = "true",        // 当参数值为 true 时，才加载该配置类
+        matchIfMissing = false       // 配置文件中没有该参数时，默认不加载（避免误启动）
+)
 public class SshTunnelConfig {
 
     @Value("${ssh.host}")
@@ -58,6 +66,7 @@ public class SshTunnelConfig {
         session.connect();
     }catch (Exception e){
            log.error("SSH连接失败,检查确认密码（密钥）/账号准确无误/确保服务器可以被正确连接",e);
+           System.exit(1);
        }
         int assignedPort = session.setPortForwardingL(localPort, remoteDbHost, remoteDbPort);
         log.info("SSH-Mysql隧道已建立，本地端口: " + assignedPort);

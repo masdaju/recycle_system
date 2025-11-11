@@ -119,13 +119,13 @@ public class ChatMessageImpl extends ServiceImpl<ChatMessageMapper, ChatMessage>
     }
 
 
-    @Scheduled(cron ="*/3 * * * * ?")
-    public void scheduledTask() {
-        // 每周日0点执行
-        if (baseMapper.deleteMyRelations()) {
-            System.out.println("删除我的关系成功");
-        }
-    }
+//    @Scheduled(cron ="*/3 * * * * ?")
+//    public void scheduledTask() {
+//        // 每周日0点执行
+//        if (baseMapper.deleteMyRelations()) {
+//            System.out.println("删除我的关系成功");
+//        }
+//    }
 
 
 

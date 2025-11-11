@@ -1,4 +1,4 @@
-package com.cg.config;
+package com.cg.config.websocketServer;
 
 import cn.hutool.json.JSONArray;
 import cn.hutool.json.JSONObject;
@@ -76,7 +76,7 @@ public class WebSocketServer {
         if (toSession != null) {
             // 服务器端 再把消息组装一下，组装后的消息包含发送人和发送的文本内容
             JSONObject jsonObject = new JSONObject();
-            jsonObject.set("from", username);  // from 是 zhang
+            jsonObject.set("from", username);
             jsonObject.set("text", text);  // text 同上面的text
             sendMessage(jsonObject.toString(), toSession);
             log.info("发送给用户username={}，消息：{}", toUsername, jsonObject.toString());
