@@ -1,0 +1,1522 @@
+2025-11-24 11:48:27.968 ERROR 22676 --- [pool-2-thread-1] c.c.docService.canal.CanalClientService  : 处理Canal消息异常，handler: com.cg.docService.canal.handlers.WasteTableHandler
+
+java.lang.RuntimeException: Request execution cancelled
+	at org.elasticsearch.client.RestClient.extractAndWrapCause(RestClient.java:942)
+	at org.elasticsearch.client.RestClient.performRequest(RestClient.java:304)
+	at org.elasticsearch.client.RestClient.performRequest(RestClient.java:292)
+	at co.elastic.clients.transport.rest_client.RestClientHttpClient.performRequest(RestClientHttpClient.java:91)
+	at co.elastic.clients.transport.ElasticsearchTransportBase.performRequest(ElasticsearchTransportBase.java:144)
+	at co.elastic.clients.elasticsearch.ElasticsearchClient.update(ElasticsearchClient.java:2237)
+	at com.cg.docService.elasticsearch.ESClient.updateIndex(ESClient.java:58)
+	at com.cg.docService.canal.handlers.WasteTableHandler.handleUpdate(WasteTableHandler.java:129)
+	at com.cg.docService.canal.handlers.WasteTableHandler.handle(WasteTableHandler.java:55)
+	at com.cg.docService.canal.CanalClientService.processMessage(CanalClientService.java:146)
+	at com.cg.docService.canal.CanalClientService.process(CanalClientService.java:93)
+	at java.base/java.util.concurrent.ThreadPoolExecutor.runWorker(ThreadPoolExecutor.java:1136)
+	at java.base/java.util.concurrent.ThreadPoolExecutor$Worker.run(ThreadPoolExecutor.java:635)
+	at java.base/java.lang.Thread.run(Thread.java:840)
+Caused by: java.util.concurrent.CancellationException: Request execution cancelled
+	at org.apache.http.impl.nio.client.CloseableHttpAsyncClientBase.execute(CloseableHttpAsyncClientBase.java:114)
+	at org.apache.http.impl.nio.client.InternalHttpAsyncClient.execute(InternalHttpAsyncClient.java:138)
+	at org.elasticsearch.client.RestClient.performRequest(RestClient.java:300)
+	... 12 common frames omitted
+
+2025-11-24 11:49:05.254 ERROR 22676 --- [pool-2-thread-1] c.c.docService.canal.CanalClientService  : 处理Canal消息异常，handler: com.cg.docService.canal.handlers.WasteTableHandler
+
+java.lang.RuntimeException: Request execution cancelled
+	at org.elasticsearch.client.RestClient.extractAndWrapCause(RestClient.java:942)
+	at org.elasticsearch.client.RestClient.performRequest(RestClient.java:304)
+	at org.elasticsearch.client.RestClient.performRequest(RestClient.java:292)
+	at co.elastic.clients.transport.rest_client.RestClientHttpClient.performRequest(RestClientHttpClient.java:91)
+	at co.elastic.clients.transport.ElasticsearchTransportBase.performRequest(ElasticsearchTransportBase.java:144)
+	at co.elastic.clients.elasticsearch.ElasticsearchClient.update(ElasticsearchClient.java:2237)
+	at com.cg.docService.elasticsearch.ESClient.updateIndex(ESClient.java:58)
+	at com.cg.docService.canal.handlers.WasteTableHandler.handleUpdate(WasteTableHandler.java:129)
+	at com.cg.docService.canal.handlers.WasteTableHandler.handle(WasteTableHandler.java:55)
+	at com.cg.docService.canal.CanalClientService.processMessage(CanalClientService.java:146)
+	at com.cg.docService.canal.CanalClientService.process(CanalClientService.java:93)
+	at java.base/java.util.concurrent.ThreadPoolExecutor.runWorker(ThreadPoolExecutor.java:1136)
+	at java.base/java.util.concurrent.ThreadPoolExecutor$Worker.run(ThreadPoolExecutor.java:635)
+	at java.base/java.lang.Thread.run(Thread.java:840)
+Caused by: java.util.concurrent.CancellationException: Request execution cancelled
+	at org.apache.http.impl.nio.client.CloseableHttpAsyncClientBase.execute(CloseableHttpAsyncClientBase.java:114)
+	at org.apache.http.impl.nio.client.InternalHttpAsyncClient.execute(InternalHttpAsyncClient.java:138)
+	at org.elasticsearch.client.RestClient.performRequest(RestClient.java:300)
+	... 12 common frames omitted
+
+2025-11-24 11:49:07.276 ERROR 22676 --- [pool-2-thread-1] c.c.docService.canal.CanalClientService  : 处理Canal消息异常，handler: com.cg.docService.canal.handlers.WasteTableHandler
+
+java.lang.RuntimeException: Request execution cancelled
+	at org.elasticsearch.client.RestClient.extractAndWrapCause(RestClient.java:942)
+	at org.elasticsearch.client.RestClient.performRequest(RestClient.java:304)
+	at org.elasticsearch.client.RestClient.performRequest(RestClient.java:292)
+	at co.elastic.clients.transport.rest_client.RestClientHttpClient.performRequest(RestClientHttpClient.java:91)
+	at co.elastic.clients.transport.ElasticsearchTransportBase.performRequest(ElasticsearchTransportBase.java:144)
+	at co.elastic.clients.elasticsearch.ElasticsearchClient.update(ElasticsearchClient.java:2237)
+	at com.cg.docService.elasticsearch.ESClient.updateIndex(ESClient.java:58)
+	at com.cg.docService.canal.handlers.WasteTableHandler.handleUpdate(WasteTableHandler.java:129)
+	at com.cg.docService.canal.handlers.WasteTableHandler.handle(WasteTableHandler.java:55)
+	at com.cg.docService.canal.CanalClientService.processMessage(CanalClientService.java:146)
+	at com.cg.docService.canal.CanalClientService.process(CanalClientService.java:93)
+	at java.base/java.util.concurrent.ThreadPoolExecutor.runWorker(ThreadPoolExecutor.java:1136)
+	at java.base/java.util.concurrent.ThreadPoolExecutor$Worker.run(ThreadPoolExecutor.java:635)
+	at java.base/java.lang.Thread.run(Thread.java:840)
+Caused by: java.util.concurrent.CancellationException: Request execution cancelled
+	at org.apache.http.impl.nio.client.CloseableHttpAsyncClientBase.execute(CloseableHttpAsyncClientBase.java:114)
+	at org.apache.http.impl.nio.client.InternalHttpAsyncClient.execute(InternalHttpAsyncClient.java:138)
+	at org.elasticsearch.client.RestClient.performRequest(RestClient.java:300)
+	... 12 common frames omitted
+
+2025-11-24 11:49:08.283 ERROR 22676 --- [pool-2-thread-1] c.c.docService.canal.CanalClientService  : 处理Canal消息异常，handler: com.cg.docService.canal.handlers.WasteTableHandler
+
+java.lang.RuntimeException: Request execution cancelled
+	at org.elasticsearch.client.RestClient.extractAndWrapCause(RestClient.java:942)
+	at org.elasticsearch.client.RestClient.performRequest(RestClient.java:304)
+	at org.elasticsearch.client.RestClient.performRequest(RestClient.java:292)
+	at co.elastic.clients.transport.rest_client.RestClientHttpClient.performRequest(RestClientHttpClient.java:91)
+	at co.elastic.clients.transport.ElasticsearchTransportBase.performRequest(ElasticsearchTransportBase.java:144)
+	at co.elastic.clients.elasticsearch.ElasticsearchClient.update(ElasticsearchClient.java:2237)
+	at com.cg.docService.elasticsearch.ESClient.updateIndex(ESClient.java:58)
+	at com.cg.docService.canal.handlers.WasteTableHandler.handleUpdate(WasteTableHandler.java:129)
+	at com.cg.docService.canal.handlers.WasteTableHandler.handle(WasteTableHandler.java:55)
+	at com.cg.docService.canal.CanalClientService.processMessage(CanalClientService.java:146)
+	at com.cg.docService.canal.CanalClientService.process(CanalClientService.java:93)
+	at java.base/java.util.concurrent.ThreadPoolExecutor.runWorker(ThreadPoolExecutor.java:1136)
+	at java.base/java.util.concurrent.ThreadPoolExecutor$Worker.run(ThreadPoolExecutor.java:635)
+	at java.base/java.lang.Thread.run(Thread.java:840)
+Caused by: java.util.concurrent.CancellationException: Request execution cancelled
+	at org.apache.http.impl.nio.client.CloseableHttpAsyncClientBase.execute(CloseableHttpAsyncClientBase.java:114)
+	at org.apache.http.impl.nio.client.InternalHttpAsyncClient.execute(InternalHttpAsyncClient.java:138)
+	at org.elasticsearch.client.RestClient.performRequest(RestClient.java:300)
+	... 12 common frames omitted
+
+2025-11-24 11:49:09.287 ERROR 22676 --- [pool-2-thread-1] c.c.docService.canal.CanalClientService  : 处理Canal消息异常，handler: com.cg.docService.canal.handlers.WasteTableHandler
+
+java.lang.RuntimeException: Request execution cancelled
+	at org.elasticsearch.client.RestClient.extractAndWrapCause(RestClient.java:942)
+	at org.elasticsearch.client.RestClient.performRequest(RestClient.java:304)
+	at org.elasticsearch.client.RestClient.performRequest(RestClient.java:292)
+	at co.elastic.clients.transport.rest_client.RestClientHttpClient.performRequest(RestClientHttpClient.java:91)
+	at co.elastic.clients.transport.ElasticsearchTransportBase.performRequest(ElasticsearchTransportBase.java:144)
+	at co.elastic.clients.elasticsearch.ElasticsearchClient.update(ElasticsearchClient.java:2237)
+	at com.cg.docService.elasticsearch.ESClient.updateIndex(ESClient.java:58)
+	at com.cg.docService.canal.handlers.WasteTableHandler.handleUpdate(WasteTableHandler.java:129)
+	at com.cg.docService.canal.handlers.WasteTableHandler.handle(WasteTableHandler.java:55)
+	at com.cg.docService.canal.CanalClientService.processMessage(CanalClientService.java:146)
+	at com.cg.docService.canal.CanalClientService.process(CanalClientService.java:93)
+	at java.base/java.util.concurrent.ThreadPoolExecutor.runWorker(ThreadPoolExecutor.java:1136)
+	at java.base/java.util.concurrent.ThreadPoolExecutor$Worker.run(ThreadPoolExecutor.java:635)
+	at java.base/java.lang.Thread.run(Thread.java:840)
+Caused by: java.util.concurrent.CancellationException: Request execution cancelled
+	at org.apache.http.impl.nio.client.CloseableHttpAsyncClientBase.execute(CloseableHttpAsyncClientBase.java:114)
+	at org.apache.http.impl.nio.client.InternalHttpAsyncClient.execute(InternalHttpAsyncClient.java:138)
+	at org.elasticsearch.client.RestClient.performRequest(RestClient.java:300)
+	... 12 common frames omitted
+
+2025-11-24 11:49:13.323 ERROR 22676 --- [pool-2-thread-1] c.c.docService.canal.CanalClientService  : 处理Canal消息异常，handler: com.cg.docService.canal.handlers.WasteTableHandler
+
+java.lang.RuntimeException: Request execution cancelled
+	at org.elasticsearch.client.RestClient.extractAndWrapCause(RestClient.java:942)
+	at org.elasticsearch.client.RestClient.performRequest(RestClient.java:304)
+	at org.elasticsearch.client.RestClient.performRequest(RestClient.java:292)
+	at co.elastic.clients.transport.rest_client.RestClientHttpClient.performRequest(RestClientHttpClient.java:91)
+	at co.elastic.clients.transport.ElasticsearchTransportBase.performRequest(ElasticsearchTransportBase.java:144)
+	at co.elastic.clients.elasticsearch.ElasticsearchClient.update(ElasticsearchClient.java:2237)
+	at com.cg.docService.elasticsearch.ESClient.updateIndex(ESClient.java:58)
+	at com.cg.docService.canal.handlers.WasteTableHandler.handleUpdate(WasteTableHandler.java:129)
+	at com.cg.docService.canal.handlers.WasteTableHandler.handle(WasteTableHandler.java:55)
+	at com.cg.docService.canal.CanalClientService.processMessage(CanalClientService.java:146)
+	at com.cg.docService.canal.CanalClientService.process(CanalClientService.java:93)
+	at java.base/java.util.concurrent.ThreadPoolExecutor.runWorker(ThreadPoolExecutor.java:1136)
+	at java.base/java.util.concurrent.ThreadPoolExecutor$Worker.run(ThreadPoolExecutor.java:635)
+	at java.base/java.lang.Thread.run(Thread.java:840)
+Caused by: java.util.concurrent.CancellationException: Request execution cancelled
+	at org.apache.http.impl.nio.client.CloseableHttpAsyncClientBase.execute(CloseableHttpAsyncClientBase.java:114)
+	at org.apache.http.impl.nio.client.InternalHttpAsyncClient.execute(InternalHttpAsyncClient.java:138)
+	at org.elasticsearch.client.RestClient.performRequest(RestClient.java:300)
+	... 12 common frames omitted
+
+2025-11-24 11:51:22.318 ERROR 22676 --- [pool-2-thread-1] c.c.docService.canal.CanalClientService  : 处理Canal消息异常，handler: com.cg.docService.canal.handlers.WasteTableHandler
+
+java.lang.RuntimeException: Request execution cancelled
+	at org.elasticsearch.client.RestClient.extractAndWrapCause(RestClient.java:942)
+	at org.elasticsearch.client.RestClient.performRequest(RestClient.java:304)
+	at org.elasticsearch.client.RestClient.performRequest(RestClient.java:292)
+	at co.elastic.clients.transport.rest_client.RestClientHttpClient.performRequest(RestClientHttpClient.java:91)
+	at co.elastic.clients.transport.ElasticsearchTransportBase.performRequest(ElasticsearchTransportBase.java:144)
+	at co.elastic.clients.elasticsearch.ElasticsearchClient.update(ElasticsearchClient.java:2237)
+	at com.cg.docService.elasticsearch.ESClient.updateIndex(ESClient.java:58)
+	at com.cg.docService.canal.handlers.WasteTableHandler.handleUpdate(WasteTableHandler.java:129)
+	at com.cg.docService.canal.handlers.WasteTableHandler.handle(WasteTableHandler.java:55)
+	at com.cg.docService.canal.CanalClientService.processMessage(CanalClientService.java:146)
+	at com.cg.docService.canal.CanalClientService.process(CanalClientService.java:93)
+	at java.base/java.util.concurrent.ThreadPoolExecutor.runWorker(ThreadPoolExecutor.java:1136)
+	at java.base/java.util.concurrent.ThreadPoolExecutor$Worker.run(ThreadPoolExecutor.java:635)
+	at java.base/java.lang.Thread.run(Thread.java:840)
+Caused by: java.util.concurrent.CancellationException: Request execution cancelled
+	at org.apache.http.impl.nio.client.CloseableHttpAsyncClientBase.execute(CloseableHttpAsyncClientBase.java:114)
+	at org.apache.http.impl.nio.client.InternalHttpAsyncClient.execute(InternalHttpAsyncClient.java:138)
+	at org.elasticsearch.client.RestClient.performRequest(RestClient.java:300)
+	... 12 common frames omitted
+
+2025-11-24 11:51:24.328 ERROR 22676 --- [pool-2-thread-1] c.c.docService.canal.CanalClientService  : 处理Canal消息异常，handler: com.cg.docService.canal.handlers.WasteTableHandler
+
+java.lang.RuntimeException: Request execution cancelled
+	at org.elasticsearch.client.RestClient.extractAndWrapCause(RestClient.java:942)
+	at org.elasticsearch.client.RestClient.performRequest(RestClient.java:304)
+	at org.elasticsearch.client.RestClient.performRequest(RestClient.java:292)
+	at co.elastic.clients.transport.rest_client.RestClientHttpClient.performRequest(RestClientHttpClient.java:91)
+	at co.elastic.clients.transport.ElasticsearchTransportBase.performRequest(ElasticsearchTransportBase.java:144)
+	at co.elastic.clients.elasticsearch.ElasticsearchClient.update(ElasticsearchClient.java:2237)
+	at com.cg.docService.elasticsearch.ESClient.updateIndex(ESClient.java:58)
+	at com.cg.docService.canal.handlers.WasteTableHandler.handleUpdate(WasteTableHandler.java:129)
+	at com.cg.docService.canal.handlers.WasteTableHandler.handle(WasteTableHandler.java:55)
+	at com.cg.docService.canal.CanalClientService.processMessage(CanalClientService.java:146)
+	at com.cg.docService.canal.CanalClientService.process(CanalClientService.java:93)
+	at java.base/java.util.concurrent.ThreadPoolExecutor.runWorker(ThreadPoolExecutor.java:1136)
+	at java.base/java.util.concurrent.ThreadPoolExecutor$Worker.run(ThreadPoolExecutor.java:635)
+	at java.base/java.lang.Thread.run(Thread.java:840)
+Caused by: java.util.concurrent.CancellationException: Request execution cancelled
+	at org.apache.http.impl.nio.client.CloseableHttpAsyncClientBase.execute(CloseableHttpAsyncClientBase.java:114)
+	at org.apache.http.impl.nio.client.InternalHttpAsyncClient.execute(InternalHttpAsyncClient.java:138)
+	at org.elasticsearch.client.RestClient.performRequest(RestClient.java:300)
+	... 12 common frames omitted
+
+2025-11-24 11:51:25.332 ERROR 22676 --- [pool-2-thread-1] c.c.docService.canal.CanalClientService  : 处理Canal消息异常，handler: com.cg.docService.canal.handlers.WasteTableHandler
+
+java.lang.RuntimeException: Request execution cancelled
+	at org.elasticsearch.client.RestClient.extractAndWrapCause(RestClient.java:942)
+	at org.elasticsearch.client.RestClient.performRequest(RestClient.java:304)
+	at org.elasticsearch.client.RestClient.performRequest(RestClient.java:292)
+	at co.elastic.clients.transport.rest_client.RestClientHttpClient.performRequest(RestClientHttpClient.java:91)
+	at co.elastic.clients.transport.ElasticsearchTransportBase.performRequest(ElasticsearchTransportBase.java:144)
+	at co.elastic.clients.elasticsearch.ElasticsearchClient.update(ElasticsearchClient.java:2237)
+	at com.cg.docService.elasticsearch.ESClient.updateIndex(ESClient.java:58)
+	at com.cg.docService.canal.handlers.WasteTableHandler.handleUpdate(WasteTableHandler.java:129)
+	at com.cg.docService.canal.handlers.WasteTableHandler.handle(WasteTableHandler.java:55)
+	at com.cg.docService.canal.CanalClientService.processMessage(CanalClientService.java:146)
+	at com.cg.docService.canal.CanalClientService.process(CanalClientService.java:93)
+	at java.base/java.util.concurrent.ThreadPoolExecutor.runWorker(ThreadPoolExecutor.java:1136)
+	at java.base/java.util.concurrent.ThreadPoolExecutor$Worker.run(ThreadPoolExecutor.java:635)
+	at java.base/java.lang.Thread.run(Thread.java:840)
+Caused by: java.util.concurrent.CancellationException: Request execution cancelled
+	at org.apache.http.impl.nio.client.CloseableHttpAsyncClientBase.execute(CloseableHttpAsyncClientBase.java:114)
+	at org.apache.http.impl.nio.client.InternalHttpAsyncClient.execute(InternalHttpAsyncClient.java:138)
+	at org.elasticsearch.client.RestClient.performRequest(RestClient.java:300)
+	... 12 common frames omitted
+
+2025-11-24 11:51:26.336 ERROR 22676 --- [pool-2-thread-1] c.c.docService.canal.CanalClientService  : 处理Canal消息异常，handler: com.cg.docService.canal.handlers.WasteTableHandler
+
+java.lang.RuntimeException: Request execution cancelled
+	at org.elasticsearch.client.RestClient.extractAndWrapCause(RestClient.java:942)
+	at org.elasticsearch.client.RestClient.performRequest(RestClient.java:304)
+	at org.elasticsearch.client.RestClient.performRequest(RestClient.java:292)
+	at co.elastic.clients.transport.rest_client.RestClientHttpClient.performRequest(RestClientHttpClient.java:91)
+	at co.elastic.clients.transport.ElasticsearchTransportBase.performRequest(ElasticsearchTransportBase.java:144)
+	at co.elastic.clients.elasticsearch.ElasticsearchClient.update(ElasticsearchClient.java:2237)
+	at com.cg.docService.elasticsearch.ESClient.updateIndex(ESClient.java:58)
+	at com.cg.docService.canal.handlers.WasteTableHandler.handleUpdate(WasteTableHandler.java:129)
+	at com.cg.docService.canal.handlers.WasteTableHandler.handle(WasteTableHandler.java:55)
+	at com.cg.docService.canal.CanalClientService.processMessage(CanalClientService.java:146)
+	at com.cg.docService.canal.CanalClientService.process(CanalClientService.java:93)
+	at java.base/java.util.concurrent.ThreadPoolExecutor.runWorker(ThreadPoolExecutor.java:1136)
+	at java.base/java.util.concurrent.ThreadPoolExecutor$Worker.run(ThreadPoolExecutor.java:635)
+	at java.base/java.lang.Thread.run(Thread.java:840)
+Caused by: java.util.concurrent.CancellationException: Request execution cancelled
+	at org.apache.http.impl.nio.client.CloseableHttpAsyncClientBase.execute(CloseableHttpAsyncClientBase.java:114)
+	at org.apache.http.impl.nio.client.InternalHttpAsyncClient.execute(InternalHttpAsyncClient.java:138)
+	at org.elasticsearch.client.RestClient.performRequest(RestClient.java:300)
+	... 12 common frames omitted
+
+2025-11-24 11:51:27.352 ERROR 22676 --- [pool-2-thread-1] c.c.docService.canal.CanalClientService  : 处理Canal消息异常，handler: com.cg.docService.canal.handlers.WasteTableHandler
+
+java.lang.RuntimeException: Request execution cancelled
+	at org.elasticsearch.client.RestClient.extractAndWrapCause(RestClient.java:942)
+	at org.elasticsearch.client.RestClient.performRequest(RestClient.java:304)
+	at org.elasticsearch.client.RestClient.performRequest(RestClient.java:292)
+	at co.elastic.clients.transport.rest_client.RestClientHttpClient.performRequest(RestClientHttpClient.java:91)
+	at co.elastic.clients.transport.ElasticsearchTransportBase.performRequest(ElasticsearchTransportBase.java:144)
+	at co.elastic.clients.elasticsearch.ElasticsearchClient.update(ElasticsearchClient.java:2237)
+	at com.cg.docService.elasticsearch.ESClient.updateIndex(ESClient.java:58)
+	at com.cg.docService.canal.handlers.WasteTableHandler.handleUpdate(WasteTableHandler.java:129)
+	at com.cg.docService.canal.handlers.WasteTableHandler.handle(WasteTableHandler.java:55)
+	at com.cg.docService.canal.CanalClientService.processMessage(CanalClientService.java:146)
+	at com.cg.docService.canal.CanalClientService.process(CanalClientService.java:93)
+	at java.base/java.util.concurrent.ThreadPoolExecutor.runWorker(ThreadPoolExecutor.java:1136)
+	at java.base/java.util.concurrent.ThreadPoolExecutor$Worker.run(ThreadPoolExecutor.java:635)
+	at java.base/java.lang.Thread.run(Thread.java:840)
+Caused by: java.util.concurrent.CancellationException: Request execution cancelled
+	at org.apache.http.impl.nio.client.CloseableHttpAsyncClientBase.execute(CloseableHttpAsyncClientBase.java:114)
+	at org.apache.http.impl.nio.client.InternalHttpAsyncClient.execute(InternalHttpAsyncClient.java:138)
+	at org.elasticsearch.client.RestClient.performRequest(RestClient.java:300)
+	... 12 common frames omitted
+
+2025-11-24 11:51:28.369 ERROR 22676 --- [pool-2-thread-1] c.c.docService.canal.CanalClientService  : 处理Canal消息异常，handler: com.cg.docService.canal.handlers.WasteTableHandler
+
+java.lang.RuntimeException: Request execution cancelled
+	at org.elasticsearch.client.RestClient.extractAndWrapCause(RestClient.java:942)
+	at org.elasticsearch.client.RestClient.performRequest(RestClient.java:304)
+	at org.elasticsearch.client.RestClient.performRequest(RestClient.java:292)
+	at co.elastic.clients.transport.rest_client.RestClientHttpClient.performRequest(RestClientHttpClient.java:91)
+	at co.elastic.clients.transport.ElasticsearchTransportBase.performRequest(ElasticsearchTransportBase.java:144)
+	at co.elastic.clients.elasticsearch.ElasticsearchClient.update(ElasticsearchClient.java:2237)
+	at com.cg.docService.elasticsearch.ESClient.updateIndex(ESClient.java:58)
+	at com.cg.docService.canal.handlers.WasteTableHandler.handleUpdate(WasteTableHandler.java:129)
+	at com.cg.docService.canal.handlers.WasteTableHandler.handle(WasteTableHandler.java:55)
+	at com.cg.docService.canal.CanalClientService.processMessage(CanalClientService.java:146)
+	at com.cg.docService.canal.CanalClientService.process(CanalClientService.java:93)
+	at java.base/java.util.concurrent.ThreadPoolExecutor.runWorker(ThreadPoolExecutor.java:1136)
+	at java.base/java.util.concurrent.ThreadPoolExecutor$Worker.run(ThreadPoolExecutor.java:635)
+	at java.base/java.lang.Thread.run(Thread.java:840)
+Caused by: java.util.concurrent.CancellationException: Request execution cancelled
+	at org.apache.http.impl.nio.client.CloseableHttpAsyncClientBase.execute(CloseableHttpAsyncClientBase.java:114)
+	at org.apache.http.impl.nio.client.InternalHttpAsyncClient.execute(InternalHttpAsyncClient.java:138)
+	at org.elasticsearch.client.RestClient.performRequest(RestClient.java:300)
+	... 12 common frames omitted
+
+2025-11-24 11:51:30.398 ERROR 22676 --- [pool-2-thread-1] c.c.docService.canal.CanalClientService  : 处理Canal消息异常，handler: com.cg.docService.canal.handlers.WasteTableHandler
+
+java.lang.RuntimeException: Request execution cancelled
+	at org.elasticsearch.client.RestClient.extractAndWrapCause(RestClient.java:942)
+	at org.elasticsearch.client.RestClient.performRequest(RestClient.java:304)
+	at org.elasticsearch.client.RestClient.performRequest(RestClient.java:292)
+	at co.elastic.clients.transport.rest_client.RestClientHttpClient.performRequest(RestClientHttpClient.java:91)
+	at co.elastic.clients.transport.ElasticsearchTransportBase.performRequest(ElasticsearchTransportBase.java:144)
+	at co.elastic.clients.elasticsearch.ElasticsearchClient.update(ElasticsearchClient.java:2237)
+	at com.cg.docService.elasticsearch.ESClient.updateIndex(ESClient.java:58)
+	at com.cg.docService.canal.handlers.WasteTableHandler.handleUpdate(WasteTableHandler.java:129)
+	at com.cg.docService.canal.handlers.WasteTableHandler.handle(WasteTableHandler.java:55)
+	at com.cg.docService.canal.CanalClientService.processMessage(CanalClientService.java:146)
+	at com.cg.docService.canal.CanalClientService.process(CanalClientService.java:93)
+	at java.base/java.util.concurrent.ThreadPoolExecutor.runWorker(ThreadPoolExecutor.java:1136)
+	at java.base/java.util.concurrent.ThreadPoolExecutor$Worker.run(ThreadPoolExecutor.java:635)
+	at java.base/java.lang.Thread.run(Thread.java:840)
+Caused by: java.util.concurrent.CancellationException: Request execution cancelled
+	at org.apache.http.impl.nio.client.CloseableHttpAsyncClientBase.execute(CloseableHttpAsyncClientBase.java:114)
+	at org.apache.http.impl.nio.client.InternalHttpAsyncClient.execute(InternalHttpAsyncClient.java:138)
+	at org.elasticsearch.client.RestClient.performRequest(RestClient.java:300)
+	... 12 common frames omitted
+
+2025-11-24 11:51:30.399 ERROR 22676 --- [pool-2-thread-1] c.c.docService.canal.CanalClientService  : 处理Canal消息异常，handler: com.cg.docService.canal.handlers.WasteTableHandler
+
+java.lang.RuntimeException: Request execution cancelled
+	at org.elasticsearch.client.RestClient.extractAndWrapCause(RestClient.java:942)
+	at org.elasticsearch.client.RestClient.performRequest(RestClient.java:304)
+	at org.elasticsearch.client.RestClient.performRequest(RestClient.java:292)
+	at co.elastic.clients.transport.rest_client.RestClientHttpClient.performRequest(RestClientHttpClient.java:91)
+	at co.elastic.clients.transport.ElasticsearchTransportBase.performRequest(ElasticsearchTransportBase.java:144)
+	at co.elastic.clients.elasticsearch.ElasticsearchClient.update(ElasticsearchClient.java:2237)
+	at com.cg.docService.elasticsearch.ESClient.updateIndex(ESClient.java:58)
+	at com.cg.docService.canal.handlers.WasteTableHandler.handleUpdate(WasteTableHandler.java:129)
+	at com.cg.docService.canal.handlers.WasteTableHandler.handle(WasteTableHandler.java:55)
+	at com.cg.docService.canal.CanalClientService.processMessage(CanalClientService.java:146)
+	at com.cg.docService.canal.CanalClientService.process(CanalClientService.java:93)
+	at java.base/java.util.concurrent.ThreadPoolExecutor.runWorker(ThreadPoolExecutor.java:1136)
+	at java.base/java.util.concurrent.ThreadPoolExecutor$Worker.run(ThreadPoolExecutor.java:635)
+	at java.base/java.lang.Thread.run(Thread.java:840)
+Caused by: java.util.concurrent.CancellationException: Request execution cancelled
+	at org.apache.http.impl.nio.client.CloseableHttpAsyncClientBase.execute(CloseableHttpAsyncClientBase.java:114)
+	at org.apache.http.impl.nio.client.InternalHttpAsyncClient.execute(InternalHttpAsyncClient.java:138)
+	at org.elasticsearch.client.RestClient.performRequest(RestClient.java:300)
+	... 12 common frames omitted
+
+2025-11-24 11:51:31.412 ERROR 22676 --- [pool-2-thread-1] c.c.docService.canal.CanalClientService  : 处理Canal消息异常，handler: com.cg.docService.canal.handlers.WasteTableHandler
+
+java.lang.RuntimeException: Request execution cancelled
+	at org.elasticsearch.client.RestClient.extractAndWrapCause(RestClient.java:942)
+	at org.elasticsearch.client.RestClient.performRequest(RestClient.java:304)
+	at org.elasticsearch.client.RestClient.performRequest(RestClient.java:292)
+	at co.elastic.clients.transport.rest_client.RestClientHttpClient.performRequest(RestClientHttpClient.java:91)
+	at co.elastic.clients.transport.ElasticsearchTransportBase.performRequest(ElasticsearchTransportBase.java:144)
+	at co.elastic.clients.elasticsearch.ElasticsearchClient.update(ElasticsearchClient.java:2237)
+	at com.cg.docService.elasticsearch.ESClient.updateIndex(ESClient.java:58)
+	at com.cg.docService.canal.handlers.WasteTableHandler.handleUpdate(WasteTableHandler.java:129)
+	at com.cg.docService.canal.handlers.WasteTableHandler.handle(WasteTableHandler.java:55)
+	at com.cg.docService.canal.CanalClientService.processMessage(CanalClientService.java:146)
+	at com.cg.docService.canal.CanalClientService.process(CanalClientService.java:93)
+	at java.base/java.util.concurrent.ThreadPoolExecutor.runWorker(ThreadPoolExecutor.java:1136)
+	at java.base/java.util.concurrent.ThreadPoolExecutor$Worker.run(ThreadPoolExecutor.java:635)
+	at java.base/java.lang.Thread.run(Thread.java:840)
+Caused by: java.util.concurrent.CancellationException: Request execution cancelled
+	at org.apache.http.impl.nio.client.CloseableHttpAsyncClientBase.execute(CloseableHttpAsyncClientBase.java:114)
+	at org.apache.http.impl.nio.client.InternalHttpAsyncClient.execute(InternalHttpAsyncClient.java:138)
+	at org.elasticsearch.client.RestClient.performRequest(RestClient.java:300)
+	... 12 common frames omitted
+
+2025-11-24 11:51:32.416 ERROR 22676 --- [pool-2-thread-1] c.c.docService.canal.CanalClientService  : 处理Canal消息异常，handler: com.cg.docService.canal.handlers.WasteTableHandler
+
+java.lang.RuntimeException: Request execution cancelled
+	at org.elasticsearch.client.RestClient.extractAndWrapCause(RestClient.java:942)
+	at org.elasticsearch.client.RestClient.performRequest(RestClient.java:304)
+	at org.elasticsearch.client.RestClient.performRequest(RestClient.java:292)
+	at co.elastic.clients.transport.rest_client.RestClientHttpClient.performRequest(RestClientHttpClient.java:91)
+	at co.elastic.clients.transport.ElasticsearchTransportBase.performRequest(ElasticsearchTransportBase.java:144)
+	at co.elastic.clients.elasticsearch.ElasticsearchClient.update(ElasticsearchClient.java:2237)
+	at com.cg.docService.elasticsearch.ESClient.updateIndex(ESClient.java:58)
+	at com.cg.docService.canal.handlers.WasteTableHandler.handleUpdate(WasteTableHandler.java:129)
+	at com.cg.docService.canal.handlers.WasteTableHandler.handle(WasteTableHandler.java:55)
+	at com.cg.docService.canal.CanalClientService.processMessage(CanalClientService.java:146)
+	at com.cg.docService.canal.CanalClientService.process(CanalClientService.java:93)
+	at java.base/java.util.concurrent.ThreadPoolExecutor.runWorker(ThreadPoolExecutor.java:1136)
+	at java.base/java.util.concurrent.ThreadPoolExecutor$Worker.run(ThreadPoolExecutor.java:635)
+	at java.base/java.lang.Thread.run(Thread.java:840)
+Caused by: java.util.concurrent.CancellationException: Request execution cancelled
+	at org.apache.http.impl.nio.client.CloseableHttpAsyncClientBase.execute(CloseableHttpAsyncClientBase.java:114)
+	at org.apache.http.impl.nio.client.InternalHttpAsyncClient.execute(InternalHttpAsyncClient.java:138)
+	at org.elasticsearch.client.RestClient.performRequest(RestClient.java:300)
+	... 12 common frames omitted
+
+2025-11-24 11:51:33.421 ERROR 22676 --- [pool-2-thread-1] c.c.docService.canal.CanalClientService  : 处理Canal消息异常，handler: com.cg.docService.canal.handlers.WasteTableHandler
+
+java.lang.RuntimeException: Request execution cancelled
+	at org.elasticsearch.client.RestClient.extractAndWrapCause(RestClient.java:942)
+	at org.elasticsearch.client.RestClient.performRequest(RestClient.java:304)
+	at org.elasticsearch.client.RestClient.performRequest(RestClient.java:292)
+	at co.elastic.clients.transport.rest_client.RestClientHttpClient.performRequest(RestClientHttpClient.java:91)
+	at co.elastic.clients.transport.ElasticsearchTransportBase.performRequest(ElasticsearchTransportBase.java:144)
+	at co.elastic.clients.elasticsearch.ElasticsearchClient.update(ElasticsearchClient.java:2237)
+	at com.cg.docService.elasticsearch.ESClient.updateIndex(ESClient.java:58)
+	at com.cg.docService.canal.handlers.WasteTableHandler.handleUpdate(WasteTableHandler.java:129)
+	at com.cg.docService.canal.handlers.WasteTableHandler.handle(WasteTableHandler.java:55)
+	at com.cg.docService.canal.CanalClientService.processMessage(CanalClientService.java:146)
+	at com.cg.docService.canal.CanalClientService.process(CanalClientService.java:93)
+	at java.base/java.util.concurrent.ThreadPoolExecutor.runWorker(ThreadPoolExecutor.java:1136)
+	at java.base/java.util.concurrent.ThreadPoolExecutor$Worker.run(ThreadPoolExecutor.java:635)
+	at java.base/java.lang.Thread.run(Thread.java:840)
+Caused by: java.util.concurrent.CancellationException: Request execution cancelled
+	at org.apache.http.impl.nio.client.CloseableHttpAsyncClientBase.execute(CloseableHttpAsyncClientBase.java:114)
+	at org.apache.http.impl.nio.client.InternalHttpAsyncClient.execute(InternalHttpAsyncClient.java:138)
+	at org.elasticsearch.client.RestClient.performRequest(RestClient.java:300)
+	... 12 common frames omitted
+
+2025-11-24 11:51:33.422 ERROR 22676 --- [pool-2-thread-1] c.c.docService.canal.CanalClientService  : 处理Canal消息异常，handler: com.cg.docService.canal.handlers.WasteTableHandler
+
+java.lang.RuntimeException: Request execution cancelled
+	at org.elasticsearch.client.RestClient.extractAndWrapCause(RestClient.java:942)
+	at org.elasticsearch.client.RestClient.performRequest(RestClient.java:304)
+	at org.elasticsearch.client.RestClient.performRequest(RestClient.java:292)
+	at co.elastic.clients.transport.rest_client.RestClientHttpClient.performRequest(RestClientHttpClient.java:91)
+	at co.elastic.clients.transport.ElasticsearchTransportBase.performRequest(ElasticsearchTransportBase.java:144)
+	at co.elastic.clients.elasticsearch.ElasticsearchClient.update(ElasticsearchClient.java:2237)
+	at com.cg.docService.elasticsearch.ESClient.updateIndex(ESClient.java:58)
+	at com.cg.docService.canal.handlers.WasteTableHandler.handleUpdate(WasteTableHandler.java:129)
+	at com.cg.docService.canal.handlers.WasteTableHandler.handle(WasteTableHandler.java:55)
+	at com.cg.docService.canal.CanalClientService.processMessage(CanalClientService.java:146)
+	at com.cg.docService.canal.CanalClientService.process(CanalClientService.java:93)
+	at java.base/java.util.concurrent.ThreadPoolExecutor.runWorker(ThreadPoolExecutor.java:1136)
+	at java.base/java.util.concurrent.ThreadPoolExecutor$Worker.run(ThreadPoolExecutor.java:635)
+	at java.base/java.lang.Thread.run(Thread.java:840)
+Caused by: java.util.concurrent.CancellationException: Request execution cancelled
+	at org.apache.http.impl.nio.client.CloseableHttpAsyncClientBase.execute(CloseableHttpAsyncClientBase.java:114)
+	at org.apache.http.impl.nio.client.InternalHttpAsyncClient.execute(InternalHttpAsyncClient.java:138)
+	at org.elasticsearch.client.RestClient.performRequest(RestClient.java:300)
+	... 12 common frames omitted
+
+2025-11-24 11:51:35.449 ERROR 22676 --- [pool-2-thread-1] c.c.docService.canal.CanalClientService  : 处理Canal消息异常，handler: com.cg.docService.canal.handlers.WasteTableHandler
+
+java.lang.RuntimeException: Request execution cancelled
+	at org.elasticsearch.client.RestClient.extractAndWrapCause(RestClient.java:942)
+	at org.elasticsearch.client.RestClient.performRequest(RestClient.java:304)
+	at org.elasticsearch.client.RestClient.performRequest(RestClient.java:292)
+	at co.elastic.clients.transport.rest_client.RestClientHttpClient.performRequest(RestClientHttpClient.java:91)
+	at co.elastic.clients.transport.ElasticsearchTransportBase.performRequest(ElasticsearchTransportBase.java:144)
+	at co.elastic.clients.elasticsearch.ElasticsearchClient.update(ElasticsearchClient.java:2237)
+	at com.cg.docService.elasticsearch.ESClient.updateIndex(ESClient.java:58)
+	at com.cg.docService.canal.handlers.WasteTableHandler.handleUpdate(WasteTableHandler.java:129)
+	at com.cg.docService.canal.handlers.WasteTableHandler.handle(WasteTableHandler.java:55)
+	at com.cg.docService.canal.CanalClientService.processMessage(CanalClientService.java:146)
+	at com.cg.docService.canal.CanalClientService.process(CanalClientService.java:93)
+	at java.base/java.util.concurrent.ThreadPoolExecutor.runWorker(ThreadPoolExecutor.java:1136)
+	at java.base/java.util.concurrent.ThreadPoolExecutor$Worker.run(ThreadPoolExecutor.java:635)
+	at java.base/java.lang.Thread.run(Thread.java:840)
+Caused by: java.util.concurrent.CancellationException: Request execution cancelled
+	at org.apache.http.impl.nio.client.CloseableHttpAsyncClientBase.execute(CloseableHttpAsyncClientBase.java:114)
+	at org.apache.http.impl.nio.client.InternalHttpAsyncClient.execute(InternalHttpAsyncClient.java:138)
+	at org.elasticsearch.client.RestClient.performRequest(RestClient.java:300)
+	... 12 common frames omitted
+
+2025-11-24 11:51:37.457 ERROR 22676 --- [pool-2-thread-1] c.c.docService.canal.CanalClientService  : 处理Canal消息异常，handler: com.cg.docService.canal.handlers.WasteTableHandler
+
+java.lang.RuntimeException: Request execution cancelled
+	at org.elasticsearch.client.RestClient.extractAndWrapCause(RestClient.java:942)
+	at org.elasticsearch.client.RestClient.performRequest(RestClient.java:304)
+	at org.elasticsearch.client.RestClient.performRequest(RestClient.java:292)
+	at co.elastic.clients.transport.rest_client.RestClientHttpClient.performRequest(RestClientHttpClient.java:91)
+	at co.elastic.clients.transport.ElasticsearchTransportBase.performRequest(ElasticsearchTransportBase.java:144)
+	at co.elastic.clients.elasticsearch.ElasticsearchClient.update(ElasticsearchClient.java:2237)
+	at com.cg.docService.elasticsearch.ESClient.updateIndex(ESClient.java:58)
+	at com.cg.docService.canal.handlers.WasteTableHandler.handleUpdate(WasteTableHandler.java:129)
+	at com.cg.docService.canal.handlers.WasteTableHandler.handle(WasteTableHandler.java:55)
+	at com.cg.docService.canal.CanalClientService.processMessage(CanalClientService.java:146)
+	at com.cg.docService.canal.CanalClientService.process(CanalClientService.java:93)
+	at java.base/java.util.concurrent.ThreadPoolExecutor.runWorker(ThreadPoolExecutor.java:1136)
+	at java.base/java.util.concurrent.ThreadPoolExecutor$Worker.run(ThreadPoolExecutor.java:635)
+	at java.base/java.lang.Thread.run(Thread.java:840)
+Caused by: java.util.concurrent.CancellationException: Request execution cancelled
+	at org.apache.http.impl.nio.client.CloseableHttpAsyncClientBase.execute(CloseableHttpAsyncClientBase.java:114)
+	at org.apache.http.impl.nio.client.InternalHttpAsyncClient.execute(InternalHttpAsyncClient.java:138)
+	at org.elasticsearch.client.RestClient.performRequest(RestClient.java:300)
+	... 12 common frames omitted
+
+2025-11-24 11:51:37.458 ERROR 22676 --- [pool-2-thread-1] c.c.docService.canal.CanalClientService  : 处理Canal消息异常，handler: com.cg.docService.canal.handlers.WasteTableHandler
+
+java.lang.RuntimeException: Request execution cancelled
+	at org.elasticsearch.client.RestClient.extractAndWrapCause(RestClient.java:942)
+	at org.elasticsearch.client.RestClient.performRequest(RestClient.java:304)
+	at org.elasticsearch.client.RestClient.performRequest(RestClient.java:292)
+	at co.elastic.clients.transport.rest_client.RestClientHttpClient.performRequest(RestClientHttpClient.java:91)
+	at co.elastic.clients.transport.ElasticsearchTransportBase.performRequest(ElasticsearchTransportBase.java:144)
+	at co.elastic.clients.elasticsearch.ElasticsearchClient.update(ElasticsearchClient.java:2237)
+	at com.cg.docService.elasticsearch.ESClient.updateIndex(ESClient.java:58)
+	at com.cg.docService.canal.handlers.WasteTableHandler.handleUpdate(WasteTableHandler.java:129)
+	at com.cg.docService.canal.handlers.WasteTableHandler.handle(WasteTableHandler.java:55)
+	at com.cg.docService.canal.CanalClientService.processMessage(CanalClientService.java:146)
+	at com.cg.docService.canal.CanalClientService.process(CanalClientService.java:93)
+	at java.base/java.util.concurrent.ThreadPoolExecutor.runWorker(ThreadPoolExecutor.java:1136)
+	at java.base/java.util.concurrent.ThreadPoolExecutor$Worker.run(ThreadPoolExecutor.java:635)
+	at java.base/java.lang.Thread.run(Thread.java:840)
+Caused by: java.util.concurrent.CancellationException: Request execution cancelled
+	at org.apache.http.impl.nio.client.CloseableHttpAsyncClientBase.execute(CloseableHttpAsyncClientBase.java:114)
+	at org.apache.http.impl.nio.client.InternalHttpAsyncClient.execute(InternalHttpAsyncClient.java:138)
+	at org.elasticsearch.client.RestClient.performRequest(RestClient.java:300)
+	... 12 common frames omitted
+
+2025-11-24 11:51:39.485 ERROR 22676 --- [pool-2-thread-1] c.c.docService.canal.CanalClientService  : 处理Canal消息异常，handler: com.cg.docService.canal.handlers.WasteTableHandler
+
+java.lang.RuntimeException: Request execution cancelled
+	at org.elasticsearch.client.RestClient.extractAndWrapCause(RestClient.java:942)
+	at org.elasticsearch.client.RestClient.performRequest(RestClient.java:304)
+	at org.elasticsearch.client.RestClient.performRequest(RestClient.java:292)
+	at co.elastic.clients.transport.rest_client.RestClientHttpClient.performRequest(RestClientHttpClient.java:91)
+	at co.elastic.clients.transport.ElasticsearchTransportBase.performRequest(ElasticsearchTransportBase.java:144)
+	at co.elastic.clients.elasticsearch.ElasticsearchClient.update(ElasticsearchClient.java:2237)
+	at com.cg.docService.elasticsearch.ESClient.updateIndex(ESClient.java:58)
+	at com.cg.docService.canal.handlers.WasteTableHandler.handleUpdate(WasteTableHandler.java:129)
+	at com.cg.docService.canal.handlers.WasteTableHandler.handle(WasteTableHandler.java:55)
+	at com.cg.docService.canal.CanalClientService.processMessage(CanalClientService.java:146)
+	at com.cg.docService.canal.CanalClientService.process(CanalClientService.java:93)
+	at java.base/java.util.concurrent.ThreadPoolExecutor.runWorker(ThreadPoolExecutor.java:1136)
+	at java.base/java.util.concurrent.ThreadPoolExecutor$Worker.run(ThreadPoolExecutor.java:635)
+	at java.base/java.lang.Thread.run(Thread.java:840)
+Caused by: java.util.concurrent.CancellationException: Request execution cancelled
+	at org.apache.http.impl.nio.client.CloseableHttpAsyncClientBase.execute(CloseableHttpAsyncClientBase.java:114)
+	at org.apache.http.impl.nio.client.InternalHttpAsyncClient.execute(InternalHttpAsyncClient.java:138)
+	at org.elasticsearch.client.RestClient.performRequest(RestClient.java:300)
+	... 12 common frames omitted
+
+2025-11-24 11:51:39.485 ERROR 22676 --- [pool-2-thread-1] c.c.docService.canal.CanalClientService  : 处理Canal消息异常，handler: com.cg.docService.canal.handlers.WasteTableHandler
+
+java.lang.RuntimeException: Request execution cancelled
+	at org.elasticsearch.client.RestClient.extractAndWrapCause(RestClient.java:942)
+	at org.elasticsearch.client.RestClient.performRequest(RestClient.java:304)
+	at org.elasticsearch.client.RestClient.performRequest(RestClient.java:292)
+	at co.elastic.clients.transport.rest_client.RestClientHttpClient.performRequest(RestClientHttpClient.java:91)
+	at co.elastic.clients.transport.ElasticsearchTransportBase.performRequest(ElasticsearchTransportBase.java:144)
+	at co.elastic.clients.elasticsearch.ElasticsearchClient.update(ElasticsearchClient.java:2237)
+	at com.cg.docService.elasticsearch.ESClient.updateIndex(ESClient.java:58)
+	at com.cg.docService.canal.handlers.WasteTableHandler.handleUpdate(WasteTableHandler.java:129)
+	at com.cg.docService.canal.handlers.WasteTableHandler.handle(WasteTableHandler.java:55)
+	at com.cg.docService.canal.CanalClientService.processMessage(CanalClientService.java:146)
+	at com.cg.docService.canal.CanalClientService.process(CanalClientService.java:93)
+	at java.base/java.util.concurrent.ThreadPoolExecutor.runWorker(ThreadPoolExecutor.java:1136)
+	at java.base/java.util.concurrent.ThreadPoolExecutor$Worker.run(ThreadPoolExecutor.java:635)
+	at java.base/java.lang.Thread.run(Thread.java:840)
+Caused by: java.util.concurrent.CancellationException: Request execution cancelled
+	at org.apache.http.impl.nio.client.CloseableHttpAsyncClientBase.execute(CloseableHttpAsyncClientBase.java:114)
+	at org.apache.http.impl.nio.client.InternalHttpAsyncClient.execute(InternalHttpAsyncClient.java:138)
+	at org.elasticsearch.client.RestClient.performRequest(RestClient.java:300)
+	... 12 common frames omitted
+
+2025-11-24 11:51:44.510 ERROR 22676 --- [pool-2-thread-1] c.c.docService.canal.CanalClientService  : 处理Canal消息异常，handler: com.cg.docService.canal.handlers.WasteTableHandler
+
+java.lang.RuntimeException: Request execution cancelled
+	at org.elasticsearch.client.RestClient.extractAndWrapCause(RestClient.java:942)
+	at org.elasticsearch.client.RestClient.performRequest(RestClient.java:304)
+	at org.elasticsearch.client.RestClient.performRequest(RestClient.java:292)
+	at co.elastic.clients.transport.rest_client.RestClientHttpClient.performRequest(RestClientHttpClient.java:91)
+	at co.elastic.clients.transport.ElasticsearchTransportBase.performRequest(ElasticsearchTransportBase.java:144)
+	at co.elastic.clients.elasticsearch.ElasticsearchClient.update(ElasticsearchClient.java:2237)
+	at com.cg.docService.elasticsearch.ESClient.updateIndex(ESClient.java:58)
+	at com.cg.docService.canal.handlers.WasteTableHandler.handleUpdate(WasteTableHandler.java:129)
+	at com.cg.docService.canal.handlers.WasteTableHandler.handle(WasteTableHandler.java:55)
+	at com.cg.docService.canal.CanalClientService.processMessage(CanalClientService.java:146)
+	at com.cg.docService.canal.CanalClientService.process(CanalClientService.java:93)
+	at java.base/java.util.concurrent.ThreadPoolExecutor.runWorker(ThreadPoolExecutor.java:1136)
+	at java.base/java.util.concurrent.ThreadPoolExecutor$Worker.run(ThreadPoolExecutor.java:635)
+	at java.base/java.lang.Thread.run(Thread.java:840)
+Caused by: java.util.concurrent.CancellationException: Request execution cancelled
+	at org.apache.http.impl.nio.client.CloseableHttpAsyncClientBase.execute(CloseableHttpAsyncClientBase.java:114)
+	at org.apache.http.impl.nio.client.InternalHttpAsyncClient.execute(InternalHttpAsyncClient.java:138)
+	at org.elasticsearch.client.RestClient.performRequest(RestClient.java:300)
+	... 12 common frames omitted
+
+2025-11-24 11:51:45.513 ERROR 22676 --- [pool-2-thread-1] c.c.docService.canal.CanalClientService  : 处理Canal消息异常，handler: com.cg.docService.canal.handlers.WasteTableHandler
+
+java.lang.RuntimeException: Request execution cancelled
+	at org.elasticsearch.client.RestClient.extractAndWrapCause(RestClient.java:942)
+	at org.elasticsearch.client.RestClient.performRequest(RestClient.java:304)
+	at org.elasticsearch.client.RestClient.performRequest(RestClient.java:292)
+	at co.elastic.clients.transport.rest_client.RestClientHttpClient.performRequest(RestClientHttpClient.java:91)
+	at co.elastic.clients.transport.ElasticsearchTransportBase.performRequest(ElasticsearchTransportBase.java:144)
+	at co.elastic.clients.elasticsearch.ElasticsearchClient.update(ElasticsearchClient.java:2237)
+	at com.cg.docService.elasticsearch.ESClient.updateIndex(ESClient.java:58)
+	at com.cg.docService.canal.handlers.WasteTableHandler.handleUpdate(WasteTableHandler.java:129)
+	at com.cg.docService.canal.handlers.WasteTableHandler.handle(WasteTableHandler.java:55)
+	at com.cg.docService.canal.CanalClientService.processMessage(CanalClientService.java:146)
+	at com.cg.docService.canal.CanalClientService.process(CanalClientService.java:93)
+	at java.base/java.util.concurrent.ThreadPoolExecutor.runWorker(ThreadPoolExecutor.java:1136)
+	at java.base/java.util.concurrent.ThreadPoolExecutor$Worker.run(ThreadPoolExecutor.java:635)
+	at java.base/java.lang.Thread.run(Thread.java:840)
+Caused by: java.util.concurrent.CancellationException: Request execution cancelled
+	at org.apache.http.impl.nio.client.CloseableHttpAsyncClientBase.execute(CloseableHttpAsyncClientBase.java:114)
+	at org.apache.http.impl.nio.client.InternalHttpAsyncClient.execute(InternalHttpAsyncClient.java:138)
+	at org.elasticsearch.client.RestClient.performRequest(RestClient.java:300)
+	... 12 common frames omitted
+
+2025-11-24 11:51:59.630 ERROR 22676 --- [pool-2-thread-1] c.c.docService.canal.CanalClientService  : 处理Canal消息异常，handler: com.cg.docService.canal.handlers.WasteTableHandler
+
+java.lang.RuntimeException: Request execution cancelled
+	at org.elasticsearch.client.RestClient.extractAndWrapCause(RestClient.java:942)
+	at org.elasticsearch.client.RestClient.performRequest(RestClient.java:304)
+	at org.elasticsearch.client.RestClient.performRequest(RestClient.java:292)
+	at co.elastic.clients.transport.rest_client.RestClientHttpClient.performRequest(RestClientHttpClient.java:91)
+	at co.elastic.clients.transport.ElasticsearchTransportBase.performRequest(ElasticsearchTransportBase.java:144)
+	at co.elastic.clients.elasticsearch.ElasticsearchClient.update(ElasticsearchClient.java:2237)
+	at com.cg.docService.elasticsearch.ESClient.updateIndex(ESClient.java:58)
+	at com.cg.docService.canal.handlers.WasteTableHandler.handleUpdate(WasteTableHandler.java:129)
+	at com.cg.docService.canal.handlers.WasteTableHandler.handle(WasteTableHandler.java:55)
+	at com.cg.docService.canal.CanalClientService.processMessage(CanalClientService.java:146)
+	at com.cg.docService.canal.CanalClientService.process(CanalClientService.java:93)
+	at java.base/java.util.concurrent.ThreadPoolExecutor.runWorker(ThreadPoolExecutor.java:1136)
+	at java.base/java.util.concurrent.ThreadPoolExecutor$Worker.run(ThreadPoolExecutor.java:635)
+	at java.base/java.lang.Thread.run(Thread.java:840)
+Caused by: java.util.concurrent.CancellationException: Request execution cancelled
+	at org.apache.http.impl.nio.client.CloseableHttpAsyncClientBase.execute(CloseableHttpAsyncClientBase.java:114)
+	at org.apache.http.impl.nio.client.InternalHttpAsyncClient.execute(InternalHttpAsyncClient.java:138)
+	at org.elasticsearch.client.RestClient.performRequest(RestClient.java:300)
+	... 12 common frames omitted
+
+2025-11-24 12:06:20.637 ERROR 23024 --- [pool-2-thread-1] c.c.docService.canal.CanalClientService  : 处理Canal消息异常，handler: com.cg.docService.canal.handlers.WasteTableHandler
+
+java.lang.RuntimeException: Request execution cancelled
+	at org.elasticsearch.client.RestClient.extractAndWrapCause(RestClient.java:942)
+	at org.elasticsearch.client.RestClient.performRequest(RestClient.java:304)
+	at org.elasticsearch.client.RestClient.performRequest(RestClient.java:292)
+	at co.elastic.clients.transport.rest_client.RestClientHttpClient.performRequest(RestClientHttpClient.java:91)
+	at co.elastic.clients.transport.ElasticsearchTransportBase.performRequest(ElasticsearchTransportBase.java:144)
+	at co.elastic.clients.elasticsearch.ElasticsearchClient.update(ElasticsearchClient.java:2237)
+	at com.cg.docService.elasticsearch.ESClient.updateIndex(ESClient.java:58)
+	at com.cg.docService.canal.handlers.WasteTableHandler.handleUpdate(WasteTableHandler.java:129)
+	at com.cg.docService.canal.handlers.WasteTableHandler.handle(WasteTableHandler.java:55)
+	at com.cg.docService.canal.CanalClientService.processMessage(CanalClientService.java:146)
+	at com.cg.docService.canal.CanalClientService.process(CanalClientService.java:93)
+	at java.base/java.util.concurrent.ThreadPoolExecutor.runWorker(ThreadPoolExecutor.java:1136)
+	at java.base/java.util.concurrent.ThreadPoolExecutor$Worker.run(ThreadPoolExecutor.java:635)
+	at java.base/java.lang.Thread.run(Thread.java:840)
+Caused by: java.util.concurrent.CancellationException: Request execution cancelled
+	at org.apache.http.impl.nio.client.CloseableHttpAsyncClientBase.execute(CloseableHttpAsyncClientBase.java:114)
+	at org.apache.http.impl.nio.client.InternalHttpAsyncClient.execute(InternalHttpAsyncClient.java:138)
+	at org.elasticsearch.client.RestClient.performRequest(RestClient.java:300)
+	... 12 common frames omitted
+
+2025-11-24 12:06:31.666 ERROR 23024 --- [pool-5-thread-1] c.c.docService.canal.CanalClientService  : 处理Canal消息异常，handler: com.cg.docService.canal.handlers.WasteTableHandler
+
+java.lang.RuntimeException: Request execution cancelled
+	at org.elasticsearch.client.RestClient.extractAndWrapCause(RestClient.java:942)
+	at org.elasticsearch.client.RestClient.performRequest(RestClient.java:304)
+	at org.elasticsearch.client.RestClient.performRequest(RestClient.java:292)
+	at co.elastic.clients.transport.rest_client.RestClientHttpClient.performRequest(RestClientHttpClient.java:91)
+	at co.elastic.clients.transport.ElasticsearchTransportBase.performRequest(ElasticsearchTransportBase.java:144)
+	at co.elastic.clients.elasticsearch.ElasticsearchClient.update(ElasticsearchClient.java:2237)
+	at com.cg.docService.elasticsearch.ESClient.updateIndex(ESClient.java:58)
+	at com.cg.docService.canal.handlers.WasteTableHandler.handleUpdate(WasteTableHandler.java:129)
+	at com.cg.docService.canal.handlers.WasteTableHandler.handle(WasteTableHandler.java:55)
+	at com.cg.docService.canal.CanalClientService.processMessage(CanalClientService.java:146)
+	at com.cg.docService.canal.CanalClientService.process(CanalClientService.java:93)
+	at java.base/java.util.concurrent.ThreadPoolExecutor.runWorker(ThreadPoolExecutor.java:1136)
+	at java.base/java.util.concurrent.ThreadPoolExecutor$Worker.run(ThreadPoolExecutor.java:635)
+	at java.base/java.lang.Thread.run(Thread.java:840)
+Caused by: java.util.concurrent.CancellationException: Request execution cancelled
+	at org.apache.http.impl.nio.client.CloseableHttpAsyncClientBase.execute(CloseableHttpAsyncClientBase.java:114)
+	at org.apache.http.impl.nio.client.InternalHttpAsyncClient.execute(InternalHttpAsyncClient.java:138)
+	at org.elasticsearch.client.RestClient.performRequest(RestClient.java:300)
+	... 12 common frames omitted
+
+2025-11-24 13:15:54.635 ERROR 1936 --- [  restartedMain] o.s.b.d.LoggingFailureAnalysisReporter   : 
+
+***************************
+APPLICATION FAILED TO START
+***************************
+
+Description:
+
+Field esClient in com.cg.docService.canal.handlers.WasteTableHandler required a bean of type 'com.cg.docService.elasticsearch.ESClient' that could not be found.
+
+The injection point has the following annotations:
+	- @org.springframework.beans.factory.annotation.Autowired(required=true)
+
+
+Action:
+
+Consider defining a bean of type 'com.cg.docService.elasticsearch.ESClient' in your configuration.
+
+2025-11-24 13:38:51.980 ERROR 1936 --- [  restartedMain] o.s.boot.SpringApplication               : Application run failed
+
+org.springframework.beans.factory.UnsatisfiedDependencyException: Error creating bean with name 'recycleSystemApplication': Unsatisfied dependency expressed through field 'canalClientService': Error creating bean with name 'canalClientService' defined in file [F:\IDEA_workspasce\recycle_system\target\classes\com\cg\docService\canal\CanalClientService.class]: Unsatisfied dependency expressed through constructor parameter 1: Error creating bean with name 'wasteTableHandler' defined in file [F:\IDEA_workspasce\recycle_system\target\classes\com\cg\docService\canal\handlers\WasteTableHandler.class]: Post-processing of merged bean definition failed
+	at org.springframework.beans.factory.annotation.AutowiredAnnotationBeanPostProcessor$AutowiredFieldElement.resolveFieldValue(AutowiredAnnotationBeanPostProcessor.java:788)
+	at org.springframework.beans.factory.annotation.AutowiredAnnotationBeanPostProcessor$AutowiredFieldElement.inject(AutowiredAnnotationBeanPostProcessor.java:768)
+	at org.springframework.beans.factory.annotation.InjectionMetadata.inject(InjectionMetadata.java:145)
+	at org.springframework.beans.factory.annotation.AutowiredAnnotationBeanPostProcessor.postProcessProperties(AutowiredAnnotationBeanPostProcessor.java:509)
+	at org.springframework.beans.factory.support.AbstractAutowireCapableBeanFactory.populateBean(AbstractAutowireCapableBeanFactory.java:1439)
+	at org.springframework.beans.factory.support.AbstractAutowireCapableBeanFactory.doCreateBean(AbstractAutowireCapableBeanFactory.java:599)
+	at org.springframework.beans.factory.support.AbstractAutowireCapableBeanFactory.createBean(AbstractAutowireCapableBeanFactory.java:522)
+	at org.springframework.beans.factory.support.AbstractBeanFactory.lambda$doGetBean$0(AbstractBeanFactory.java:337)
+	at org.springframework.beans.factory.support.DefaultSingletonBeanRegistry.getSingleton(DefaultSingletonBeanRegistry.java:234)
+	at org.springframework.beans.factory.support.AbstractBeanFactory.doGetBean(AbstractBeanFactory.java:335)
+	at org.springframework.beans.factory.support.AbstractBeanFactory.getBean(AbstractBeanFactory.java:200)
+	at org.springframework.beans.factory.support.DefaultListableBeanFactory.preInstantiateSingletons(DefaultListableBeanFactory.java:975)
+	at org.springframework.context.support.AbstractApplicationContext.finishBeanFactoryInitialization(AbstractApplicationContext.java:971)
+	at org.springframework.context.support.AbstractApplicationContext.refresh(AbstractApplicationContext.java:625)
+	at org.springframework.boot.web.servlet.context.ServletWebServerApplicationContext.refresh(ServletWebServerApplicationContext.java:146)
+	at org.springframework.boot.SpringApplication.refresh(SpringApplication.java:754)
+	at org.springframework.boot.SpringApplication.refreshContext(SpringApplication.java:456)
+	at org.springframework.boot.SpringApplication.run(SpringApplication.java:335)
+	at org.springframework.boot.SpringApplication.run(SpringApplication.java:1363)
+	at org.springframework.boot.SpringApplication.run(SpringApplication.java:1352)
+	at com.cg.RecycleSystemApplication.main(RecycleSystemApplication.java:24)
+	at java.base/jdk.internal.reflect.NativeMethodAccessorImpl.invoke0(Native Method)
+	at java.base/jdk.internal.reflect.NativeMethodAccessorImpl.invoke(NativeMethodAccessorImpl.java:77)
+	at java.base/jdk.internal.reflect.DelegatingMethodAccessorImpl.invoke(DelegatingMethodAccessorImpl.java:43)
+	at java.base/java.lang.reflect.Method.invoke(Method.java:568)
+	at org.springframework.boot.devtools.restart.RestartLauncher.run(RestartLauncher.java:50)
+Caused by: org.springframework.beans.factory.UnsatisfiedDependencyException: Error creating bean with name 'canalClientService' defined in file [F:\IDEA_workspasce\recycle_system\target\classes\com\cg\docService\canal\CanalClientService.class]: Unsatisfied dependency expressed through constructor parameter 1: Error creating bean with name 'wasteTableHandler' defined in file [F:\IDEA_workspasce\recycle_system\target\classes\com\cg\docService\canal\handlers\WasteTableHandler.class]: Post-processing of merged bean definition failed
+	at org.springframework.beans.factory.support.ConstructorResolver.createArgumentArray(ConstructorResolver.java:795)
+	at org.springframework.beans.factory.support.ConstructorResolver.autowireConstructor(ConstructorResolver.java:237)
+	at org.springframework.beans.factory.support.AbstractAutowireCapableBeanFactory.autowireConstructor(AbstractAutowireCapableBeanFactory.java:1375)
+	at org.springframework.beans.factory.support.AbstractAutowireCapableBeanFactory.createBeanInstance(AbstractAutowireCapableBeanFactory.java:1212)
+	at org.springframework.beans.factory.support.AbstractAutowireCapableBeanFactory.doCreateBean(AbstractAutowireCapableBeanFactory.java:562)
+	at org.springframework.beans.factory.support.AbstractAutowireCapableBeanFactory.createBean(AbstractAutowireCapableBeanFactory.java:522)
+	at org.springframework.beans.factory.support.AbstractBeanFactory.lambda$doGetBean$0(AbstractBeanFactory.java:337)
+	at org.springframework.beans.factory.support.DefaultSingletonBeanRegistry.getSingleton(DefaultSingletonBeanRegistry.java:234)
+	at org.springframework.beans.factory.support.AbstractBeanFactory.doGetBean(AbstractBeanFactory.java:335)
+	at org.springframework.beans.factory.support.AbstractBeanFactory.getBean(AbstractBeanFactory.java:200)
+	at org.springframework.beans.factory.config.DependencyDescriptor.resolveCandidate(DependencyDescriptor.java:254)
+	at org.springframework.beans.factory.support.DefaultListableBeanFactory.doResolveDependency(DefaultListableBeanFactory.java:1443)
+	at org.springframework.beans.factory.support.DefaultListableBeanFactory.resolveDependency(DefaultListableBeanFactory.java:1353)
+	at org.springframework.beans.factory.annotation.AutowiredAnnotationBeanPostProcessor$AutowiredFieldElement.resolveFieldValue(AutowiredAnnotationBeanPostProcessor.java:785)
+	... 25 common frames omitted
+Caused by: org.springframework.beans.factory.BeanCreationException: Error creating bean with name 'wasteTableHandler' defined in file [F:\IDEA_workspasce\recycle_system\target\classes\com\cg\docService\canal\handlers\WasteTableHandler.class]: Post-processing of merged bean definition failed
+	at org.springframework.beans.factory.support.AbstractAutowireCapableBeanFactory.doCreateBean(AbstractAutowireCapableBeanFactory.java:577)
+	at org.springframework.beans.factory.support.AbstractAutowireCapableBeanFactory.createBean(AbstractAutowireCapableBeanFactory.java:522)
+	at org.springframework.beans.factory.support.AbstractBeanFactory.lambda$doGetBean$0(AbstractBeanFactory.java:337)
+	at org.springframework.beans.factory.support.DefaultSingletonBeanRegistry.getSingleton(DefaultSingletonBeanRegistry.java:234)
+	at org.springframework.beans.factory.support.AbstractBeanFactory.doGetBean(AbstractBeanFactory.java:335)
+	at org.springframework.beans.factory.support.AbstractBeanFactory.getBean(AbstractBeanFactory.java:200)
+	at org.springframework.beans.factory.config.DependencyDescriptor.resolveCandidate(DependencyDescriptor.java:254)
+	at org.springframework.beans.factory.support.DefaultListableBeanFactory.addCandidateEntry(DefaultListableBeanFactory.java:1689)
+	at org.springframework.beans.factory.support.DefaultListableBeanFactory.findAutowireCandidates(DefaultListableBeanFactory.java:1653)
+	at org.springframework.beans.factory.support.DefaultListableBeanFactory.resolveMultipleBeanCollection(DefaultListableBeanFactory.java:1543)
+	at org.springframework.beans.factory.support.DefaultListableBeanFactory.resolveMultipleBeans(DefaultListableBeanFactory.java:1511)
+	at org.springframework.beans.factory.support.DefaultListableBeanFactory.doResolveDependency(DefaultListableBeanFactory.java:1392)
+	at org.springframework.beans.factory.support.DefaultListableBeanFactory.resolveDependency(DefaultListableBeanFactory.java:1353)
+	at org.springframework.beans.factory.support.ConstructorResolver.resolveAutowiredArgument(ConstructorResolver.java:904)
+	at org.springframework.beans.factory.support.ConstructorResolver.createArgumentArray(ConstructorResolver.java:782)
+	... 38 common frames omitted
+Caused by: java.lang.IllegalStateException: Failed to introspect Class [com.cg.docService.canal.handlers.WasteTableHandler] from ClassLoader [org.springframework.boot.devtools.restart.classloader.RestartClassLoader@30d5ef3d]
+	at org.springframework.util.ReflectionUtils.getDeclaredFields(ReflectionUtils.java:757)
+	at org.springframework.util.ReflectionUtils.doWithLocalFields(ReflectionUtils.java:689)
+	at org.springframework.context.annotation.CommonAnnotationBeanPostProcessor.buildResourceMetadata(CommonAnnotationBeanPostProcessor.java:431)
+	at org.springframework.context.annotation.CommonAnnotationBeanPostProcessor.findResourceMetadata(CommonAnnotationBeanPostProcessor.java:412)
+	at org.springframework.context.annotation.CommonAnnotationBeanPostProcessor.postProcessMergedBeanDefinition(CommonAnnotationBeanPostProcessor.java:312)
+	at org.springframework.beans.factory.support.AbstractAutowireCapableBeanFactory.applyMergedBeanDefinitionPostProcessors(AbstractAutowireCapableBeanFactory.java:1103)
+	at org.springframework.beans.factory.support.AbstractAutowireCapableBeanFactory.doCreateBean(AbstractAutowireCapableBeanFactory.java:574)
+	... 52 common frames omitted
+Caused by: java.lang.NoClassDefFoundError: com/cg/docService/elasticsearch/ESClient
+	at java.base/java.lang.Class.getDeclaredFields0(Native Method)
+	at java.base/java.lang.Class.privateGetDeclaredFields(Class.java:3297)
+	at java.base/java.lang.Class.getDeclaredFields(Class.java:2371)
+	at org.springframework.util.ReflectionUtils.getDeclaredFields(ReflectionUtils.java:752)
+	... 58 common frames omitted
+Caused by: java.lang.ClassNotFoundException: com.cg.docService.elasticsearch.ESClient
+	at java.base/jdk.internal.loader.BuiltinClassLoader.loadClass(BuiltinClassLoader.java:641)
+	at java.base/jdk.internal.loader.ClassLoaders$AppClassLoader.loadClass(ClassLoaders.java:188)
+	at java.base/java.lang.ClassLoader.loadClass(ClassLoader.java:525)
+	at java.base/java.lang.Class.forName0(Native Method)
+	at java.base/java.lang.Class.forName(Class.java:467)
+	at org.springframework.boot.devtools.restart.classloader.RestartClassLoader.loadClass(RestartClassLoader.java:121)
+	at java.base/java.lang.ClassLoader.loadClass(ClassLoader.java:525)
+	... 62 common frames omitted
+
+2025-11-24 13:59:51.266 ERROR 1936 --- [  restartedMain] o.s.boot.SpringApplication               : Application run failed
+
+org.springframework.beans.factory.UnsatisfiedDependencyException: Error creating bean with name 'recycleSystemApplication': Unsatisfied dependency expressed through field 'canalClientService': Error creating bean with name 'canalClientService' defined in file [F:\IDEA_workspasce\recycle_system\target\classes\com\cg\docService\canal\CanalClientService.class]: Unsatisfied dependency expressed through constructor parameter 1: Error creating bean with name 'wasteTableHandler' defined in file [F:\IDEA_workspasce\recycle_system\target\classes\com\cg\docService\canal\handlers\WasteTableHandler.class]: Post-processing of merged bean definition failed
+	at org.springframework.beans.factory.annotation.AutowiredAnnotationBeanPostProcessor$AutowiredFieldElement.resolveFieldValue(AutowiredAnnotationBeanPostProcessor.java:788)
+	at org.springframework.beans.factory.annotation.AutowiredAnnotationBeanPostProcessor$AutowiredFieldElement.inject(AutowiredAnnotationBeanPostProcessor.java:768)
+	at org.springframework.beans.factory.annotation.InjectionMetadata.inject(InjectionMetadata.java:145)
+	at org.springframework.beans.factory.annotation.AutowiredAnnotationBeanPostProcessor.postProcessProperties(AutowiredAnnotationBeanPostProcessor.java:509)
+	at org.springframework.beans.factory.support.AbstractAutowireCapableBeanFactory.populateBean(AbstractAutowireCapableBeanFactory.java:1439)
+	at org.springframework.beans.factory.support.AbstractAutowireCapableBeanFactory.doCreateBean(AbstractAutowireCapableBeanFactory.java:599)
+	at org.springframework.beans.factory.support.AbstractAutowireCapableBeanFactory.createBean(AbstractAutowireCapableBeanFactory.java:522)
+	at org.springframework.beans.factory.support.AbstractBeanFactory.lambda$doGetBean$0(AbstractBeanFactory.java:337)
+	at org.springframework.beans.factory.support.DefaultSingletonBeanRegistry.getSingleton(DefaultSingletonBeanRegistry.java:234)
+	at org.springframework.beans.factory.support.AbstractBeanFactory.doGetBean(AbstractBeanFactory.java:335)
+	at org.springframework.beans.factory.support.AbstractBeanFactory.getBean(AbstractBeanFactory.java:200)
+	at org.springframework.beans.factory.support.DefaultListableBeanFactory.preInstantiateSingletons(DefaultListableBeanFactory.java:975)
+	at org.springframework.context.support.AbstractApplicationContext.finishBeanFactoryInitialization(AbstractApplicationContext.java:971)
+	at org.springframework.context.support.AbstractApplicationContext.refresh(AbstractApplicationContext.java:625)
+	at org.springframework.boot.web.servlet.context.ServletWebServerApplicationContext.refresh(ServletWebServerApplicationContext.java:146)
+	at org.springframework.boot.SpringApplication.refresh(SpringApplication.java:754)
+	at org.springframework.boot.SpringApplication.refreshContext(SpringApplication.java:456)
+	at org.springframework.boot.SpringApplication.run(SpringApplication.java:335)
+	at org.springframework.boot.SpringApplication.run(SpringApplication.java:1363)
+	at org.springframework.boot.SpringApplication.run(SpringApplication.java:1352)
+	at com.cg.RecycleSystemApplication.main(RecycleSystemApplication.java:24)
+	at java.base/jdk.internal.reflect.NativeMethodAccessorImpl.invoke0(Native Method)
+	at java.base/jdk.internal.reflect.NativeMethodAccessorImpl.invoke(NativeMethodAccessorImpl.java:77)
+	at java.base/jdk.internal.reflect.DelegatingMethodAccessorImpl.invoke(DelegatingMethodAccessorImpl.java:43)
+	at java.base/java.lang.reflect.Method.invoke(Method.java:568)
+	at org.springframework.boot.devtools.restart.RestartLauncher.run(RestartLauncher.java:50)
+Caused by: org.springframework.beans.factory.UnsatisfiedDependencyException: Error creating bean with name 'canalClientService' defined in file [F:\IDEA_workspasce\recycle_system\target\classes\com\cg\docService\canal\CanalClientService.class]: Unsatisfied dependency expressed through constructor parameter 1: Error creating bean with name 'wasteTableHandler' defined in file [F:\IDEA_workspasce\recycle_system\target\classes\com\cg\docService\canal\handlers\WasteTableHandler.class]: Post-processing of merged bean definition failed
+	at org.springframework.beans.factory.support.ConstructorResolver.createArgumentArray(ConstructorResolver.java:795)
+	at org.springframework.beans.factory.support.ConstructorResolver.autowireConstructor(ConstructorResolver.java:237)
+	at org.springframework.beans.factory.support.AbstractAutowireCapableBeanFactory.autowireConstructor(AbstractAutowireCapableBeanFactory.java:1375)
+	at org.springframework.beans.factory.support.AbstractAutowireCapableBeanFactory.createBeanInstance(AbstractAutowireCapableBeanFactory.java:1212)
+	at org.springframework.beans.factory.support.AbstractAutowireCapableBeanFactory.doCreateBean(AbstractAutowireCapableBeanFactory.java:562)
+	at org.springframework.beans.factory.support.AbstractAutowireCapableBeanFactory.createBean(AbstractAutowireCapableBeanFactory.java:522)
+	at org.springframework.beans.factory.support.AbstractBeanFactory.lambda$doGetBean$0(AbstractBeanFactory.java:337)
+	at org.springframework.beans.factory.support.DefaultSingletonBeanRegistry.getSingleton(DefaultSingletonBeanRegistry.java:234)
+	at org.springframework.beans.factory.support.AbstractBeanFactory.doGetBean(AbstractBeanFactory.java:335)
+	at org.springframework.beans.factory.support.AbstractBeanFactory.getBean(AbstractBeanFactory.java:200)
+	at org.springframework.beans.factory.config.DependencyDescriptor.resolveCandidate(DependencyDescriptor.java:254)
+	at org.springframework.beans.factory.support.DefaultListableBeanFactory.doResolveDependency(DefaultListableBeanFactory.java:1443)
+	at org.springframework.beans.factory.support.DefaultListableBeanFactory.resolveDependency(DefaultListableBeanFactory.java:1353)
+	at org.springframework.beans.factory.annotation.AutowiredAnnotationBeanPostProcessor$AutowiredFieldElement.resolveFieldValue(AutowiredAnnotationBeanPostProcessor.java:785)
+	... 25 common frames omitted
+Caused by: org.springframework.beans.factory.BeanCreationException: Error creating bean with name 'wasteTableHandler' defined in file [F:\IDEA_workspasce\recycle_system\target\classes\com\cg\docService\canal\handlers\WasteTableHandler.class]: Post-processing of merged bean definition failed
+	at org.springframework.beans.factory.support.AbstractAutowireCapableBeanFactory.doCreateBean(AbstractAutowireCapableBeanFactory.java:577)
+	at org.springframework.beans.factory.support.AbstractAutowireCapableBeanFactory.createBean(AbstractAutowireCapableBeanFactory.java:522)
+	at org.springframework.beans.factory.support.AbstractBeanFactory.lambda$doGetBean$0(AbstractBeanFactory.java:337)
+	at org.springframework.beans.factory.support.DefaultSingletonBeanRegistry.getSingleton(DefaultSingletonBeanRegistry.java:234)
+	at org.springframework.beans.factory.support.AbstractBeanFactory.doGetBean(AbstractBeanFactory.java:335)
+	at org.springframework.beans.factory.support.AbstractBeanFactory.getBean(AbstractBeanFactory.java:200)
+	at org.springframework.beans.factory.config.DependencyDescriptor.resolveCandidate(DependencyDescriptor.java:254)
+	at org.springframework.beans.factory.support.DefaultListableBeanFactory.addCandidateEntry(DefaultListableBeanFactory.java:1689)
+	at org.springframework.beans.factory.support.DefaultListableBeanFactory.findAutowireCandidates(DefaultListableBeanFactory.java:1653)
+	at org.springframework.beans.factory.support.DefaultListableBeanFactory.resolveMultipleBeanCollection(DefaultListableBeanFactory.java:1543)
+	at org.springframework.beans.factory.support.DefaultListableBeanFactory.resolveMultipleBeans(DefaultListableBeanFactory.java:1511)
+	at org.springframework.beans.factory.support.DefaultListableBeanFactory.doResolveDependency(DefaultListableBeanFactory.java:1392)
+	at org.springframework.beans.factory.support.DefaultListableBeanFactory.resolveDependency(DefaultListableBeanFactory.java:1353)
+	at org.springframework.beans.factory.support.ConstructorResolver.resolveAutowiredArgument(ConstructorResolver.java:904)
+	at org.springframework.beans.factory.support.ConstructorResolver.createArgumentArray(ConstructorResolver.java:782)
+	... 38 common frames omitted
+Caused by: java.lang.IllegalStateException: Failed to introspect Class [com.cg.docService.canal.handlers.WasteTableHandler] from ClassLoader [org.springframework.boot.devtools.restart.classloader.RestartClassLoader@12f55910]
+	at org.springframework.util.ReflectionUtils.getDeclaredFields(ReflectionUtils.java:757)
+	at org.springframework.util.ReflectionUtils.doWithLocalFields(ReflectionUtils.java:689)
+	at org.springframework.context.annotation.CommonAnnotationBeanPostProcessor.buildResourceMetadata(CommonAnnotationBeanPostProcessor.java:431)
+	at org.springframework.context.annotation.CommonAnnotationBeanPostProcessor.findResourceMetadata(CommonAnnotationBeanPostProcessor.java:412)
+	at org.springframework.context.annotation.CommonAnnotationBeanPostProcessor.postProcessMergedBeanDefinition(CommonAnnotationBeanPostProcessor.java:312)
+	at org.springframework.beans.factory.support.AbstractAutowireCapableBeanFactory.applyMergedBeanDefinitionPostProcessors(AbstractAutowireCapableBeanFactory.java:1103)
+	at org.springframework.beans.factory.support.AbstractAutowireCapableBeanFactory.doCreateBean(AbstractAutowireCapableBeanFactory.java:574)
+	... 52 common frames omitted
+Caused by: java.lang.NoClassDefFoundError: com/cg/docService/elasticsearch/ESClient
+	at java.base/java.lang.Class.getDeclaredFields0(Native Method)
+	at java.base/java.lang.Class.privateGetDeclaredFields(Class.java:3297)
+	at java.base/java.lang.Class.getDeclaredFields(Class.java:2371)
+	at org.springframework.util.ReflectionUtils.getDeclaredFields(ReflectionUtils.java:752)
+	... 58 common frames omitted
+Caused by: java.lang.ClassNotFoundException: com.cg.docService.elasticsearch.ESClient
+	at java.base/jdk.internal.loader.BuiltinClassLoader.loadClass(BuiltinClassLoader.java:641)
+	at java.base/jdk.internal.loader.ClassLoaders$AppClassLoader.loadClass(ClassLoaders.java:188)
+	at java.base/java.lang.ClassLoader.loadClass(ClassLoader.java:525)
+	at java.base/java.lang.Class.forName0(Native Method)
+	at java.base/java.lang.Class.forName(Class.java:467)
+	at org.springframework.boot.devtools.restart.classloader.RestartClassLoader.loadClass(RestartClassLoader.java:121)
+	at java.base/java.lang.ClassLoader.loadClass(ClassLoader.java:525)
+	... 62 common frames omitted
+
+2025-11-24 14:12:06.410 ERROR 1936 --- [  restartedMain] o.s.boot.SpringApplication               : Application run failed
+
+org.springframework.beans.factory.UnsatisfiedDependencyException: Error creating bean with name 'recycleSystemApplication': Unsatisfied dependency expressed through field 'canalClientService': Error creating bean with name 'canalClientService' defined in file [F:\IDEA_workspasce\recycle_system\target\classes\com\cg\docService\canal\CanalClientService.class]: Unsatisfied dependency expressed through constructor parameter 1: Error creating bean with name 'wasteTableHandler' defined in file [F:\IDEA_workspasce\recycle_system\target\classes\com\cg\docService\canal\handlers\WasteTableHandler.class]: Post-processing of merged bean definition failed
+	at org.springframework.beans.factory.annotation.AutowiredAnnotationBeanPostProcessor$AutowiredFieldElement.resolveFieldValue(AutowiredAnnotationBeanPostProcessor.java:788)
+	at org.springframework.beans.factory.annotation.AutowiredAnnotationBeanPostProcessor$AutowiredFieldElement.inject(AutowiredAnnotationBeanPostProcessor.java:768)
+	at org.springframework.beans.factory.annotation.InjectionMetadata.inject(InjectionMetadata.java:145)
+	at org.springframework.beans.factory.annotation.AutowiredAnnotationBeanPostProcessor.postProcessProperties(AutowiredAnnotationBeanPostProcessor.java:509)
+	at org.springframework.beans.factory.support.AbstractAutowireCapableBeanFactory.populateBean(AbstractAutowireCapableBeanFactory.java:1439)
+	at org.springframework.beans.factory.support.AbstractAutowireCapableBeanFactory.doCreateBean(AbstractAutowireCapableBeanFactory.java:599)
+	at org.springframework.beans.factory.support.AbstractAutowireCapableBeanFactory.createBean(AbstractAutowireCapableBeanFactory.java:522)
+	at org.springframework.beans.factory.support.AbstractBeanFactory.lambda$doGetBean$0(AbstractBeanFactory.java:337)
+	at org.springframework.beans.factory.support.DefaultSingletonBeanRegistry.getSingleton(DefaultSingletonBeanRegistry.java:234)
+	at org.springframework.beans.factory.support.AbstractBeanFactory.doGetBean(AbstractBeanFactory.java:335)
+	at org.springframework.beans.factory.support.AbstractBeanFactory.getBean(AbstractBeanFactory.java:200)
+	at org.springframework.beans.factory.support.DefaultListableBeanFactory.preInstantiateSingletons(DefaultListableBeanFactory.java:975)
+	at org.springframework.context.support.AbstractApplicationContext.finishBeanFactoryInitialization(AbstractApplicationContext.java:971)
+	at org.springframework.context.support.AbstractApplicationContext.refresh(AbstractApplicationContext.java:625)
+	at org.springframework.boot.web.servlet.context.ServletWebServerApplicationContext.refresh(ServletWebServerApplicationContext.java:146)
+	at org.springframework.boot.SpringApplication.refresh(SpringApplication.java:754)
+	at org.springframework.boot.SpringApplication.refreshContext(SpringApplication.java:456)
+	at org.springframework.boot.SpringApplication.run(SpringApplication.java:335)
+	at org.springframework.boot.SpringApplication.run(SpringApplication.java:1363)
+	at org.springframework.boot.SpringApplication.run(SpringApplication.java:1352)
+	at com.cg.RecycleSystemApplication.main(RecycleSystemApplication.java:24)
+	at java.base/jdk.internal.reflect.NativeMethodAccessorImpl.invoke0(Native Method)
+	at java.base/jdk.internal.reflect.NativeMethodAccessorImpl.invoke(NativeMethodAccessorImpl.java:77)
+	at java.base/jdk.internal.reflect.DelegatingMethodAccessorImpl.invoke(DelegatingMethodAccessorImpl.java:43)
+	at java.base/java.lang.reflect.Method.invoke(Method.java:568)
+	at org.springframework.boot.devtools.restart.RestartLauncher.run(RestartLauncher.java:50)
+Caused by: org.springframework.beans.factory.UnsatisfiedDependencyException: Error creating bean with name 'canalClientService' defined in file [F:\IDEA_workspasce\recycle_system\target\classes\com\cg\docService\canal\CanalClientService.class]: Unsatisfied dependency expressed through constructor parameter 1: Error creating bean with name 'wasteTableHandler' defined in file [F:\IDEA_workspasce\recycle_system\target\classes\com\cg\docService\canal\handlers\WasteTableHandler.class]: Post-processing of merged bean definition failed
+	at org.springframework.beans.factory.support.ConstructorResolver.createArgumentArray(ConstructorResolver.java:795)
+	at org.springframework.beans.factory.support.ConstructorResolver.autowireConstructor(ConstructorResolver.java:237)
+	at org.springframework.beans.factory.support.AbstractAutowireCapableBeanFactory.autowireConstructor(AbstractAutowireCapableBeanFactory.java:1375)
+	at org.springframework.beans.factory.support.AbstractAutowireCapableBeanFactory.createBeanInstance(AbstractAutowireCapableBeanFactory.java:1212)
+	at org.springframework.beans.factory.support.AbstractAutowireCapableBeanFactory.doCreateBean(AbstractAutowireCapableBeanFactory.java:562)
+	at org.springframework.beans.factory.support.AbstractAutowireCapableBeanFactory.createBean(AbstractAutowireCapableBeanFactory.java:522)
+	at org.springframework.beans.factory.support.AbstractBeanFactory.lambda$doGetBean$0(AbstractBeanFactory.java:337)
+	at org.springframework.beans.factory.support.DefaultSingletonBeanRegistry.getSingleton(DefaultSingletonBeanRegistry.java:234)
+	at org.springframework.beans.factory.support.AbstractBeanFactory.doGetBean(AbstractBeanFactory.java:335)
+	at org.springframework.beans.factory.support.AbstractBeanFactory.getBean(AbstractBeanFactory.java:200)
+	at org.springframework.beans.factory.config.DependencyDescriptor.resolveCandidate(DependencyDescriptor.java:254)
+	at org.springframework.beans.factory.support.DefaultListableBeanFactory.doResolveDependency(DefaultListableBeanFactory.java:1443)
+	at org.springframework.beans.factory.support.DefaultListableBeanFactory.resolveDependency(DefaultListableBeanFactory.java:1353)
+	at org.springframework.beans.factory.annotation.AutowiredAnnotationBeanPostProcessor$AutowiredFieldElement.resolveFieldValue(AutowiredAnnotationBeanPostProcessor.java:785)
+	... 25 common frames omitted
+Caused by: org.springframework.beans.factory.BeanCreationException: Error creating bean with name 'wasteTableHandler' defined in file [F:\IDEA_workspasce\recycle_system\target\classes\com\cg\docService\canal\handlers\WasteTableHandler.class]: Post-processing of merged bean definition failed
+	at org.springframework.beans.factory.support.AbstractAutowireCapableBeanFactory.doCreateBean(AbstractAutowireCapableBeanFactory.java:577)
+	at org.springframework.beans.factory.support.AbstractAutowireCapableBeanFactory.createBean(AbstractAutowireCapableBeanFactory.java:522)
+	at org.springframework.beans.factory.support.AbstractBeanFactory.lambda$doGetBean$0(AbstractBeanFactory.java:337)
+	at org.springframework.beans.factory.support.DefaultSingletonBeanRegistry.getSingleton(DefaultSingletonBeanRegistry.java:234)
+	at org.springframework.beans.factory.support.AbstractBeanFactory.doGetBean(AbstractBeanFactory.java:335)
+	at org.springframework.beans.factory.support.AbstractBeanFactory.getBean(AbstractBeanFactory.java:200)
+	at org.springframework.beans.factory.config.DependencyDescriptor.resolveCandidate(DependencyDescriptor.java:254)
+	at org.springframework.beans.factory.support.DefaultListableBeanFactory.addCandidateEntry(DefaultListableBeanFactory.java:1689)
+	at org.springframework.beans.factory.support.DefaultListableBeanFactory.findAutowireCandidates(DefaultListableBeanFactory.java:1653)
+	at org.springframework.beans.factory.support.DefaultListableBeanFactory.resolveMultipleBeanCollection(DefaultListableBeanFactory.java:1543)
+	at org.springframework.beans.factory.support.DefaultListableBeanFactory.resolveMultipleBeans(DefaultListableBeanFactory.java:1511)
+	at org.springframework.beans.factory.support.DefaultListableBeanFactory.doResolveDependency(DefaultListableBeanFactory.java:1392)
+	at org.springframework.beans.factory.support.DefaultListableBeanFactory.resolveDependency(DefaultListableBeanFactory.java:1353)
+	at org.springframework.beans.factory.support.ConstructorResolver.resolveAutowiredArgument(ConstructorResolver.java:904)
+	at org.springframework.beans.factory.support.ConstructorResolver.createArgumentArray(ConstructorResolver.java:782)
+	... 38 common frames omitted
+Caused by: java.lang.IllegalStateException: Failed to introspect Class [com.cg.docService.canal.handlers.WasteTableHandler] from ClassLoader [org.springframework.boot.devtools.restart.classloader.RestartClassLoader@1d20321]
+	at org.springframework.util.ReflectionUtils.getDeclaredFields(ReflectionUtils.java:757)
+	at org.springframework.util.ReflectionUtils.doWithLocalFields(ReflectionUtils.java:689)
+	at org.springframework.context.annotation.CommonAnnotationBeanPostProcessor.buildResourceMetadata(CommonAnnotationBeanPostProcessor.java:431)
+	at org.springframework.context.annotation.CommonAnnotationBeanPostProcessor.findResourceMetadata(CommonAnnotationBeanPostProcessor.java:412)
+	at org.springframework.context.annotation.CommonAnnotationBeanPostProcessor.postProcessMergedBeanDefinition(CommonAnnotationBeanPostProcessor.java:312)
+	at org.springframework.beans.factory.support.AbstractAutowireCapableBeanFactory.applyMergedBeanDefinitionPostProcessors(AbstractAutowireCapableBeanFactory.java:1103)
+	at org.springframework.beans.factory.support.AbstractAutowireCapableBeanFactory.doCreateBean(AbstractAutowireCapableBeanFactory.java:574)
+	... 52 common frames omitted
+Caused by: java.lang.NoClassDefFoundError: com/cg/docService/elasticsearch/ESClient
+	at java.base/java.lang.Class.getDeclaredFields0(Native Method)
+	at java.base/java.lang.Class.privateGetDeclaredFields(Class.java:3297)
+	at java.base/java.lang.Class.getDeclaredFields(Class.java:2371)
+	at org.springframework.util.ReflectionUtils.getDeclaredFields(ReflectionUtils.java:752)
+	... 58 common frames omitted
+Caused by: java.lang.ClassNotFoundException: com.cg.docService.elasticsearch.ESClient
+	at java.base/jdk.internal.loader.BuiltinClassLoader.loadClass(BuiltinClassLoader.java:641)
+	at java.base/jdk.internal.loader.ClassLoaders$AppClassLoader.loadClass(ClassLoaders.java:188)
+	at java.base/java.lang.ClassLoader.loadClass(ClassLoader.java:525)
+	at java.base/java.lang.Class.forName0(Native Method)
+	at java.base/java.lang.Class.forName(Class.java:467)
+	at org.springframework.boot.devtools.restart.classloader.RestartClassLoader.loadClass(RestartClassLoader.java:121)
+	at java.base/java.lang.ClassLoader.loadClass(ClassLoader.java:525)
+	... 62 common frames omitted
+
+2025-11-24 14:27:18.941 ERROR 1936 --- [  restartedMain] o.s.boot.SpringApplication               : Application run failed
+
+org.springframework.beans.factory.UnsatisfiedDependencyException: Error creating bean with name 'recycleSystemApplication': Unsatisfied dependency expressed through field 'canalClientService': Error creating bean with name 'canalClientService' defined in file [F:\IDEA_workspasce\recycle_system\target\classes\com\cg\docService\canal\CanalClientService.class]: Unsatisfied dependency expressed through constructor parameter 1: Error creating bean with name 'wasteTableHandler' defined in file [F:\IDEA_workspasce\recycle_system\target\classes\com\cg\docService\canal\handlers\WasteTableHandler.class]: Post-processing of merged bean definition failed
+	at org.springframework.beans.factory.annotation.AutowiredAnnotationBeanPostProcessor$AutowiredFieldElement.resolveFieldValue(AutowiredAnnotationBeanPostProcessor.java:788)
+	at org.springframework.beans.factory.annotation.AutowiredAnnotationBeanPostProcessor$AutowiredFieldElement.inject(AutowiredAnnotationBeanPostProcessor.java:768)
+	at org.springframework.beans.factory.annotation.InjectionMetadata.inject(InjectionMetadata.java:145)
+	at org.springframework.beans.factory.annotation.AutowiredAnnotationBeanPostProcessor.postProcessProperties(AutowiredAnnotationBeanPostProcessor.java:509)
+	at org.springframework.beans.factory.support.AbstractAutowireCapableBeanFactory.populateBean(AbstractAutowireCapableBeanFactory.java:1439)
+	at org.springframework.beans.factory.support.AbstractAutowireCapableBeanFactory.doCreateBean(AbstractAutowireCapableBeanFactory.java:599)
+	at org.springframework.beans.factory.support.AbstractAutowireCapableBeanFactory.createBean(AbstractAutowireCapableBeanFactory.java:522)
+	at org.springframework.beans.factory.support.AbstractBeanFactory.lambda$doGetBean$0(AbstractBeanFactory.java:337)
+	at org.springframework.beans.factory.support.DefaultSingletonBeanRegistry.getSingleton(DefaultSingletonBeanRegistry.java:234)
+	at org.springframework.beans.factory.support.AbstractBeanFactory.doGetBean(AbstractBeanFactory.java:335)
+	at org.springframework.beans.factory.support.AbstractBeanFactory.getBean(AbstractBeanFactory.java:200)
+	at org.springframework.beans.factory.support.DefaultListableBeanFactory.preInstantiateSingletons(DefaultListableBeanFactory.java:975)
+	at org.springframework.context.support.AbstractApplicationContext.finishBeanFactoryInitialization(AbstractApplicationContext.java:971)
+	at org.springframework.context.support.AbstractApplicationContext.refresh(AbstractApplicationContext.java:625)
+	at org.springframework.boot.web.servlet.context.ServletWebServerApplicationContext.refresh(ServletWebServerApplicationContext.java:146)
+	at org.springframework.boot.SpringApplication.refresh(SpringApplication.java:754)
+	at org.springframework.boot.SpringApplication.refreshContext(SpringApplication.java:456)
+	at org.springframework.boot.SpringApplication.run(SpringApplication.java:335)
+	at org.springframework.boot.SpringApplication.run(SpringApplication.java:1363)
+	at org.springframework.boot.SpringApplication.run(SpringApplication.java:1352)
+	at com.cg.RecycleSystemApplication.main(RecycleSystemApplication.java:24)
+	at java.base/jdk.internal.reflect.NativeMethodAccessorImpl.invoke0(Native Method)
+	at java.base/jdk.internal.reflect.NativeMethodAccessorImpl.invoke(NativeMethodAccessorImpl.java:77)
+	at java.base/jdk.internal.reflect.DelegatingMethodAccessorImpl.invoke(DelegatingMethodAccessorImpl.java:43)
+	at java.base/java.lang.reflect.Method.invoke(Method.java:568)
+	at org.springframework.boot.devtools.restart.RestartLauncher.run(RestartLauncher.java:50)
+Caused by: org.springframework.beans.factory.UnsatisfiedDependencyException: Error creating bean with name 'canalClientService' defined in file [F:\IDEA_workspasce\recycle_system\target\classes\com\cg\docService\canal\CanalClientService.class]: Unsatisfied dependency expressed through constructor parameter 1: Error creating bean with name 'wasteTableHandler' defined in file [F:\IDEA_workspasce\recycle_system\target\classes\com\cg\docService\canal\handlers\WasteTableHandler.class]: Post-processing of merged bean definition failed
+	at org.springframework.beans.factory.support.ConstructorResolver.createArgumentArray(ConstructorResolver.java:795)
+	at org.springframework.beans.factory.support.ConstructorResolver.autowireConstructor(ConstructorResolver.java:237)
+	at org.springframework.beans.factory.support.AbstractAutowireCapableBeanFactory.autowireConstructor(AbstractAutowireCapableBeanFactory.java:1375)
+	at org.springframework.beans.factory.support.AbstractAutowireCapableBeanFactory.createBeanInstance(AbstractAutowireCapableBeanFactory.java:1212)
+	at org.springframework.beans.factory.support.AbstractAutowireCapableBeanFactory.doCreateBean(AbstractAutowireCapableBeanFactory.java:562)
+	at org.springframework.beans.factory.support.AbstractAutowireCapableBeanFactory.createBean(AbstractAutowireCapableBeanFactory.java:522)
+	at org.springframework.beans.factory.support.AbstractBeanFactory.lambda$doGetBean$0(AbstractBeanFactory.java:337)
+	at org.springframework.beans.factory.support.DefaultSingletonBeanRegistry.getSingleton(DefaultSingletonBeanRegistry.java:234)
+	at org.springframework.beans.factory.support.AbstractBeanFactory.doGetBean(AbstractBeanFactory.java:335)
+	at org.springframework.beans.factory.support.AbstractBeanFactory.getBean(AbstractBeanFactory.java:200)
+	at org.springframework.beans.factory.config.DependencyDescriptor.resolveCandidate(DependencyDescriptor.java:254)
+	at org.springframework.beans.factory.support.DefaultListableBeanFactory.doResolveDependency(DefaultListableBeanFactory.java:1443)
+	at org.springframework.beans.factory.support.DefaultListableBeanFactory.resolveDependency(DefaultListableBeanFactory.java:1353)
+	at org.springframework.beans.factory.annotation.AutowiredAnnotationBeanPostProcessor$AutowiredFieldElement.resolveFieldValue(AutowiredAnnotationBeanPostProcessor.java:785)
+	... 25 common frames omitted
+Caused by: org.springframework.beans.factory.BeanCreationException: Error creating bean with name 'wasteTableHandler' defined in file [F:\IDEA_workspasce\recycle_system\target\classes\com\cg\docService\canal\handlers\WasteTableHandler.class]: Post-processing of merged bean definition failed
+	at org.springframework.beans.factory.support.AbstractAutowireCapableBeanFactory.doCreateBean(AbstractAutowireCapableBeanFactory.java:577)
+	at org.springframework.beans.factory.support.AbstractAutowireCapableBeanFactory.createBean(AbstractAutowireCapableBeanFactory.java:522)
+	at org.springframework.beans.factory.support.AbstractBeanFactory.lambda$doGetBean$0(AbstractBeanFactory.java:337)
+	at org.springframework.beans.factory.support.DefaultSingletonBeanRegistry.getSingleton(DefaultSingletonBeanRegistry.java:234)
+	at org.springframework.beans.factory.support.AbstractBeanFactory.doGetBean(AbstractBeanFactory.java:335)
+	at org.springframework.beans.factory.support.AbstractBeanFactory.getBean(AbstractBeanFactory.java:200)
+	at org.springframework.beans.factory.config.DependencyDescriptor.resolveCandidate(DependencyDescriptor.java:254)
+	at org.springframework.beans.factory.support.DefaultListableBeanFactory.addCandidateEntry(DefaultListableBeanFactory.java:1689)
+	at org.springframework.beans.factory.support.DefaultListableBeanFactory.findAutowireCandidates(DefaultListableBeanFactory.java:1653)
+	at org.springframework.beans.factory.support.DefaultListableBeanFactory.resolveMultipleBeanCollection(DefaultListableBeanFactory.java:1543)
+	at org.springframework.beans.factory.support.DefaultListableBeanFactory.resolveMultipleBeans(DefaultListableBeanFactory.java:1511)
+	at org.springframework.beans.factory.support.DefaultListableBeanFactory.doResolveDependency(DefaultListableBeanFactory.java:1392)
+	at org.springframework.beans.factory.support.DefaultListableBeanFactory.resolveDependency(DefaultListableBeanFactory.java:1353)
+	at org.springframework.beans.factory.support.ConstructorResolver.resolveAutowiredArgument(ConstructorResolver.java:904)
+	at org.springframework.beans.factory.support.ConstructorResolver.createArgumentArray(ConstructorResolver.java:782)
+	... 38 common frames omitted
+Caused by: java.lang.IllegalStateException: Failed to introspect Class [com.cg.docService.canal.handlers.WasteTableHandler] from ClassLoader [org.springframework.boot.devtools.restart.classloader.RestartClassLoader@569bbbc1]
+	at org.springframework.util.ReflectionUtils.getDeclaredFields(ReflectionUtils.java:757)
+	at org.springframework.util.ReflectionUtils.doWithLocalFields(ReflectionUtils.java:689)
+	at org.springframework.context.annotation.CommonAnnotationBeanPostProcessor.buildResourceMetadata(CommonAnnotationBeanPostProcessor.java:431)
+	at org.springframework.context.annotation.CommonAnnotationBeanPostProcessor.findResourceMetadata(CommonAnnotationBeanPostProcessor.java:412)
+	at org.springframework.context.annotation.CommonAnnotationBeanPostProcessor.postProcessMergedBeanDefinition(CommonAnnotationBeanPostProcessor.java:312)
+	at org.springframework.beans.factory.support.AbstractAutowireCapableBeanFactory.applyMergedBeanDefinitionPostProcessors(AbstractAutowireCapableBeanFactory.java:1103)
+	at org.springframework.beans.factory.support.AbstractAutowireCapableBeanFactory.doCreateBean(AbstractAutowireCapableBeanFactory.java:574)
+	... 52 common frames omitted
+Caused by: java.lang.NoClassDefFoundError: com/cg/docService/elasticsearch/ESClient
+	at java.base/java.lang.Class.getDeclaredFields0(Native Method)
+	at java.base/java.lang.Class.privateGetDeclaredFields(Class.java:3297)
+	at java.base/java.lang.Class.getDeclaredFields(Class.java:2371)
+	at org.springframework.util.ReflectionUtils.getDeclaredFields(ReflectionUtils.java:752)
+	... 58 common frames omitted
+Caused by: java.lang.ClassNotFoundException: com.cg.docService.elasticsearch.ESClient
+	at java.base/jdk.internal.loader.BuiltinClassLoader.loadClass(BuiltinClassLoader.java:641)
+	at java.base/jdk.internal.loader.ClassLoaders$AppClassLoader.loadClass(ClassLoaders.java:188)
+	at java.base/java.lang.ClassLoader.loadClass(ClassLoader.java:525)
+	at java.base/java.lang.Class.forName0(Native Method)
+	at java.base/java.lang.Class.forName(Class.java:467)
+	at org.springframework.boot.devtools.restart.classloader.RestartClassLoader.loadClass(RestartClassLoader.java:121)
+	at java.base/java.lang.ClassLoader.loadClass(ClassLoader.java:525)
+	... 62 common frames omitted
+
+2025-11-24 15:46:16.183 ERROR 1936 --- [  restartedMain] o.s.b.d.LoggingFailureAnalysisReporter   : 
+
+***************************
+APPLICATION FAILED TO START
+***************************
+
+Description:
+
+Field esClient in com.cg.docService.canal.handlers.WasteTableHandler required a bean of type 'com.cg.docService.elasticsearch.ESClient' that could not be found.
+
+The injection point has the following annotations:
+	- @org.springframework.beans.factory.annotation.Autowired(required=true)
+
+
+Action:
+
+Consider defining a bean of type 'com.cg.docService.elasticsearch.ESClient' in your configuration.
+
+2025-11-24 15:49:20.494 ERROR 1936 --- [  restartedMain] o.s.boot.SpringApplication               : Application run failed
+
+org.springframework.beans.factory.UnsatisfiedDependencyException: Error creating bean with name 'recycleSystemApplication': Unsatisfied dependency expressed through field 'canalClientService': Error creating bean with name 'canalClientService' defined in file [F:\IDEA_workspasce\recycle_system\target\classes\com\cg\docService\canal\CanalClientService.class]: Unsatisfied dependency expressed through constructor parameter 1: Error creating bean with name 'wasteTableHandler' defined in file [F:\IDEA_workspasce\recycle_system\target\classes\com\cg\docService\canal\handlers\WasteTableHandler.class]: Post-processing of merged bean definition failed
+	at org.springframework.beans.factory.annotation.AutowiredAnnotationBeanPostProcessor$AutowiredFieldElement.resolveFieldValue(AutowiredAnnotationBeanPostProcessor.java:788)
+	at org.springframework.beans.factory.annotation.AutowiredAnnotationBeanPostProcessor$AutowiredFieldElement.inject(AutowiredAnnotationBeanPostProcessor.java:768)
+	at org.springframework.beans.factory.annotation.InjectionMetadata.inject(InjectionMetadata.java:145)
+	at org.springframework.beans.factory.annotation.AutowiredAnnotationBeanPostProcessor.postProcessProperties(AutowiredAnnotationBeanPostProcessor.java:509)
+	at org.springframework.beans.factory.support.AbstractAutowireCapableBeanFactory.populateBean(AbstractAutowireCapableBeanFactory.java:1439)
+	at org.springframework.beans.factory.support.AbstractAutowireCapableBeanFactory.doCreateBean(AbstractAutowireCapableBeanFactory.java:599)
+	at org.springframework.beans.factory.support.AbstractAutowireCapableBeanFactory.createBean(AbstractAutowireCapableBeanFactory.java:522)
+	at org.springframework.beans.factory.support.AbstractBeanFactory.lambda$doGetBean$0(AbstractBeanFactory.java:337)
+	at org.springframework.beans.factory.support.DefaultSingletonBeanRegistry.getSingleton(DefaultSingletonBeanRegistry.java:234)
+	at org.springframework.beans.factory.support.AbstractBeanFactory.doGetBean(AbstractBeanFactory.java:335)
+	at org.springframework.beans.factory.support.AbstractBeanFactory.getBean(AbstractBeanFactory.java:200)
+	at org.springframework.beans.factory.support.DefaultListableBeanFactory.preInstantiateSingletons(DefaultListableBeanFactory.java:975)
+	at org.springframework.context.support.AbstractApplicationContext.finishBeanFactoryInitialization(AbstractApplicationContext.java:971)
+	at org.springframework.context.support.AbstractApplicationContext.refresh(AbstractApplicationContext.java:625)
+	at org.springframework.boot.web.servlet.context.ServletWebServerApplicationContext.refresh(ServletWebServerApplicationContext.java:146)
+	at org.springframework.boot.SpringApplication.refresh(SpringApplication.java:754)
+	at org.springframework.boot.SpringApplication.refreshContext(SpringApplication.java:456)
+	at org.springframework.boot.SpringApplication.run(SpringApplication.java:335)
+	at org.springframework.boot.SpringApplication.run(SpringApplication.java:1363)
+	at org.springframework.boot.SpringApplication.run(SpringApplication.java:1352)
+	at com.cg.RecycleSystemApplication.main(RecycleSystemApplication.java:24)
+	at java.base/jdk.internal.reflect.NativeMethodAccessorImpl.invoke0(Native Method)
+	at java.base/jdk.internal.reflect.NativeMethodAccessorImpl.invoke(NativeMethodAccessorImpl.java:77)
+	at java.base/jdk.internal.reflect.DelegatingMethodAccessorImpl.invoke(DelegatingMethodAccessorImpl.java:43)
+	at java.base/java.lang.reflect.Method.invoke(Method.java:568)
+	at org.springframework.boot.devtools.restart.RestartLauncher.run(RestartLauncher.java:50)
+Caused by: org.springframework.beans.factory.UnsatisfiedDependencyException: Error creating bean with name 'canalClientService' defined in file [F:\IDEA_workspasce\recycle_system\target\classes\com\cg\docService\canal\CanalClientService.class]: Unsatisfied dependency expressed through constructor parameter 1: Error creating bean with name 'wasteTableHandler' defined in file [F:\IDEA_workspasce\recycle_system\target\classes\com\cg\docService\canal\handlers\WasteTableHandler.class]: Post-processing of merged bean definition failed
+	at org.springframework.beans.factory.support.ConstructorResolver.createArgumentArray(ConstructorResolver.java:795)
+	at org.springframework.beans.factory.support.ConstructorResolver.autowireConstructor(ConstructorResolver.java:237)
+	at org.springframework.beans.factory.support.AbstractAutowireCapableBeanFactory.autowireConstructor(AbstractAutowireCapableBeanFactory.java:1375)
+	at org.springframework.beans.factory.support.AbstractAutowireCapableBeanFactory.createBeanInstance(AbstractAutowireCapableBeanFactory.java:1212)
+	at org.springframework.beans.factory.support.AbstractAutowireCapableBeanFactory.doCreateBean(AbstractAutowireCapableBeanFactory.java:562)
+	at org.springframework.beans.factory.support.AbstractAutowireCapableBeanFactory.createBean(AbstractAutowireCapableBeanFactory.java:522)
+	at org.springframework.beans.factory.support.AbstractBeanFactory.lambda$doGetBean$0(AbstractBeanFactory.java:337)
+	at org.springframework.beans.factory.support.DefaultSingletonBeanRegistry.getSingleton(DefaultSingletonBeanRegistry.java:234)
+	at org.springframework.beans.factory.support.AbstractBeanFactory.doGetBean(AbstractBeanFactory.java:335)
+	at org.springframework.beans.factory.support.AbstractBeanFactory.getBean(AbstractBeanFactory.java:200)
+	at org.springframework.beans.factory.config.DependencyDescriptor.resolveCandidate(DependencyDescriptor.java:254)
+	at org.springframework.beans.factory.support.DefaultListableBeanFactory.doResolveDependency(DefaultListableBeanFactory.java:1443)
+	at org.springframework.beans.factory.support.DefaultListableBeanFactory.resolveDependency(DefaultListableBeanFactory.java:1353)
+	at org.springframework.beans.factory.annotation.AutowiredAnnotationBeanPostProcessor$AutowiredFieldElement.resolveFieldValue(AutowiredAnnotationBeanPostProcessor.java:785)
+	... 25 common frames omitted
+Caused by: org.springframework.beans.factory.BeanCreationException: Error creating bean with name 'wasteTableHandler' defined in file [F:\IDEA_workspasce\recycle_system\target\classes\com\cg\docService\canal\handlers\WasteTableHandler.class]: Post-processing of merged bean definition failed
+	at org.springframework.beans.factory.support.AbstractAutowireCapableBeanFactory.doCreateBean(AbstractAutowireCapableBeanFactory.java:577)
+	at org.springframework.beans.factory.support.AbstractAutowireCapableBeanFactory.createBean(AbstractAutowireCapableBeanFactory.java:522)
+	at org.springframework.beans.factory.support.AbstractBeanFactory.lambda$doGetBean$0(AbstractBeanFactory.java:337)
+	at org.springframework.beans.factory.support.DefaultSingletonBeanRegistry.getSingleton(DefaultSingletonBeanRegistry.java:234)
+	at org.springframework.beans.factory.support.AbstractBeanFactory.doGetBean(AbstractBeanFactory.java:335)
+	at org.springframework.beans.factory.support.AbstractBeanFactory.getBean(AbstractBeanFactory.java:200)
+	at org.springframework.beans.factory.config.DependencyDescriptor.resolveCandidate(DependencyDescriptor.java:254)
+	at org.springframework.beans.factory.support.DefaultListableBeanFactory.addCandidateEntry(DefaultListableBeanFactory.java:1689)
+	at org.springframework.beans.factory.support.DefaultListableBeanFactory.findAutowireCandidates(DefaultListableBeanFactory.java:1653)
+	at org.springframework.beans.factory.support.DefaultListableBeanFactory.resolveMultipleBeanCollection(DefaultListableBeanFactory.java:1543)
+	at org.springframework.beans.factory.support.DefaultListableBeanFactory.resolveMultipleBeans(DefaultListableBeanFactory.java:1511)
+	at org.springframework.beans.factory.support.DefaultListableBeanFactory.doResolveDependency(DefaultListableBeanFactory.java:1392)
+	at org.springframework.beans.factory.support.DefaultListableBeanFactory.resolveDependency(DefaultListableBeanFactory.java:1353)
+	at org.springframework.beans.factory.support.ConstructorResolver.resolveAutowiredArgument(ConstructorResolver.java:904)
+	at org.springframework.beans.factory.support.ConstructorResolver.createArgumentArray(ConstructorResolver.java:782)
+	... 38 common frames omitted
+Caused by: java.lang.IllegalStateException: Failed to introspect Class [com.cg.docService.canal.handlers.WasteTableHandler] from ClassLoader [org.springframework.boot.devtools.restart.classloader.RestartClassLoader@791d6bff]
+	at org.springframework.util.ReflectionUtils.getDeclaredFields(ReflectionUtils.java:757)
+	at org.springframework.util.ReflectionUtils.doWithLocalFields(ReflectionUtils.java:689)
+	at org.springframework.context.annotation.CommonAnnotationBeanPostProcessor.buildResourceMetadata(CommonAnnotationBeanPostProcessor.java:431)
+	at org.springframework.context.annotation.CommonAnnotationBeanPostProcessor.findResourceMetadata(CommonAnnotationBeanPostProcessor.java:412)
+	at org.springframework.context.annotation.CommonAnnotationBeanPostProcessor.postProcessMergedBeanDefinition(CommonAnnotationBeanPostProcessor.java:312)
+	at org.springframework.beans.factory.support.AbstractAutowireCapableBeanFactory.applyMergedBeanDefinitionPostProcessors(AbstractAutowireCapableBeanFactory.java:1103)
+	at org.springframework.beans.factory.support.AbstractAutowireCapableBeanFactory.doCreateBean(AbstractAutowireCapableBeanFactory.java:574)
+	... 52 common frames omitted
+Caused by: java.lang.NoClassDefFoundError: com/cg/docService/elasticsearch/ESClient
+	at java.base/java.lang.Class.getDeclaredFields0(Native Method)
+	at java.base/java.lang.Class.privateGetDeclaredFields(Class.java:3297)
+	at java.base/java.lang.Class.getDeclaredFields(Class.java:2371)
+	at org.springframework.util.ReflectionUtils.getDeclaredFields(ReflectionUtils.java:752)
+	... 58 common frames omitted
+Caused by: java.lang.ClassNotFoundException: com.cg.docService.elasticsearch.ESClient
+	at java.base/jdk.internal.loader.BuiltinClassLoader.loadClass(BuiltinClassLoader.java:641)
+	at java.base/jdk.internal.loader.ClassLoaders$AppClassLoader.loadClass(ClassLoaders.java:188)
+	at java.base/java.lang.ClassLoader.loadClass(ClassLoader.java:525)
+	at java.base/java.lang.Class.forName0(Native Method)
+	at java.base/java.lang.Class.forName(Class.java:467)
+	at org.springframework.boot.devtools.restart.classloader.RestartClassLoader.loadClass(RestartClassLoader.java:121)
+	at java.base/java.lang.ClassLoader.loadClass(ClassLoader.java:525)
+	... 62 common frames omitted
+
+2025-11-24 16:29:01.050 ERROR 15356 --- [pool-2-thread-1] c.c.docService.canal.CanalClientService  : 处理Canal消息异常，handler: com.cg.docService.canal.handlers.WasteTableHandler
+
+com.alibaba.fastjson2.JSONException: expect ':', but ,, offset 179, character ", line 1, column 179, fastjson-version 2.0.53 {"unit":"公斤","img_url":"http://192.168.206.1/preview/a649c776-66ba-4852-8c1d-f236bd29a87c.jpg","price":"13.71","waste_id":"14","name":"木制椅子","description":"木椅子带扶手","create_date":"2000-09-16 00:00:00","cid":"7"}
+	at com.alibaba.fastjson2.JSONReaderUTF16.readFieldNameHashCode(JSONReaderUTF16.java:1377)
+	at com.alibaba.fastjson2.reader.ORG_2_11_DateTime.readObject(Unknown Source)
+	at com.alibaba.fastjson2.reader.ORG_1_8_WasteDocument.readObject(Unknown Source)
+	at com.alibaba.fastjson2.JSON.parseObject(JSON.java:864)
+	at com.cg.docService.canal.handlers.WasteTableHandler.handleUpdate(WasteTableHandler.java:123)
+	at com.cg.docService.canal.handlers.WasteTableHandler.handle(WasteTableHandler.java:55)
+	at com.cg.docService.canal.CanalClientService.processMessage(CanalClientService.java:146)
+	at com.cg.docService.canal.CanalClientService.process(CanalClientService.java:93)
+	at java.base/java.util.concurrent.ThreadPoolExecutor.runWorker(ThreadPoolExecutor.java:1136)
+	at java.base/java.util.concurrent.ThreadPoolExecutor$Worker.run(ThreadPoolExecutor.java:635)
+	at java.base/java.lang.Thread.run(Thread.java:840)
+
+2025-11-24 16:29:04.082 ERROR 15356 --- [pool-2-thread-1] c.c.docService.canal.CanalClientService  : 处理Canal消息异常，handler: com.cg.docService.canal.handlers.WasteTableHandler
+
+com.alibaba.fastjson2.JSONException: expect ':', but ,, offset 180, character ", line 1, column 180, fastjson-version 2.0.53 {"unit":"公斤","img_url":"http://192.168.206.1/preview/a649c776-66ba-4852-8c1d-f236bd29a87c.jpg","price":"13.71","waste_id":"14","name":"木制椅子","description":"木椅子带扶手s","create_date":"2000-09-16 00:00:00","cid":"7"}
+	at com.alibaba.fastjson2.JSONReaderUTF16.readFieldNameHashCode(JSONReaderUTF16.java:1377)
+	at com.alibaba.fastjson2.reader.ORG_2_11_DateTime.readObject(Unknown Source)
+	at com.alibaba.fastjson2.reader.ORG_1_8_WasteDocument.readObject(Unknown Source)
+	at com.alibaba.fastjson2.JSON.parseObject(JSON.java:864)
+	at com.cg.docService.canal.handlers.WasteTableHandler.handleUpdate(WasteTableHandler.java:123)
+	at com.cg.docService.canal.handlers.WasteTableHandler.handle(WasteTableHandler.java:55)
+	at com.cg.docService.canal.CanalClientService.processMessage(CanalClientService.java:146)
+	at com.cg.docService.canal.CanalClientService.process(CanalClientService.java:93)
+	at java.base/java.util.concurrent.ThreadPoolExecutor.runWorker(ThreadPoolExecutor.java:1136)
+	at java.base/java.util.concurrent.ThreadPoolExecutor$Worker.run(ThreadPoolExecutor.java:635)
+	at java.base/java.lang.Thread.run(Thread.java:840)
+
+2025-11-24 16:29:55.733 ERROR 24636 --- [pool-2-thread-1] c.c.docService.canal.CanalClientService  : 处理Canal消息异常，handler: com.cg.docService.canal.handlers.WasteTableHandler
+
+com.alibaba.fastjson2.JSONException: expect ':', but ,, offset 179, character ", line 1, column 179, fastjson-version 2.0.53 {"unit":"公斤","img_url":"http://192.168.206.1/preview/a649c776-66ba-4852-8c1d-f236bd29a87c.jpg","price":"13.71","waste_id":"14","name":"木制椅子","description":"木椅子带扶手","create_date":"2000-09-16 00:00:00","cid":"7"}
+	at com.alibaba.fastjson2.JSONReaderUTF16.readFieldNameHashCode(JSONReaderUTF16.java:1377)
+	at com.alibaba.fastjson2.reader.ORG_2_11_DateTime.readObject(Unknown Source)
+	at com.alibaba.fastjson2.reader.ORG_1_8_WasteDocument.readObject(Unknown Source)
+	at com.alibaba.fastjson2.JSON.parseObject(JSON.java:864)
+	at com.cg.docService.canal.handlers.WasteTableHandler.handleUpdate(WasteTableHandler.java:123)
+	at com.cg.docService.canal.handlers.WasteTableHandler.handle(WasteTableHandler.java:55)
+	at com.cg.docService.canal.CanalClientService.processMessage(CanalClientService.java:146)
+	at com.cg.docService.canal.CanalClientService.process(CanalClientService.java:93)
+	at java.base/java.util.concurrent.ThreadPoolExecutor.runWorker(ThreadPoolExecutor.java:1136)
+	at java.base/java.util.concurrent.ThreadPoolExecutor$Worker.run(ThreadPoolExecutor.java:635)
+	at java.base/java.lang.Thread.run(Thread.java:840)
+
+2025-11-24 16:42:10.815 ERROR 19852 --- [pool-2-thread-1] c.c.docService.canal.CanalClientService  : 处理Canal消息异常，handler: com.cg.docService.canal.handlers.WasteTableHandler
+
+com.alibaba.fastjson2.JSONException: expect ':', but ,, offset 179, character ", line 1, column 179, fastjson-version 2.0.53 {"unit":"公斤","img_url":"http://192.168.206.1/preview/a649c776-66ba-4852-8c1d-f236bd29a87c.jpg","price":"13.71","waste_id":"14","name":"木制椅子","description":"木椅子带扶手","create_date":"2017-05-19 05:05:53","cid":"7"}
+	at com.alibaba.fastjson2.JSONReaderUTF16.readFieldNameHashCode(JSONReaderUTF16.java:1377)
+	at com.alibaba.fastjson2.reader.ORG_2_11_DateTime.readObject(Unknown Source)
+	at com.alibaba.fastjson2.reader.ORG_1_8_WasteDocument.readObject(Unknown Source)
+	at com.alibaba.fastjson2.JSON.parseObject(JSON.java:864)
+	at com.cg.docService.canal.handlers.WasteTableHandler.handleUpdate(WasteTableHandler.java:125)
+	at com.cg.docService.canal.handlers.WasteTableHandler.handle(WasteTableHandler.java:57)
+	at com.cg.docService.canal.CanalClientService.processMessage(CanalClientService.java:146)
+	at com.cg.docService.canal.CanalClientService.process(CanalClientService.java:93)
+	at java.base/java.util.concurrent.ThreadPoolExecutor.runWorker(ThreadPoolExecutor.java:1136)
+	at java.base/java.util.concurrent.ThreadPoolExecutor$Worker.run(ThreadPoolExecutor.java:635)
+	at java.base/java.lang.Thread.run(Thread.java:840)
+
+2025-11-24 16:45:00.073 ERROR 17604 --- [pool-2-thread-1] c.c.docService.canal.CanalClientService  : 处理Canal消息异常，handler: com.cg.docService.canal.handlers.WasteTableHandler
+
+com.alibaba.fastjson2.JSONException: expect ':', but ,, offset 180, character ", line 1, column 180, fastjson-version 2.0.53 {"unit":"公斤","img_url":"http://192.168.206.1/preview/a649c776-66ba-4852-8c1d-f236bd29a87c.jpg","price":"13.71","waste_id":"14","name":"木制椅子","description":"木椅子带扶手s","create_date":"2017-05-19 05:05:53","cid":"7"}
+	at com.alibaba.fastjson2.JSONReaderUTF16.readFieldNameHashCode(JSONReaderUTF16.java:1377)
+	at com.alibaba.fastjson2.reader.ORG_2_11_DateTime.readObject(Unknown Source)
+	at com.alibaba.fastjson2.reader.ORG_1_8_WasteDocument.readObject(Unknown Source)
+	at com.alibaba.fastjson2.JSON.parseObject(JSON.java:864)
+	at com.cg.docService.canal.handlers.WasteTableHandler.handleUpdate(WasteTableHandler.java:125)
+	at com.cg.docService.canal.handlers.WasteTableHandler.handle(WasteTableHandler.java:57)
+	at com.cg.docService.canal.CanalClientService.processMessage(CanalClientService.java:146)
+	at com.cg.docService.canal.CanalClientService.process(CanalClientService.java:93)
+	at java.base/java.util.concurrent.ThreadPoolExecutor.runWorker(ThreadPoolExecutor.java:1136)
+	at java.base/java.util.concurrent.ThreadPoolExecutor$Worker.run(ThreadPoolExecutor.java:635)
+	at java.base/java.lang.Thread.run(Thread.java:840)
+
+2025-11-24 16:45:54.309 ERROR 10256 --- [pool-2-thread-1] c.c.docService.canal.CanalClientService  : 处理Canal消息异常，handler: com.cg.docService.canal.handlers.WasteTableHandler
+
+com.alibaba.fastjson2.JSONException: expect ':', but ,, offset 179, character ", line 1, column 179, fastjson-version 2.0.53 {"unit":"公斤","img_url":"http://192.168.206.1/preview/a649c776-66ba-4852-8c1d-f236bd29a87c.jpg","price":"13.71","waste_id":"14","name":"木制椅子","description":"木椅子带扶手","create_date":"2017-05-19 05:05:53","cid":"7"}
+	at com.alibaba.fastjson2.JSONReaderUTF16.readFieldNameHashCode(JSONReaderUTF16.java:1377)
+	at com.alibaba.fastjson2.reader.ORG_2_11_DateTime.readObject(Unknown Source)
+	at com.alibaba.fastjson2.reader.ORG_1_8_WasteDocument.readObject(Unknown Source)
+	at com.alibaba.fastjson2.JSON.parseObject(JSON.java:864)
+	at com.cg.docService.canal.handlers.WasteTableHandler.handleUpdate(WasteTableHandler.java:126)
+	at com.cg.docService.canal.handlers.WasteTableHandler.handle(WasteTableHandler.java:57)
+	at com.cg.docService.canal.CanalClientService.processMessage(CanalClientService.java:146)
+	at com.cg.docService.canal.CanalClientService.process(CanalClientService.java:93)
+	at java.base/java.util.concurrent.ThreadPoolExecutor.runWorker(ThreadPoolExecutor.java:1136)
+	at java.base/java.util.concurrent.ThreadPoolExecutor$Worker.run(ThreadPoolExecutor.java:635)
+	at java.base/java.lang.Thread.run(Thread.java:840)
+
+2025-11-24 16:53:06.286 ERROR 24656 --- [pool-2-thread-1] c.c.docService.canal.CanalClientService  : 处理Canal消息异常，handler: com.cg.docService.canal.handlers.WasteTableHandler
+
+com.alibaba.fastjson2.JSONException: expect ':', but ,, offset 179, character ", line 1, column 179, fastjson-version 2.0.53 {"unit":"公斤","img_url":"http://192.168.206.1/preview/a649c776-66ba-4852-8c1d-f236bd29a87c.jpg","price":"13.71","waste_id":"14","name":"木制椅子","description":"木椅子带扶手","create_date":"2017-05-19 05:05:53","cid":"7"}
+	at com.alibaba.fastjson2.JSONReaderUTF16.readFieldNameHashCode(JSONReaderUTF16.java:1377)
+	at com.alibaba.fastjson2.reader.ObjectReaderNoneDefaultConstructor.readObject(ObjectReaderNoneDefaultConstructor.java:249)
+	at com.alibaba.fastjson2.reader.ORG_1_8_WasteDocument.readObject(Unknown Source)
+	at com.alibaba.fastjson2.JSON.parseObject(JSON.java:864)
+	at com.cg.docService.canal.handlers.WasteTableHandler.handleUpdate(WasteTableHandler.java:123)
+	at com.cg.docService.canal.handlers.WasteTableHandler.handle(WasteTableHandler.java:55)
+	at com.cg.docService.canal.CanalClientService.processMessage(CanalClientService.java:146)
+	at com.cg.docService.canal.CanalClientService.process(CanalClientService.java:93)
+	at java.base/java.util.concurrent.ThreadPoolExecutor.runWorker(ThreadPoolExecutor.java:1136)
+	at java.base/java.util.concurrent.ThreadPoolExecutor$Worker.run(ThreadPoolExecutor.java:635)
+	at java.base/java.lang.Thread.run(Thread.java:840)
+
+2025-11-24 16:54:02.875 ERROR 26532 --- [pool-2-thread-1] c.c.docService.canal.CanalClientService  : 处理Canal消息异常，handler: com.cg.docService.canal.handlers.WasteTableHandler
+
+com.alibaba.fastjson2.JSONException: expect ':', but ,, offset 180, character ", line 1, column 180, fastjson-version 2.0.53 {"unit":"公斤","img_url":"http://192.168.206.1/preview/a649c776-66ba-4852-8c1d-f236bd29a87c.jpg","price":"13.71","waste_id":"14","name":"木制椅子","description":"木椅子带扶手s","create_date":"2017-05-19 05:05:53","cid":"7"}
+	at com.alibaba.fastjson2.JSONReaderUTF16.readFieldNameHashCode(JSONReaderUTF16.java:1377)
+	at com.alibaba.fastjson2.reader.ORG_2_11_DateTime.readObject(Unknown Source)
+	at com.alibaba.fastjson2.reader.ORG_1_8_WasteDocument.readObject(Unknown Source)
+	at com.alibaba.fastjson2.JSON.parseObject(JSON.java:864)
+	at com.cg.docService.canal.handlers.WasteTableHandler.handleUpdate(WasteTableHandler.java:123)
+	at com.cg.docService.canal.handlers.WasteTableHandler.handle(WasteTableHandler.java:55)
+	at com.cg.docService.canal.CanalClientService.processMessage(CanalClientService.java:146)
+	at com.cg.docService.canal.CanalClientService.process(CanalClientService.java:93)
+	at java.base/java.util.concurrent.ThreadPoolExecutor.runWorker(ThreadPoolExecutor.java:1136)
+	at java.base/java.util.concurrent.ThreadPoolExecutor$Worker.run(ThreadPoolExecutor.java:635)
+	at java.base/java.lang.Thread.run(Thread.java:840)
+
+2025-11-24 16:54:22.084 ERROR 26532 --- [pool-5-thread-1] c.c.docService.canal.CanalClientService  : 处理Canal消息异常，handler: com.cg.docService.canal.handlers.WasteTableHandler
+
+java.lang.RuntimeException: Request execution cancelled
+	at org.elasticsearch.client.RestClient.extractAndWrapCause(RestClient.java:942)
+	at org.elasticsearch.client.RestClient.performRequest(RestClient.java:304)
+	at org.elasticsearch.client.RestClient.performRequest(RestClient.java:292)
+	at co.elastic.clients.transport.rest_client.RestClientHttpClient.performRequest(RestClientHttpClient.java:91)
+	at co.elastic.clients.transport.ElasticsearchTransportBase.performRequest(ElasticsearchTransportBase.java:144)
+	at co.elastic.clients.elasticsearch.ElasticsearchClient.update(ElasticsearchClient.java:2237)
+	at com.cg.docService.elasticsearch.ESClient.updateIndex(ESClient.java:63)
+	at com.cg.docService.canal.handlers.WasteTableHandler.handleUpdate(WasteTableHandler.java:129)
+	at com.cg.docService.canal.handlers.WasteTableHandler.handle(WasteTableHandler.java:55)
+	at com.cg.docService.canal.CanalClientService.processMessage(CanalClientService.java:146)
+	at com.cg.docService.canal.CanalClientService.process(CanalClientService.java:93)
+	at java.base/java.util.concurrent.ThreadPoolExecutor.runWorker(ThreadPoolExecutor.java:1136)
+	at java.base/java.util.concurrent.ThreadPoolExecutor$Worker.run(ThreadPoolExecutor.java:635)
+	at java.base/java.lang.Thread.run(Thread.java:840)
+Caused by: java.util.concurrent.CancellationException: Request execution cancelled
+	at org.apache.http.impl.nio.client.CloseableHttpAsyncClientBase.execute(CloseableHttpAsyncClientBase.java:114)
+	at org.apache.http.impl.nio.client.InternalHttpAsyncClient.execute(InternalHttpAsyncClient.java:138)
+	at org.elasticsearch.client.RestClient.performRequest(RestClient.java:300)
+	... 12 common frames omitted
+
+2025-11-24 17:03:03.390 ERROR 6392 --- [pool-2-thread-1] c.c.docService.canal.CanalClientService  : 处理Canal消息异常，handler: com.cg.docService.canal.handlers.WasteTableHandler
+
+co.elastic.clients.elasticsearch._types.ElasticsearchException: [es/update] failed: [document_parsing_exception] [1:214] failed to parse field [create_date] of type [date] in document with id '14'. Preview of field's value: '2017-05-19 05:05:53'
+	at co.elastic.clients.transport.ElasticsearchTransportBase.getApiResponse(ElasticsearchTransportBase.java:345)
+	at co.elastic.clients.transport.ElasticsearchTransportBase.performRequest(ElasticsearchTransportBase.java:147)
+	at co.elastic.clients.elasticsearch.ElasticsearchClient.update(ElasticsearchClient.java:2237)
+	at com.cg.docService.elasticsearch.ESClient.updateIndex(ESClient.java:63)
+	at com.cg.docService.canal.handlers.WasteTableHandler.handleUpdate(WasteTableHandler.java:129)
+	at com.cg.docService.canal.handlers.WasteTableHandler.handle(WasteTableHandler.java:55)
+	at com.cg.docService.canal.CanalClientService.processMessage(CanalClientService.java:146)
+	at com.cg.docService.canal.CanalClientService.process(CanalClientService.java:93)
+	at java.base/java.util.concurrent.ThreadPoolExecutor.runWorker(ThreadPoolExecutor.java:1136)
+	at java.base/java.util.concurrent.ThreadPoolExecutor$Worker.run(ThreadPoolExecutor.java:635)
+	at java.base/java.lang.Thread.run(Thread.java:840)
+
+2025-11-24 17:18:51.213 ERROR 2776 --- [pool-2-thread-1] c.c.docService.canal.CanalClientService  : 处理Canal消息异常，handler: com.cg.docService.canal.handlers.WasteTableHandler
+
+co.elastic.clients.elasticsearch._types.ElasticsearchException: [es/update] failed: [document_parsing_exception] [1:208] failed to parse field [create_date] of type [date] in document with id '14'. Preview of field's value: '1495141553000'
+	at co.elastic.clients.transport.ElasticsearchTransportBase.getApiResponse(ElasticsearchTransportBase.java:345)
+	at co.elastic.clients.transport.ElasticsearchTransportBase.performRequest(ElasticsearchTransportBase.java:147)
+	at co.elastic.clients.elasticsearch.ElasticsearchClient.update(ElasticsearchClient.java:2237)
+	at com.cg.docService.elasticsearch.ESClient.updateIndex(ESClient.java:63)
+	at com.cg.docService.canal.handlers.WasteTableHandler.handleUpdate(WasteTableHandler.java:129)
+	at com.cg.docService.canal.handlers.WasteTableHandler.handle(WasteTableHandler.java:55)
+	at com.cg.docService.canal.CanalClientService.processMessage(CanalClientService.java:146)
+	at com.cg.docService.canal.CanalClientService.process(CanalClientService.java:93)
+	at java.base/java.util.concurrent.ThreadPoolExecutor.runWorker(ThreadPoolExecutor.java:1136)
+	at java.base/java.util.concurrent.ThreadPoolExecutor$Worker.run(ThreadPoolExecutor.java:635)
+	at java.base/java.lang.Thread.run(Thread.java:840)
+
+2025-11-24 17:22:14.581 ERROR 20588 --- [pool-2-thread-1] c.c.docService.canal.CanalClientService  : 处理Canal消息异常，handler: com.cg.docService.canal.handlers.WasteTableHandler
+
+com.alibaba.fastjson2.JSONException: expect ':', but ,, offset 180, character ", line 1, column 180, fastjson-version 2.0.53 {"unit":"公斤","img_url":"http://192.168.206.1/preview/a649c776-66ba-4852-8c1d-f236bd29a87c.jpg","price":"13.71","waste_id":"14","name":"木制椅子","description":"木椅子带扶手s","create_date":"2017-05-19 05:05:53","cid":"7"}
+	at com.alibaba.fastjson2.JSONReaderUTF16.readFieldNameHashCode(JSONReaderUTF16.java:1377)
+	at com.alibaba.fastjson2.reader.ORG_2_7_MyDate.readObject(Unknown Source)
+	at com.alibaba.fastjson2.reader.ORG_1_8_WasteDocument.readObject(Unknown Source)
+	at com.alibaba.fastjson2.JSON.parseObject(JSON.java:864)
+	at com.cg.docService.canal.handlers.WasteTableHandler.handleUpdate(WasteTableHandler.java:123)
+	at com.cg.docService.canal.handlers.WasteTableHandler.handle(WasteTableHandler.java:55)
+	at com.cg.docService.canal.CanalClientService.processMessage(CanalClientService.java:146)
+	at com.cg.docService.canal.CanalClientService.process(CanalClientService.java:93)
+	at java.base/java.util.concurrent.ThreadPoolExecutor.runWorker(ThreadPoolExecutor.java:1136)
+	at java.base/java.util.concurrent.ThreadPoolExecutor$Worker.run(ThreadPoolExecutor.java:635)
+	at java.base/java.lang.Thread.run(Thread.java:840)
+
+2025-11-24 17:23:30.950 ERROR 26024 --- [pool-2-thread-1] c.c.docService.canal.CanalClientService  : 处理Canal消息异常，handler: com.cg.docService.canal.handlers.WasteTableHandler
+
+co.elastic.clients.elasticsearch._types.ElasticsearchException: [es/update] failed: [document_parsing_exception] [1:201] failed to parse field [create_date] of type [date] in document with id '12'. Preview of field's value: '1024243200000'
+	at co.elastic.clients.transport.ElasticsearchTransportBase.getApiResponse(ElasticsearchTransportBase.java:345)
+	at co.elastic.clients.transport.ElasticsearchTransportBase.performRequest(ElasticsearchTransportBase.java:147)
+	at co.elastic.clients.elasticsearch.ElasticsearchClient.update(ElasticsearchClient.java:2237)
+	at com.cg.docService.elasticsearch.ESClient.updateIndex(ESClient.java:63)
+	at com.cg.docService.canal.handlers.WasteTableHandler.handleUpdate(WasteTableHandler.java:129)
+	at com.cg.docService.canal.handlers.WasteTableHandler.handle(WasteTableHandler.java:55)
+	at com.cg.docService.canal.CanalClientService.processMessage(CanalClientService.java:146)
+	at com.cg.docService.canal.CanalClientService.process(CanalClientService.java:93)
+	at java.base/java.util.concurrent.ThreadPoolExecutor.runWorker(ThreadPoolExecutor.java:1136)
+	at java.base/java.util.concurrent.ThreadPoolExecutor$Worker.run(ThreadPoolExecutor.java:635)
+	at java.base/java.lang.Thread.run(Thread.java:840)
+
+2025-11-24 17:29:48.079 ERROR 22940 --- [  XNIO-3 task-2] io.undertow.request                      : UT005023: Exception handling request to /waste/getWasteForApp
+
+jakarta.servlet.ServletException: Request processing failed: co.elastic.clients.elasticsearch._types.ElasticsearchException: [es/search] failed: [search_phase_execution_exception] all shards failed
+	at org.springframework.web.servlet.FrameworkServlet.processRequest(FrameworkServlet.java:1022)
+	at org.springframework.web.servlet.FrameworkServlet.doGet(FrameworkServlet.java:903)
+	at jakarta.servlet.http.HttpServlet.service(HttpServlet.java:527)
+	at org.springframework.web.servlet.FrameworkServlet.service(FrameworkServlet.java:885)
+	at jakarta.servlet.http.HttpServlet.service(HttpServlet.java:614)
+	at io.undertow.servlet.handlers.ServletHandler.handleRequest(ServletHandler.java:74)
+	at io.undertow.servlet.handlers.FilterHandler$FilterChainImpl.doFilter(FilterHandler.java:129)
+	at io.undertow.websockets.jsr.JsrWebSocketFilter.doFilter(JsrWebSocketFilter.java:172)
+	at io.undertow.servlet.core.ManagedFilter.doFilter(ManagedFilter.java:67)
+	at io.undertow.servlet.handlers.FilterHandler$FilterChainImpl.doFilter(FilterHandler.java:131)
+	at org.springframework.web.filter.RequestContextFilter.doFilterInternal(RequestContextFilter.java:100)
+	at org.springframework.web.filter.OncePerRequestFilter.doFilter(OncePerRequestFilter.java:116)
+	at io.undertow.servlet.core.ManagedFilter.doFilter(ManagedFilter.java:67)
+	at io.undertow.servlet.handlers.FilterHandler$FilterChainImpl.doFilter(FilterHandler.java:131)
+	at cn.dev33.satoken.filter.SaPathCheckFilterForJakartaServlet.doFilter(SaPathCheckFilterForJakartaServlet.java:55)
+	at io.undertow.servlet.core.ManagedFilter.doFilter(ManagedFilter.java:67)
+	at io.undertow.servlet.handlers.FilterHandler$FilterChainImpl.doFilter(FilterHandler.java:131)
+	at org.springframework.web.filter.FormContentFilter.doFilterInternal(FormContentFilter.java:93)
+	at org.springframework.web.filter.OncePerRequestFilter.doFilter(OncePerRequestFilter.java:116)
+	at io.undertow.servlet.core.ManagedFilter.doFilter(ManagedFilter.java:67)
+	at io.undertow.servlet.handlers.FilterHandler$FilterChainImpl.doFilter(FilterHandler.java:131)
+	at org.springframework.web.filter.CharacterEncodingFilter.doFilterInternal(CharacterEncodingFilter.java:201)
+	at org.springframework.web.filter.OncePerRequestFilter.doFilter(OncePerRequestFilter.java:116)
+	at io.undertow.servlet.core.ManagedFilter.doFilter(ManagedFilter.java:67)
+	at io.undertow.servlet.handlers.FilterHandler$FilterChainImpl.doFilter(FilterHandler.java:131)
+	at io.undertow.servlet.handlers.FilterHandler.handleRequest(FilterHandler.java:84)
+	at io.undertow.servlet.handlers.security.ServletSecurityRoleHandler.handleRequest(ServletSecurityRoleHandler.java:62)
+	at io.undertow.servlet.handlers.ServletChain$1.handleRequest(ServletChain.java:68)
+	at io.undertow.servlet.handlers.ServletDispatchingHandler.handleRequest(ServletDispatchingHandler.java:36)
+	at io.undertow.servlet.handlers.RedirectDirHandler.handleRequest(RedirectDirHandler.java:68)
+	at io.undertow.servlet.handlers.security.SSLInformationAssociationHandler.handleRequest(SSLInformationAssociationHandler.java:117)
+	at io.undertow.servlet.handlers.security.ServletAuthenticationCallHandler.handleRequest(ServletAuthenticationCallHandler.java:57)
+	at io.undertow.server.handlers.PredicateHandler.handleRequest(PredicateHandler.java:43)
+	at io.undertow.security.handlers.AbstractConfidentialityHandler.handleRequest(AbstractConfidentialityHandler.java:46)
+	at io.undertow.servlet.handlers.security.ServletConfidentialityConstraintHandler.handleRequest(ServletConfidentialityConstraintHandler.java:64)
+	at io.undertow.security.handlers.AuthenticationMechanismsHandler.handleRequest(AuthenticationMechanismsHandler.java:60)
+	at io.undertow.servlet.handlers.security.CachedAuthenticatedSessionHandler.handleRequest(CachedAuthenticatedSessionHandler.java:77)
+	at io.undertow.security.handlers.AbstractSecurityContextAssociationHandler.handleRequest(AbstractSecurityContextAssociationHandler.java:43)
+	at io.undertow.server.handlers.PredicateHandler.handleRequest(PredicateHandler.java:43)
+	at io.undertow.servlet.handlers.SendErrorPageHandler.handleRequest(SendErrorPageHandler.java:52)
+	at io.undertow.server.handlers.PredicateHandler.handleRequest(PredicateHandler.java:43)
+	at io.undertow.servlet.handlers.SessionRestoringHandler.handleRequest(SessionRestoringHandler.java:119)
+	at io.undertow.servlet.handlers.ServletInitialHandler.handleFirstRequest(ServletInitialHandler.java:276)
+	at io.undertow.servlet.handlers.ServletInitialHandler$2.call(ServletInitialHandler.java:135)
+	at io.undertow.servlet.handlers.ServletInitialHandler$2.call(ServletInitialHandler.java:132)
+	at io.undertow.servlet.core.ServletRequestContextThreadSetupAction$1.call(ServletRequestContextThreadSetupAction.java:48)
+	at io.undertow.servlet.core.ContextClassLoaderSetupAction$1.call(ContextClassLoaderSetupAction.java:43)
+	at io.undertow.servlet.handlers.ServletInitialHandler.dispatchRequest(ServletInitialHandler.java:256)
+	at io.undertow.servlet.handlers.ServletInitialHandler$1.handleRequest(ServletInitialHandler.java:101)
+	at io.undertow.server.Connectors.executeRootHandler(Connectors.java:395)
+	at io.undertow.server.HttpServerExchange$1.run(HttpServerExchange.java:859)
+	at org.jboss.threads.ContextHandler$1.runWith(ContextHandler.java:18)
+	at org.jboss.threads.EnhancedQueueExecutor$Task.run(EnhancedQueueExecutor.java:2513)
+	at org.jboss.threads.EnhancedQueueExecutor$ThreadBody.run(EnhancedQueueExecutor.java:1512)
+	at org.xnio.XnioWorker$WorkerThreadFactory$1$1.run(XnioWorker.java:1282)
+	at java.base/java.lang.Thread.run(Thread.java:840)
+Caused by: co.elastic.clients.elasticsearch._types.ElasticsearchException: [es/search] failed: [search_phase_execution_exception] all shards failed
+	at co.elastic.clients.transport.ElasticsearchTransportBase.getApiResponse(ElasticsearchTransportBase.java:345)
+	at co.elastic.clients.transport.ElasticsearchTransportBase.performRequest(ElasticsearchTransportBase.java:147)
+	at co.elastic.clients.elasticsearch.ElasticsearchClient.search(ElasticsearchClient.java:1897)
+	at com.cg.docService.elasticsearch.ESClient.search(ESClient.java:107)
+	at com.cg.controller.WasteController.getWasteForApp(WasteController.java:80)
+	at java.base/jdk.internal.reflect.NativeMethodAccessorImpl.invoke0(Native Method)
+	at java.base/jdk.internal.reflect.NativeMethodAccessorImpl.invoke(NativeMethodAccessorImpl.java:77)
+	at java.base/jdk.internal.reflect.DelegatingMethodAccessorImpl.invoke(DelegatingMethodAccessorImpl.java:43)
+	at java.base/java.lang.reflect.Method.invoke(Method.java:568)
+	at org.springframework.aop.support.AopUtils.invokeJoinpointUsingReflection(AopUtils.java:355)
+	at org.springframework.aop.framework.ReflectiveMethodInvocation.invokeJoinpoint(ReflectiveMethodInvocation.java:196)
+	at org.springframework.aop.framework.ReflectiveMethodInvocation.proceed(ReflectiveMethodInvocation.java:163)
+	at org.springframework.aop.framework.CglibAopProxy$CglibMethodInvocation.proceed(CglibAopProxy.java:768)
+	at org.springframework.aop.aspectj.AspectJAfterThrowingAdvice.invoke(AspectJAfterThrowingAdvice.java:64)
+	at org.springframework.aop.framework.ReflectiveMethodInvocation.proceed(ReflectiveMethodInvocation.java:184)
+	at org.springframework.aop.framework.CglibAopProxy$CglibMethodInvocation.proceed(CglibAopProxy.java:768)
+	at org.springframework.aop.framework.adapter.AfterReturningAdviceInterceptor.invoke(AfterReturningAdviceInterceptor.java:57)
+	at org.springframework.aop.framework.ReflectiveMethodInvocation.proceed(ReflectiveMethodInvocation.java:184)
+	at org.springframework.aop.framework.CglibAopProxy$CglibMethodInvocation.proceed(CglibAopProxy.java:768)
+	at org.springframework.aop.framework.adapter.MethodBeforeAdviceInterceptor.invoke(MethodBeforeAdviceInterceptor.java:58)
+	at org.springframework.aop.framework.ReflectiveMethodInvocation.proceed(ReflectiveMethodInvocation.java:184)
+	at org.springframework.aop.framework.CglibAopProxy$CglibMethodInvocation.proceed(CglibAopProxy.java:768)
+	at org.springframework.aop.interceptor.ExposeInvocationInterceptor.invoke(ExposeInvocationInterceptor.java:97)
+	at org.springframework.aop.framework.ReflectiveMethodInvocation.proceed(ReflectiveMethodInvocation.java:184)
+	at org.springframework.aop.framework.CglibAopProxy$CglibMethodInvocation.proceed(CglibAopProxy.java:768)
+	at org.springframework.aop.framework.CglibAopProxy$DynamicAdvisedInterceptor.intercept(CglibAopProxy.java:720)
+	at com.cg.controller.WasteController$$SpringCGLIB$$0.getWasteForApp(<generated>)
+	at java.base/jdk.internal.reflect.NativeMethodAccessorImpl.invoke0(Native Method)
+	at java.base/jdk.internal.reflect.NativeMethodAccessorImpl.invoke(NativeMethodAccessorImpl.java:77)
+	at java.base/jdk.internal.reflect.DelegatingMethodAccessorImpl.invoke(DelegatingMethodAccessorImpl.java:43)
+	at java.base/java.lang.reflect.Method.invoke(Method.java:568)
+	at org.springframework.web.method.support.InvocableHandlerMethod.doInvoke(InvocableHandlerMethod.java:255)
+	at org.springframework.web.method.support.InvocableHandlerMethod.invokeForRequest(InvocableHandlerMethod.java:188)
+	at org.springframework.web.servlet.mvc.method.annotation.ServletInvocableHandlerMethod.invokeAndHandle(ServletInvocableHandlerMethod.java:118)
+	at org.springframework.web.servlet.mvc.method.annotation.RequestMappingHandlerAdapter.invokeHandlerMethod(RequestMappingHandlerAdapter.java:926)
+	at org.springframework.web.servlet.mvc.method.annotation.RequestMappingHandlerAdapter.handleInternal(RequestMappingHandlerAdapter.java:831)
+	at org.springframework.web.servlet.mvc.method.AbstractHandlerMethodAdapter.handle(AbstractHandlerMethodAdapter.java:87)
+	at org.springframework.web.servlet.DispatcherServlet.doDispatch(DispatcherServlet.java:1089)
+	at org.springframework.web.servlet.DispatcherServlet.doService(DispatcherServlet.java:979)
+	at org.springframework.web.servlet.FrameworkServlet.processRequest(FrameworkServlet.java:1014)
+	... 55 common frames omitted
+
+2025-11-24 18:13:04.024 ERROR 22940 --- [  XNIO-3 task-2] io.undertow.request                      : UT005023: Exception handling request to /waste/getWasteForApp
+
+jakarta.servlet.ServletException: Request processing failed: co.elastic.clients.elasticsearch._types.ElasticsearchException: [es/search] failed: [search_phase_execution_exception] all shards failed
+	at org.springframework.web.servlet.FrameworkServlet.processRequest(FrameworkServlet.java:1022)
+	at org.springframework.web.servlet.FrameworkServlet.doGet(FrameworkServlet.java:903)
+	at jakarta.servlet.http.HttpServlet.service(HttpServlet.java:527)
+	at org.springframework.web.servlet.FrameworkServlet.service(FrameworkServlet.java:885)
+	at jakarta.servlet.http.HttpServlet.service(HttpServlet.java:614)
+	at io.undertow.servlet.handlers.ServletHandler.handleRequest(ServletHandler.java:74)
+	at io.undertow.servlet.handlers.FilterHandler$FilterChainImpl.doFilter(FilterHandler.java:129)
+	at io.undertow.websockets.jsr.JsrWebSocketFilter.doFilter(JsrWebSocketFilter.java:172)
+	at io.undertow.servlet.core.ManagedFilter.doFilter(ManagedFilter.java:67)
+	at io.undertow.servlet.handlers.FilterHandler$FilterChainImpl.doFilter(FilterHandler.java:131)
+	at org.springframework.web.filter.RequestContextFilter.doFilterInternal(RequestContextFilter.java:100)
+	at org.springframework.web.filter.OncePerRequestFilter.doFilter(OncePerRequestFilter.java:116)
+	at io.undertow.servlet.core.ManagedFilter.doFilter(ManagedFilter.java:67)
+	at io.undertow.servlet.handlers.FilterHandler$FilterChainImpl.doFilter(FilterHandler.java:131)
+	at cn.dev33.satoken.filter.SaPathCheckFilterForJakartaServlet.doFilter(SaPathCheckFilterForJakartaServlet.java:55)
+	at io.undertow.servlet.core.ManagedFilter.doFilter(ManagedFilter.java:67)
+	at io.undertow.servlet.handlers.FilterHandler$FilterChainImpl.doFilter(FilterHandler.java:131)
+	at org.springframework.web.filter.FormContentFilter.doFilterInternal(FormContentFilter.java:93)
+	at org.springframework.web.filter.OncePerRequestFilter.doFilter(OncePerRequestFilter.java:116)
+	at io.undertow.servlet.core.ManagedFilter.doFilter(ManagedFilter.java:67)
+	at io.undertow.servlet.handlers.FilterHandler$FilterChainImpl.doFilter(FilterHandler.java:131)
+	at org.springframework.web.filter.CharacterEncodingFilter.doFilterInternal(CharacterEncodingFilter.java:201)
+	at org.springframework.web.filter.OncePerRequestFilter.doFilter(OncePerRequestFilter.java:116)
+	at io.undertow.servlet.core.ManagedFilter.doFilter(ManagedFilter.java:67)
+	at io.undertow.servlet.handlers.FilterHandler$FilterChainImpl.doFilter(FilterHandler.java:131)
+	at io.undertow.servlet.handlers.FilterHandler.handleRequest(FilterHandler.java:84)
+	at io.undertow.servlet.handlers.security.ServletSecurityRoleHandler.handleRequest(ServletSecurityRoleHandler.java:62)
+	at io.undertow.servlet.handlers.ServletChain$1.handleRequest(ServletChain.java:68)
+	at io.undertow.servlet.handlers.ServletDispatchingHandler.handleRequest(ServletDispatchingHandler.java:36)
+	at io.undertow.servlet.handlers.RedirectDirHandler.handleRequest(RedirectDirHandler.java:68)
+	at io.undertow.servlet.handlers.security.SSLInformationAssociationHandler.handleRequest(SSLInformationAssociationHandler.java:117)
+	at io.undertow.servlet.handlers.security.ServletAuthenticationCallHandler.handleRequest(ServletAuthenticationCallHandler.java:57)
+	at io.undertow.server.handlers.PredicateHandler.handleRequest(PredicateHandler.java:43)
+	at io.undertow.security.handlers.AbstractConfidentialityHandler.handleRequest(AbstractConfidentialityHandler.java:46)
+	at io.undertow.servlet.handlers.security.ServletConfidentialityConstraintHandler.handleRequest(ServletConfidentialityConstraintHandler.java:64)
+	at io.undertow.security.handlers.AuthenticationMechanismsHandler.handleRequest(AuthenticationMechanismsHandler.java:60)
+	at io.undertow.servlet.handlers.security.CachedAuthenticatedSessionHandler.handleRequest(CachedAuthenticatedSessionHandler.java:77)
+	at io.undertow.security.handlers.AbstractSecurityContextAssociationHandler.handleRequest(AbstractSecurityContextAssociationHandler.java:43)
+	at io.undertow.server.handlers.PredicateHandler.handleRequest(PredicateHandler.java:43)
+	at io.undertow.servlet.handlers.SendErrorPageHandler.handleRequest(SendErrorPageHandler.java:52)
+	at io.undertow.server.handlers.PredicateHandler.handleRequest(PredicateHandler.java:43)
+	at io.undertow.servlet.handlers.SessionRestoringHandler.handleRequest(SessionRestoringHandler.java:119)
+	at io.undertow.servlet.handlers.ServletInitialHandler.handleFirstRequest(ServletInitialHandler.java:276)
+	at io.undertow.servlet.handlers.ServletInitialHandler$2.call(ServletInitialHandler.java:135)
+	at io.undertow.servlet.handlers.ServletInitialHandler$2.call(ServletInitialHandler.java:132)
+	at io.undertow.servlet.core.ServletRequestContextThreadSetupAction$1.call(ServletRequestContextThreadSetupAction.java:48)
+	at io.undertow.servlet.core.ContextClassLoaderSetupAction$1.call(ContextClassLoaderSetupAction.java:43)
+	at io.undertow.servlet.handlers.ServletInitialHandler.dispatchRequest(ServletInitialHandler.java:256)
+	at io.undertow.servlet.handlers.ServletInitialHandler$1.handleRequest(ServletInitialHandler.java:101)
+	at io.undertow.server.Connectors.executeRootHandler(Connectors.java:395)
+	at io.undertow.server.HttpServerExchange$1.run(HttpServerExchange.java:859)
+	at org.jboss.threads.ContextHandler$1.runWith(ContextHandler.java:18)
+	at org.jboss.threads.EnhancedQueueExecutor$Task.run(EnhancedQueueExecutor.java:2513)
+	at org.jboss.threads.EnhancedQueueExecutor$ThreadBody.run(EnhancedQueueExecutor.java:1538)
+	at org.xnio.XnioWorker$WorkerThreadFactory$1$1.run(XnioWorker.java:1282)
+	at java.base/java.lang.Thread.run(Thread.java:840)
+Caused by: co.elastic.clients.elasticsearch._types.ElasticsearchException: [es/search] failed: [search_phase_execution_exception] all shards failed
+	at co.elastic.clients.transport.ElasticsearchTransportBase.getApiResponse(ElasticsearchTransportBase.java:345)
+	at co.elastic.clients.transport.ElasticsearchTransportBase.performRequest(ElasticsearchTransportBase.java:147)
+	at co.elastic.clients.elasticsearch.ElasticsearchClient.search(ElasticsearchClient.java:1897)
+	at com.cg.docService.elasticsearch.ESClient.search(ESClient.java:107)
+	at com.cg.controller.WasteController.getWasteForApp(WasteController.java:80)
+	at java.base/jdk.internal.reflect.NativeMethodAccessorImpl.invoke0(Native Method)
+	at java.base/jdk.internal.reflect.NativeMethodAccessorImpl.invoke(NativeMethodAccessorImpl.java:77)
+	at java.base/jdk.internal.reflect.DelegatingMethodAccessorImpl.invoke(DelegatingMethodAccessorImpl.java:43)
+	at java.base/java.lang.reflect.Method.invoke(Method.java:568)
+	at org.springframework.aop.support.AopUtils.invokeJoinpointUsingReflection(AopUtils.java:355)
+	at org.springframework.aop.framework.ReflectiveMethodInvocation.invokeJoinpoint(ReflectiveMethodInvocation.java:196)
+	at org.springframework.aop.framework.ReflectiveMethodInvocation.proceed(ReflectiveMethodInvocation.java:163)
+	at org.springframework.aop.framework.CglibAopProxy$CglibMethodInvocation.proceed(CglibAopProxy.java:768)
+	at org.springframework.aop.aspectj.AspectJAfterThrowingAdvice.invoke(AspectJAfterThrowingAdvice.java:64)
+	at org.springframework.aop.framework.ReflectiveMethodInvocation.proceed(ReflectiveMethodInvocation.java:184)
+	at org.springframework.aop.framework.CglibAopProxy$CglibMethodInvocation.proceed(CglibAopProxy.java:768)
+	at org.springframework.aop.framework.adapter.AfterReturningAdviceInterceptor.invoke(AfterReturningAdviceInterceptor.java:57)
+	at org.springframework.aop.framework.ReflectiveMethodInvocation.proceed(ReflectiveMethodInvocation.java:184)
+	at org.springframework.aop.framework.CglibAopProxy$CglibMethodInvocation.proceed(CglibAopProxy.java:768)
+	at org.springframework.aop.framework.adapter.MethodBeforeAdviceInterceptor.invoke(MethodBeforeAdviceInterceptor.java:58)
+	at org.springframework.aop.framework.ReflectiveMethodInvocation.proceed(ReflectiveMethodInvocation.java:184)
+	at org.springframework.aop.framework.CglibAopProxy$CglibMethodInvocation.proceed(CglibAopProxy.java:768)
+	at org.springframework.aop.interceptor.ExposeInvocationInterceptor.invoke(ExposeInvocationInterceptor.java:97)
+	at org.springframework.aop.framework.ReflectiveMethodInvocation.proceed(ReflectiveMethodInvocation.java:184)
+	at org.springframework.aop.framework.CglibAopProxy$CglibMethodInvocation.proceed(CglibAopProxy.java:768)
+	at org.springframework.aop.framework.CglibAopProxy$DynamicAdvisedInterceptor.intercept(CglibAopProxy.java:720)
+	at com.cg.controller.WasteController$$SpringCGLIB$$0.getWasteForApp(<generated>)
+	at java.base/jdk.internal.reflect.NativeMethodAccessorImpl.invoke0(Native Method)
+	at java.base/jdk.internal.reflect.NativeMethodAccessorImpl.invoke(NativeMethodAccessorImpl.java:77)
+	at java.base/jdk.internal.reflect.DelegatingMethodAccessorImpl.invoke(DelegatingMethodAccessorImpl.java:43)
+	at java.base/java.lang.reflect.Method.invoke(Method.java:568)
+	at org.springframework.web.method.support.InvocableHandlerMethod.doInvoke(InvocableHandlerMethod.java:255)
+	at org.springframework.web.method.support.InvocableHandlerMethod.invokeForRequest(InvocableHandlerMethod.java:188)
+	at org.springframework.web.servlet.mvc.method.annotation.ServletInvocableHandlerMethod.invokeAndHandle(ServletInvocableHandlerMethod.java:118)
+	at org.springframework.web.servlet.mvc.method.annotation.RequestMappingHandlerAdapter.invokeHandlerMethod(RequestMappingHandlerAdapter.java:926)
+	at org.springframework.web.servlet.mvc.method.annotation.RequestMappingHandlerAdapter.handleInternal(RequestMappingHandlerAdapter.java:831)
+	at org.springframework.web.servlet.mvc.method.AbstractHandlerMethodAdapter.handle(AbstractHandlerMethodAdapter.java:87)
+	at org.springframework.web.servlet.DispatcherServlet.doDispatch(DispatcherServlet.java:1089)
+	at org.springframework.web.servlet.DispatcherServlet.doService(DispatcherServlet.java:979)
+	at org.springframework.web.servlet.FrameworkServlet.processRequest(FrameworkServlet.java:1014)
+	... 55 common frames omitted
+

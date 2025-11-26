@@ -1,3 +1,0 @@
-2025-05-21 15:48:49.548 DEBUG 1476 --- [  restartedMain] o.s.d.r.l.RedisMessageListenerContainer  : Starting RedisMessageListenerContainer...
-2025-05-21 15:48:49.550 DEBUG 1476 --- [  restartedMain] o.s.d.r.l.RedisMessageListenerContainer  : Postpone listening for Redis messages until actual listeners are added
-2025-05-21 15:48:56.080 DEBUG 1476 --- [SpringApplicationShutdownHook] o.s.d.r.l.RedisMessageListenerContainer  : Stopped RedisMessageListenerContainer
