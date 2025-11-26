@@ -1,5 +1,6 @@
 package com.cg.service;
 
+import com.baomidou.mybatisplus.extension.plugins.pagination.Page;
 import com.cg.entity.Notifications;
 import com.baomidou.mybatisplus.extension.service.IService;
 
@@ -13,4 +14,5 @@ import com.baomidou.mybatisplus.extension.service.IService;
  */
 public interface NotificationsService extends IService<Notifications> {
 
+    Page<Notifications> MyMsgForApp(Long lastId, Integer pageSize, Long userId);
 }

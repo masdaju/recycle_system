@@ -14,8 +14,10 @@ public interface UserService extends IService<User> {
 
     SaResult login(String account, String password, String header);
 
-
-    SaResult logout(String satoken, Integer userId);
+    SaResult loginByEmail(String email, String code);
+    SaResult logout(String satoken, Object userId);
 
     String getCollectorName(Long requestId);
+
+    SaResult loginByScan(String token);
 }

@@ -14,9 +14,9 @@ import java.util.List;
 
 @Slf4j
 @ConditionalOnProperty(
-        name = "ssh.tunnel.enable",  // 配置文件中的开关参数名（自定义，语义清晰）
+        name = "ssh.tunnel.enable",  // 配置文件中的开关参数名
         havingValue = "true",        // 当参数值为 true 时，才加载该配置类
-        matchIfMissing = false       // 配置文件中没有该参数时，默认不加载（避免误启动）
+        matchIfMissing = false       // 配置文件中没有该参数时，默认不加载
 )
 public class SshTunnelConfig {
 

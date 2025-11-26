@@ -11,7 +11,17 @@
     </resultMap>
     <!-- 通用查询结果列 -->
     <sql id="Base_Column_List">
-        notification_id, user_id, message, sentAt
+        notification_id, user_id, message, sent_at,is_read
     </sql>
+    <select id="MyMsgForApp" resultType="com.cg.entity.Notifications">
+            select `notification_id`, `user_id`, `message`, `sent_at`,is_read from notifications
+            <where>
+                user_id = #{userId}
+                <if test="lastId != 0">
+                    and notification_id &lt; #{lastId}
+                </if>
+                    order by sent_at DESC limit #{pageSize}
+            </where>
+    </select>
 
 </mapper>

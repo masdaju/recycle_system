@@ -65,6 +65,14 @@ public class ChatController {
         stringRedisTemplate.opsForValue().set("chatMessage::" + sendUserAccount + "_" + acceptUserAccount, JSON.toJSONString(SaResult.data(chatMessages)),7, TimeUnit.DAYS);
         return SaResult.data(chatMessages);
     }
+
+
+    @GetMapping("/getChatMessageForApp")
+    public SaResult getChatMessageForApp(@RequestParam String sendUserAccount, @RequestParam String acceptUserAccount,
+                                         @RequestParam String lastMessageId)  {
+
+        return SaResult.data(null);
+    }
     //发送消息
     @PostMapping(value = "/sendChatMessage")
     public SaResult create(@RequestBody ChatMessage params) {

@@ -50,4 +50,10 @@ public class Notifications implements Serializable {
      */
     @TableField("sent_at")
     private Date sentAt;
+    /**
+     * 是否已读
+     * 1未读，2已读
+     */
+    @TableField("is_read")
+    private Integer isRead;
 }

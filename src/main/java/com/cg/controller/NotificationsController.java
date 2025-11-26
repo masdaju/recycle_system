@@ -3,6 +3,7 @@ package com.cg.controller;
 import cn.dev33.satoken.stp.StpUtil;
 import cn.dev33.satoken.util.SaResult;
 import com.baomidou.mybatisplus.core.conditions.query.LambdaQueryWrapper;
+import com.baomidou.mybatisplus.core.conditions.update.LambdaUpdateWrapper;
 import com.baomidou.mybatisplus.extension.plugins.pagination.Page;
 import com.cg.entity.Notifications;
 import com.cg.service.NotificationsService;
@@ -59,10 +60,31 @@ public class NotificationsController {
                 .between(startTime != null && endTime != null, Notifications::getSentAt, startTime, endTime)
                 // 按消息发送时间降序排序
                 .orderByDesc(Notifications::getSentAt);
+        //查看消息后设置为已查看
+        notificationsService.update(new LambdaUpdateWrapper<Notifications>().set(Notifications::getIsRead, 2).eq(Notifications::getUserId, StpUtil.getLoginIdAsLong()));
         // 调用服务层的分页查询方法，获取分页结果
         Page<Notifications> aPage = notificationsService.page(new Page<>(current, pageSize), queryWrapper);
         // 将分页结果封装到 SaResult 对象中并返回
         return SaResult.data(aPage);
+    }
+    //为移动端写的深分页查询接口
+    @GetMapping("MyMsgForApp")
+    public SaResult MyMsgForApp(@RequestParam(defaultValue = "0") Long lastId, Integer pageSize) {
+        // 获取当前登录用户ID
+        Long userId = StpUtil.getLoginIdAsLong();
+        // 调用服务层的分页查询方法，获取分页结果
+        Page<Notifications> aPage = notificationsService.MyMsgForApp(lastId, pageSize, userId);
+        // 将分页结果封装到 SaResult 对象中并返回
+        return SaResult.data(aPage);
+    }
+
+    /**
+     * 根据消息通知的ID查询单个消息通知。
+     *
+     * @param id 消息通知的ID
+     * @return 包含消息通知
+
+
     }
 
     /**
@@ -103,6 +125,7 @@ public class NotificationsController {
             params.setUserId(userId);
             // 设置消息发送时间为当前时间
             params.setSentAt(new Date());
+            params.setIsRead(1);
             // 调用服务层的保存方法，将消息通知保存到数据库
             notificationsService.save(params);
             // 返回创建成功的信息
@@ -151,4 +174,31 @@ public class NotificationsController {
             return SaResult.error("消息通知更新失败: " + e.getMessage());
         }
     }
+
+    @GetMapping(value = "/unreadCount")
+    public SaResult getUnreadCount() {
+        // 获取当前用户ID
+        Long userId = StpUtil.getLoginIdAsLong();
+        LambdaQueryWrapper<Notifications> notificationsLambdaQueryWrapper =new LambdaQueryWrapper<>();
+        notificationsLambdaQueryWrapper.eq(Notifications::getUserId,userId).eq(Notifications::getIsRead,1);
+        // 调用服务层的方法，获取未读消息通知的数量
+        long unreadCount = notificationsService.count(notificationsLambdaQueryWrapper);
+        // 返回未读消息通知的数量
+        return SaResult.data(unreadCount);
+    }
+    @PostMapping(value = "/read")
+    public SaResult read() {
+
+        // 获取当前用户ID
+        Long userId = StpUtil.getLoginIdAsLong();
+    LambdaUpdateWrapper<Notifications> wrapper =new LambdaUpdateWrapper<>();
+    wrapper.set(Notifications::getIsRead,2).eq(Notifications::getUserId,userId).set(Notifications::getIsRead,2);
+
+        // 调用服务层的方法，获取未读消息通知的数量
+        notificationsService.update(wrapper);
+        // 返回未读消息通知的数量
+        return SaResult.ok();
+
+    }
+
 }

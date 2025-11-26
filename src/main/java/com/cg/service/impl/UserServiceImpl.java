@@ -41,10 +41,8 @@ public class UserServiceImpl extends ServiceImpl<UserMapper, User>
         implements UserService {
     @Autowired
     private ChatMessageMapper chatMessageMapper;
-    // 自动注入 VUserService 实例，用于操作视图 VUser 相关的数据
     @Autowired
     private VUserService vUserService;
-    // 自动注入 VRoleService 实例，用于操作视图 VRole 相关的数据
     @Autowired
     private VRoleService vRoleService;
     @Autowired
@@ -125,6 +123,42 @@ public class UserServiceImpl extends ServiceImpl<UserMapper, User>
             return SaResult.error("密码错误");
         }
     }
+
+    @Override
+    public SaResult loginByEmail(String email, String code) {
+        boolean equals = Boolean.TRUE.equals(stringRedisTemplate.hasKey("email_code:" + email));
+        if (equals&&code.equals(stringRedisTemplate.opsForValue().get("email_code:" + email))){
+            QueryWrapper<VUser> wrapper = new QueryWrapper<>();
+            wrapper.eq("email", email);
+            VUser vUser = vUserService.getOne(wrapper);
+            if (ObjectUtils.isEmpty(vUser)) {
+                return SaResult.error("用户不存在");
+            }
+            if (vUser.getStatus()==0) {
+                return SaResult.error("账号已被禁用");
+            }
+            RUser rUser = new RUser();
+            BeanUtils.copyProperties(vUser, rUser);
+            QueryWrapper<VRole> wrapper1 = new QueryWrapper<>();
+            // 添加查询条件：根据角色 ID、角色状态和状态进行筛选
+            wrapper1.eq("role_id", vUser.getRoleId()).eq("status", 1).eq("role_status", 1);
+            StpUtil.login(vUser.getId());
+            List<VRole> list = vRoleService.list(wrapper1);
+            // 使用流操作，从 VRole 列表中提取资源值，并收集到一个列表中
+            List<String> resourceList = list.stream().map(VRole::getResValue).toList();
+            rUser.setResource(resourceList);
+            SaTokenInfo tokenInfo = StpUtil.getTokenInfo();
+            // 设置登录设备信息
+            // 设置 RUser 对象的 Sa-Token 信息
+            rUser.setSaTokenInfo(tokenInfo);
+            //登录成功把验证码移除
+            stringRedisTemplate.delete("email_code:" + email);
+            return SaResult.data(rUser);
+        }
+        return SaResult.error("邮箱验证码错误或者过期");
+
+    }
+
 //    @Cacheable(value = "users", key = "#account")
 //    public VUser getUser(String account) {
 //        LambdaUpdateWrapper<VUser> wrapper = new LambdaUpdateWrapper<>();
@@ -142,7 +176,7 @@ public class UserServiceImpl extends ServiceImpl<UserMapper, User>
      */
     @Override
 //    @CacheEvict(value = "users", key = "#userId")
-    public SaResult logout(String satoken, Integer userId) {
+    public SaResult logout(String satoken, Object userId) {
         VUser user = vUserService.getOne(new QueryWrapper<VUser>().eq("id", userId));
         String account = user.getAccount();
         if (Boolean.TRUE.equals(stringRedisTemplate.hasKey("users::" + account))){
@@ -158,4 +192,33 @@ public class UserServiceImpl extends ServiceImpl<UserMapper, User>
     public String getCollectorName(Long requestId) {
         return chatMessageMapper.getCollectorName(requestId);
     }
+
+    @Override
+    public SaResult loginByScan(String Token) {
+
+        Object loginId = StpUtil.getLoginIdByToken(Token);
+        QueryWrapper<VUser> wrapper = new QueryWrapper<>();
+        wrapper.eq("id", loginId);
+        VUser vUser = vUserService.getOne(wrapper);
+        if (ObjectUtils.isEmpty(vUser)) {
+            return SaResult.error("用户不存在");
+        }
+        if (vUser.getStatus() == 0) {
+            return SaResult.error("账号已被禁用");
+        }
+        RUser rUser = new RUser();
+        BeanUtils.copyProperties(vUser, rUser);
+        QueryWrapper<VRole> wrapper1 = new QueryWrapper<>();
+        // 添加查询条件：根据角色 ID、角色状态和状态进行筛选
+        wrapper1.eq("role_id", vUser.getRoleId()).eq("status", 1).eq("role_status", 1);
+        StpUtil.login(vUser.getId());
+        List<VRole> list = vRoleService.list(wrapper1);
+        // 使用流操作，从 VRole 列表中提取资源值，并收集到一个列表中
+        List<String> resourceList = list.stream().map(VRole::getResValue).toList();
+        rUser.setResource(resourceList);
+        SaTokenInfo tokenInfo = StpUtil.getTokenInfo();
+        rUser.setSaTokenInfo(tokenInfo);
+        return SaResult.data(rUser);
+    }
+
 }

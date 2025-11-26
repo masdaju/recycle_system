@@ -1,12 +1,19 @@
 package com.cg.controller;
 
 import cn.dev33.satoken.util.SaResult;
+import co.elastic.clients.elasticsearch.core.SearchResponse;
+import co.elastic.clients.json.JsonData;
+import co.elastic.clients.json.JsonpMapper;
 import com.alibaba.fastjson2.JSON;
+import com.alibaba.fastjson2.JSONObject;
 import com.baomidou.mybatisplus.core.conditions.query.LambdaQueryWrapper;
 import com.baomidou.mybatisplus.extension.plugins.pagination.Page;
+import com.cg.docService.docs.WasteDocument;
+import com.cg.docService.elasticsearch.ESClient;
 import com.cg.entity.Waste;
 import com.cg.service.WasteService;
 import com.cg.utils.ListUtils;
+import jakarta.json.JsonValue;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.cache.annotation.CacheEvict;
 import org.springframework.cache.annotation.Cacheable;
@@ -14,7 +21,10 @@ import org.springframework.data.redis.core.StringRedisTemplate;
 import org.springframework.web.bind.annotation.*;
 import org.springframework.web.multipart.MultipartFile;
 
+import java.io.IOException;
 import java.util.List;
+
+import static com.cg.docService.elasticsearch.Utils.moveStr;
 
 /**
  * <p>
@@ -30,8 +40,10 @@ public class WasteController {
 
     @Autowired
     private WasteService wasteService;
-@Autowired
-private StringRedisTemplate stringRedisTemplate;
+    @Autowired
+    private StringRedisTemplate stringRedisTemplate;
+    @Autowired
+    ESClient client;
     @GetMapping
     //数据删除后大量的请求，会导致数据库压力过大，sync=true，表示同步执行缓存操作，避免数据库压力过大
     //condition="#name==null||#classifyId==null"表示只有当name和classifyId都为空时，才执行缓存操作
@@ -52,6 +64,22 @@ private StringRedisTemplate stringRedisTemplate;
         }
         Page<Waste> aPage = wasteService.page(new Page<>(current, pageSize), wrapper);
         return SaResult.data(aPage);
+    }
+
+    @GetMapping(value = "getWasteForApp")
+    public SaResult getWasteForApp(@RequestParam(defaultValue = "waste") String index,
+                                   @RequestParam(defaultValue = "0") Integer from ,
+                                   @RequestParam(required = false) Long cid,
+                                   @RequestParam(defaultValue = "6") Integer size,
+                                   @RequestParam(required = false) Double minPrice,
+                                   @RequestParam(required = false)String keyword,
+                                   @RequestParam(required = false)Double maxPrice,
+                                   @RequestParam(required = false)String startDate,
+                                   @RequestParam(required = false)String endDate) throws IOException {
+//        TODO 实现es查询数据+分页+条件查询
+        JsonValue search = client.search(index, from, cid, size, minPrice, keyword, maxPrice, startDate, endDate, WasteDocument.class);
+        JSONObject jsonObject = JSONObject.parseObject(search.toString());
+        return SaResult.data(jsonObject);
     }
 
     @GetMapping(value = "/{id}")

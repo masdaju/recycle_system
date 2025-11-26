@@ -1,7 +1,10 @@
 package com.cg.mapper;
 
+import com.baomidou.mybatisplus.extension.plugins.pagination.Page;
 import com.cg.entity.Notifications;
 import com.baomidou.mybatisplus.core.mapper.BaseMapper;
+
+import java.util.List;
 
 /**
  * <p>
@@ -12,5 +15,6 @@ import com.baomidou.mybatisplus.core.mapper.BaseMapper;
  * @since 2024-12-26
  */
 public interface NotificationsMapper extends BaseMapper<Notifications> {
+    List<Notifications> MyMsgForApp(Long lastId, Integer pageSize, Long userId);
 
 }

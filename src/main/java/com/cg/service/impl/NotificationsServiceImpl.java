@@ -1,5 +1,6 @@
 package com.cg.service.impl;
 
+import com.baomidou.mybatisplus.extension.plugins.pagination.Page;
 import com.cg.entity.Notifications;
 import com.cg.mapper.NotificationsMapper;
 import com.cg.service.NotificationsService;
@@ -17,4 +18,12 @@ import org.springframework.stereotype.Service;
 @Service
 public class NotificationsServiceImpl extends ServiceImpl<NotificationsMapper, Notifications> implements NotificationsService {
 
+    @Override
+    public Page<Notifications> MyMsgForApp(Long lastId, Integer pageSize, Long userId) {
+        Page<Notifications> page = new Page<>();
+        page.setSize(pageSize);
+        page.setCurrent(lastId);
+        page.setRecords(baseMapper.MyMsgForApp(lastId, pageSize, userId));
+        return page;
+    }
 }

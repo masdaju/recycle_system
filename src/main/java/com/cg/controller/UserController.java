@@ -2,9 +2,13 @@ package com.cg.controller;
 
 import cn.dev33.satoken.stp.StpUtil;
 import cn.dev33.satoken.util.SaResult;
+import cn.hutool.json.JSONObject;
+import cn.hutool.json.JSONUtil;
 import com.baomidou.mybatisplus.core.conditions.query.LambdaQueryWrapper;
 import com.baomidou.mybatisplus.core.conditions.update.LambdaUpdateWrapper;
 import com.baomidou.mybatisplus.extension.plugins.pagination.Page;
+import com.cg.config.emil.EmailSendUtil;
+import com.cg.config.websocketServer.ScanSocketServer;
 import com.cg.entity.SysFile;
 import com.cg.entity.User;
 import com.cg.entity.view.VUser;
@@ -12,6 +16,8 @@ import com.cg.service.SysFileService;
 import com.cg.service.UserService;
 import com.cg.service.VUserService;
 import com.cg.utils.StringUtils;
+import io.lettuce.core.RedisException;
+import jakarta.mail.MessagingException;
 import jakarta.servlet.http.HttpServletRequest;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.beans.factory.annotation.Value;
@@ -21,7 +27,12 @@ import org.springframework.security.crypto.bcrypt.BCryptPasswordEncoder;
 import org.springframework.web.bind.annotation.*;
 import org.springframework.web.multipart.MultipartFile;
 
-import java.math.BigDecimal;
+import java.util.HashMap;
+import java.util.Map;
+import java.util.concurrent.TimeUnit;
+
+import static com.cg.utils.SecureCaptchaGenerator.*;
+
 
 /**
  * <p>
@@ -46,14 +57,83 @@ public class UserController {
     @Autowired
     private StringRedisTemplate stringRedisTemplate;
 
+
+    @Autowired
+    EmailSendUtil emailSendUtil;
+
+    @Autowired
+    ScanSocketServer scanSocketServer;
+
     @PostMapping(value = "/login")
     public SaResult login(@RequestParam String account, @RequestParam String password, HttpServletRequest request) {
+
        return userService.login(account, password, request.getHeader("Sec-Ch-Ua-Platform"));
 
     }
+
+
+    @GetMapping(value = "/QRCode")
+    public SaResult QRCode() {
+        String code = generateScancode();
+        String loginCode = generateLoginCode();
+        //二维码有效时间为1分钟
+        stringRedisTemplate.opsForValue().set(code, loginCode, 500, TimeUnit.SECONDS);
+        return SaResult.data(code);
+    }
+
+    @PostMapping(value = "/scan")
+    public SaResult scan(@RequestParam String code) {
+        JSONObject jsonObject = new JSONObject();
+        Map<String, Object> map = new HashMap<>();
+        map.put("code", code);
+        map.put("status","waiting");
+        map.put("confirm",false);
+        jsonObject.putAll(map);
+
+        scanSocketServer.onMessage(JSONUtil.toJsonStr(jsonObject));
+        try {
+            String loginCode = stringRedisTemplate.opsForValue().get(code);
+            return SaResult.data(loginCode);
+        }catch (Exception e){
+            return SaResult.error("二维码已失效");
+        }
+    }
+
+    @PostMapping(value = "/confirmLogin")
+    public SaResult confirmLogin(String code , String loginCode) {
+        JSONObject jsonObject = new JSONObject();
+        Map<String, Object> map = new HashMap<>();
+        map.put("code", code);
+        map.put("confirm",true);
+        map.put("satoken",StpUtil.getTokenValue());
+
+        String s;
+        try {
+            s = stringRedisTemplate.opsForValue().get(code);
+        } catch (RedisException e) {
+            return SaResult.error("二维码已失效");
+        }
+
+        if (loginCode.equals(s)) {
+            map.put("loginCode",loginCode);
+            jsonObject.putAll(map);
+            scanSocketServer.onMessage(JSONUtil.toJsonStr(jsonObject));
+            stringRedisTemplate.delete(code);
+            return SaResult.ok("登录成功");
+        }
+        return SaResult.error("登录失败");
+    }
+
+    @PostMapping(value = "/loginByCode")
+    public SaResult loginByCode(@RequestParam String email,@RequestParam String code) {
+        return userService.loginByEmail(email,code);
+    }
+
     @GetMapping(value = "/logout")
-        public SaResult logout(@RequestHeader String satoken,@RequestParam Integer uid) {
-                return userService.logout(satoken,uid);
+        public SaResult logout() {
+        String satoken = StpUtil.getTokenValue();
+        Object uid = StpUtil.getLoginId();
+        return userService.logout(satoken,uid);
         }
     @GetMapping
     public SaResult list(@RequestParam(required = false) Integer current,
@@ -202,5 +282,13 @@ public class UserController {
         return SaResult.ok("updated successfully");
         }
         return SaResult.ok("updated successfully");
+    }
+    @GetMapping(value = "/sendCode")
+    public SaResult sendCode(@RequestParam String email) throws MessagingException {
+        String captcha = generateSecureCaptcha();
+        Map<String, Object> variables = Map.of("code", captcha, "expireTime", "5", "username", "张三");
+        emailSendUtil.sendHtmlMail(email,"这是你的验证码不要告诉别人","email-verification",variables);
+        stringRedisTemplate.opsForValue().set("email_code:"+email,captcha,5, TimeUnit.MINUTES);
+        return SaResult.ok("邮件已发送注意查收");
     }
 }
