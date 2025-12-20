@@ -1,0 +1,182 @@
+@startuml
+class com.cg.entity.WasteClassify {
+- {static} long serialVersionUID
+- Long cid
+- String name
+- Integer month
+- Integer countNum
+}
+
+class com.cg.controller.RequestWasteController {
+- RequestWasteService requestWasteService
+- TransportSchedulesService transportSchedulesService
+- VWasteService vWasteService
+- UserService userService
+- WasteRequestsService wasteRequestsService
+}
+
+class com.cg.entity.Vehicles {
+- {static} long serialVersionUID
+- Long vehicleId
+- String vehicleType
+- String licensePlate
+}
+
+class com.cg.entity.Notifications {
+- {static} long serialVersionUID
+- Long notificationId
+- Long userId
+- String message
+- Date sentAt
+}
+
+class com.cg.entity.TransportSchedules {
+- {static} long serialVersionUID
+- Long scheduleId
+- Long collectorId
+- Long userId
+- Long requestId
+- Long vehicleId
+- String route
+- Integer status
+}
+
+class com.cg.entity.Feedbacks {
+- {static} long serialVersionUID
+- Long feedbackId
+- Long userId
+- String content
+- Integer rating
+- Integer status
+- Long requestId
+- String account
+- String name
+}
+
+class com.cg.entity.SysFile {
+- {static} long serialVersionUID
+- Long id
+- Date createTime
+- Date updateTime
+- Byte status
+- String fileName
+- String realPath
+- String fileUrl
+}
+
+class com.cg.entity.Reports {
+- {static} long serialVersionUID
+- Long reportId
+- Long userId
+- Date reportDate
+- Long requestId
+- BigDecimal total
+}
+
+class com.cg.entity.WasteRequests {
+- {static} long serialVersionUID
+- Long requestId
+- Long userId
+- Date appointmentTime
+- Integer status
+- String address
+- String remark
+- List<Long> wid
+}
+
+class com.cg.entity.RoleResources {
+- Long id
+- Long roleId
+- Long resourcesId
+- {static} long serialVersionUID
+}
+
+class com.cg.entity.User {
+- Long id
+- Date createTime
+- Date updateTime
+- Integer status
+- String account
+- String password
+- String name
+- String mobile
+- BigDecimal amount
+- Long roleId
+- String avatarUrl
+- String email
+- {static} long serialVersionUID
+}
+
+class com.cg.entity.Waste {
+- {static} long serialVersionUID
+- Long wasteId
+- Long cid
+- Date createDate
+- String name
+- String description
+- String imgUrl
+- BigDecimal price
+- String unit
+}
+
+class com.cg.entity.ChatMessage {
+- {static} long serialVersionUID
+- Long id
+- String sendUserAccount
+- String acceptUserAccount
+- String content
+- Date sendTime
+}
+
+class com.cg.entity.Resources {
+- Long id
+- Date createTime
+- Date updateTime
+- Integer status
+- String name
+- Long pid
+- String type
+- String path
+- String icon
+- String resValue
+- Integer sortIndex
+- {static} long serialVersionUID
+}
+
+class com.cg.entity.RequestWaste {
+- {static} long serialVersionUID
+- Long id
+- Long requestId
+- Long wasteId
+- BigDecimal quantity
+}
+
+class com.cg.entity.Role {
+- Long id
+- Date createTime
+- Date updateTime
+- Integer status
+- String name
+- String roleValue
+- List<Long> resId
+- {static} long serialVersionUID
+}
+
+
+
+java.io.Serializable <|.. com.cg.entity.WasteClassify
+java.io.Serializable <|.. com.cg.entity.Vehicles
+java.io.Serializable <|.. com.cg.entity.Notifications
+java.io.Serializable <|.. com.cg.entity.TransportSchedules
+java.io.Serializable <|.. com.cg.entity.Feedbacks
+java.io.Serializable <|.. com.cg.entity.SysFile
+java.io.Serializable <|.. com.cg.entity.Reports
+java.io.Serializable <|.. com.cg.entity.WasteRequests
+java.io.Serializable <|.. com.cg.entity.RoleResources
+java.io.Serializable <|.. com.cg.entity.User
+java.io.Serializable <|.. com.cg.entity.Waste
+java.io.Serializable <|.. com.cg.entity.ChatMessage
+java.io.Serializable <|.. com.cg.entity.Resources
+java.io.Serializable <|.. com.cg.entity.RequestWaste
+java.io.Serializable <|.. com.cg.entity.Role
+@enduml

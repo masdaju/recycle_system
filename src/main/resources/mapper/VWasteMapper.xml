@@ -1,0 +1,48 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="com.cg.mapper.VWasteMapper">
+
+    <!-- 通用查询映射结果 -->
+<!--    <resultMap id="BaseResultMap" type="com.cg.entity.RequestWaste">-->
+<!--        <id column="id" property="id" />-->
+<!--        <result column="request_id" property="requestId" />-->
+<!--        <result column="waste_id" property="wasteId" />-->
+<!--        <result column="quantity" property="quantity" />-->
+<!--    </resultMap>-->
+    <!-- 通用查询结果列 -->
+    <sql id="Base_Column_List">
+        id, request_id, waste_id, quantity
+    </sql>
+    <select id="toamount" resultType="java.math.BigDecimal">
+        SELECT SUM(quantity * price)
+        FROM v_waste where request_id=#{requestId};
+    </select>
+    <select id="getTotalByType" resultType="com.cg.entity.WasteClassify">
+        SELECT `name`, COUNT(*) AS count_num
+        FROM v_waste
+        WHERE   status=2
+        GROUP BY cid;
+    </select>
+    <select id="getAllTotal" resultType="com.cg.entity.WasteClassify">
+        SELECT `name`, COUNT(*) AS count_num
+        FROM v_waste
+        GROUP BY cid;
+    </select>
+
+    <select id="getTotalByReportDate" resultType="com.cg.entity.WasteClassify">
+        SELECT
+            MONTH(report_date) AS month,
+            COUNT(*) AS count_num
+        FROM
+            v_waste
+        where YEAR(report_date)=#{year}
+        GROUP BY
+            MONTH(report_date);
+    </select>
+
+<select id="getMessByType" resultType="com.cg.entity.WasteClassify" >
+    SELECT cid, `name` , SUM(quantity) AS quantity
+    FROM v_waste
+    GROUP BY cid;
+</select>
+</mapper>

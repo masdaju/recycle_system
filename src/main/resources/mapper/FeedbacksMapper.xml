@@ -1,0 +1,40 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="com.cg.mapper.FeedbacksMapper">
+
+    <!-- 通用查询映射结果 -->
+    <resultMap id="BaseResultMap" type="com.cg.entity.Feedbacks">
+        <id column="feedback_id" property="feedbackId" />
+        <result column="user_id" property="userId" />
+        <result column="content" property="content" />
+        <result column="rating" property="rating" />
+        <result column="status" property="status" />
+        <result column="request_id" property="requestId" />
+    </resultMap>
+    <!-- 通用查询结果列 -->
+    <sql id="Base_Column_List">
+        feedback_id, user_id, content, rating, status,request_id
+    </sql>
+    <select id="getPage" resultType="com.cg.entity.Feedbacks">
+        SELECT
+        fb.*,
+        u.account,
+        u.`name`
+        FROM
+        feedbacks AS fb
+        LEFT JOIN sys_user AS u ON fb.user_id = u.id
+        <where>
+            <if test="ratingList!= null and ratingList.size()>0">
+                AND rating IN
+                <foreach collection="ratingList" item="item" open="(" close=")" separator=",">
+                    #{item}
+                </foreach>
+            </if>
+            <if test="status!= null">
+                AND fb.status = #{status}
+            </if>
+        </where>
+    </select>
+
+
+</mapper>

@@ -1,0 +1,36 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="com.cg.mapper.ChatMessageMapper">
+    <insert id="addToMyrelationship">
+        insert into relation(user_id,friend_user_id,insert_time) values(#{uid},#{friendId},now())
+    </insert>
+    <update id="toggleLongTermContact">
+        update relation set status=#{a} where user_id=#{uid} and friend_user_id=#{fid}
+    </update>
+    <delete id="deleteMyRelations">
+        DELETE
+        FROM relation
+        WHERE status = 0
+          AND insert_time &lt;= DATE_SUB(CURRENT_DATE, INTERVAL 7 DAY);
+    </delete>
+
+    <select id="getCollectorName" resultType="string">
+        SELECT u.account FROM sys_user AS u right JOIN transport_schedules AS ts on u.id=ts.collector_id WHERE ts.request_id=#{requestId}
+    </select>
+    <select id="getMyrelationship" resultType="com.cg.entity.view.VRelation">
+        select * from v_relation where user_id=#{uid}
+    </select>
+    <select id="getchatlist" resultType="com.cg.entity.ChatMessage">
+        SELECT *
+        FROM (
+                 SELECT *
+                 FROM chat_message
+                 WHERE (send_user_account = #{sendUserAccount} AND accept_user_account = #{acceptUserAccount})
+                    OR (send_user_account = #{acceptUserAccount} AND accept_user_account = #{sendUserAccount})
+                 ORDER BY send_time DESC
+                     LIMIT 500
+             ) AS recent_messages
+        ORDER BY send_time ASC;
+    </select>
+
+</mapper>

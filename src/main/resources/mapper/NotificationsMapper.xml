@@ -1,0 +1,27 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="com.cg.mapper.NotificationsMapper">
+
+    <!-- 通用查询映射结果 -->
+    <resultMap id="BaseResultMap" type="com.cg.entity.Notifications">
+        <id column="notification_id" property="notificationId" />
+        <result column="user_id" property="userId" />
+        <result column="message" property="message" />
+        <result column="sentAt" property="sentAt" />
+    </resultMap>
+    <!-- 通用查询结果列 -->
+    <sql id="Base_Column_List">
+        notification_id, user_id, message, sent_at,is_read
+    </sql>
+    <select id="MyMsgForApp" resultType="com.cg.entity.Notifications">
+            select `notification_id`, `user_id`, `message`, `sent_at`,is_read from notifications
+            <where>
+                user_id = #{userId}
+                <if test="lastId != 0">
+                    and notification_id &lt; #{lastId}
+                </if>
+                    order by sent_at DESC limit #{pageSize}
+            </where>
+    </select>
+
+</mapper>

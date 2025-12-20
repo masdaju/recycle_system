@@ -1,0 +1,19 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="com.cg.mapper.WasteRequestsMapper">
+
+    <!-- 通用查询映射结果 -->
+    <resultMap id="BaseResultMap" type="com.cg.entity.WasteRequests">
+        <id column="request_id" property="requestId" />
+        <result column="user_id" property="userId" />
+        <result column="appointmentTime" property="appointmentTime" />
+        <result column="status" property="status" />
+        <result column="address" property="address" />
+        <result column="remark" property="remark" />
+    </resultMap>
+    <!-- 通用查询结果列 -->
+    <sql id="Base_Column_List">
+        request_id, user_id, appointmentTime, status, address,remark
+    </sql>
+
+</mapper>
