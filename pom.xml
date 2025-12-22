@@ -174,9 +174,9 @@
 <!--        </dependency>-->
 <!--        ssh连接依赖-->
         <dependency>
-            <groupId>com.jcraft</groupId>
+            <groupId>com.github.mwiede</groupId>
             <artifactId>jsch</artifactId>
-            <version>0.1.55</version>
+            <version>0.2.20</version>
         </dependency>
         <dependency>
             <groupId>com.alibaba.otter</groupId>
