@@ -1,144 +1,151 @@
-#
-#sa-token:
-#  # Token名称
-#  token-name: satoken
-#  # Token有效期
-#  timeout: 2592000
-#  # Token风格
-#  token-style: tik
-#  #是否输出Sa-Token日志
-#  is-log: true
-#  # 是否允许同一账号多地同时登录 （为 true 时允许一起登录, 为 false 时新登录挤掉旧登录）
-#  is-concurrent: true
-#  # 在多人登录同一账号时，是否共用一个 token （为 true 时所有登录共用一个 token, 为 false 时每次登录新建一个 token）
-#  is-share: false
-#  #jwt的密钥
-#  jwt-secret-key: mas%dajusa^da#sdwqs@41$swadd
-##文件上传路径
-#file:
-#  upload-path: F:\\\upload/\\
-##就是个字符串拼接用的数据库用的
-#upload:
-#  path: F:/upload/
-#preview:
-#  url: http://localhost/preview/
-#  # 配置 Sa-Token 单独使用的 Redis 连接
-#spring:
-#
-#  application:
-#    name: recycleSys
-#  servlet:
-#    multipart:
-#      max-request-size: 10MB
-#      max-file-size: 10MB
-#  #  jackson:   #格式化返回时间 yyyy-MM-dd HH:mm:ss
-#  #    date-format: yyyy-MM-dd HH:mm:ss
-#  #    time-zone: GMT+8
-#  datasource:
-#    driver-class-name: com.mysql.cj.jdbc.Driver
+
+sa-token:
+  # Token名称
+  token-name: satoken
+  # Token有效期
+  timeout: 2592000
+  # Token风格
+  token-style: tik
+  #是否输出Sa-Token日志
+  is-log: true
+  # 是否允许同一账号多地同时登录 （为 true 时允许一起登录, 为 false 时新登录挤掉旧登录）
+  is-concurrent: true
+  # 在多人登录同一账号时，是否共用一个 token （为 true 时所有登录共用一个 token, 为 false 时每次登录新建一个 token）
+  is-share: false
+  #jwt的密钥
+  jwt-secret-key: mas%dajusa^da#sdwqs@41$swadd
+#文件上传路径改文件夹必须能在电脑上早到
+file:
+  upload-path: F:\\\upload/\\
+#就是个字符串拼接用的数据库用的
+upload:
+  path: F:/upload/
+preview:
+  url: http://localhost/preview/
+  # 配置 Sa-Token 单独使用的 Redis 连接
+spring:
+
+  application:
+    name: recycleSys
+  servlet:
+    multipart:
+      max-request-size: 10MB
+      max-file-size: 10MB
+  #  jackson:   #格式化返回时间 yyyy-MM-dd HH:mm:ss
+  #    date-format: yyyy-MM-dd HH:mm:ss
+  #    time-zone: GMT+8
+  datasource:
+    driver-class-name: com.mysql.cj.jdbc.Driver
 #    url: jdbc:mysql://localhost:3306/recycle?useUnicode=true&characterEncoding=UTF-8&serverTimezone=UTC
-#    username: root
-#    password: aLJH030428
-#  data:
-#    # redis配置
-#    redis:
-#      host: localhost
-#      port: 6379
-#      database: 0
-#      # 连接超时时间
-#      timeout: 10s
-#      lettuce:
-#        pool:
-#          # 连接池最大连接数
-#          max-active: 200
-#          # 连接池最大阻塞等待时间（使用负值表示没有限制）
-#          max-wait: -1ms
-#          # 连接池中的最大空闲连接
-#          max-idle: 10
-#          # 连接池中的最小空闲连接
-#          min-idle: 0
-#  cloud:
-#    sentinel:
-#      transport:
-#        dashboard: localhost:9000
-#        port: 8081
-#  mail:
-#    host: ******
-#    username: ****@**.com
-#    password: ***********
-#    port: 587  # 端口（SMTP默认587，SSL默认465）
-#    protocol: smtp  # 协议
-#    default-encoding: UTF-8
-#    properties:
-#      mail:
-#        smtp:
-#          starttls:
-#            enable: true
-#  elasticsearch:
-#    uris: http://192.168.3.105:9200
-##  rabbitmq:
-##    host: localhost
-##    port: 5672
-##    username: guest
-##    password: guest
-##    virtual-host: /
-#mybatis-plus:
-#  #  type-aliases-package: pojo
-#  mapper-locations: classpath:mapper/*.xml
-#  configuration:
-#    map-underscore-to-camel-case: true
-#    #    log-impl: org.apache.ibatis.logging.stdout.StdOutImpl
-#    cache-enabled: true
-#undertow:
-#  websocket:
-#    buffer-size: 1024
-#    region-buffers: 100
-#    max-idle-buffers: 20
-#    max-direct-memory: 10485760
-#logging:
-#  level:
-#    org.springframework.data.redis: ERROR
-#canal:
-#  server: 127.0.0.1:11111
-#  destination: example
-#  username: ''
-#  password: ''
-#
-#ssh:
-#  tunnels:
-#    # 第一套SSH配置（对应原sshServer1 Bean）
-#    server1:
-#      ssh-host: 192.168.3.105
-#      ssh-port: 22
-#      ssh-user: root
-#      private-key-path:  C:\Users\89394\.ssh\id_rsa
-#      private-key-passphrase:             # 私钥密码（无则空）
-#      reverses:
-#        - lport: 7001
-#          host: localhost
-#          rport: 7001
-#        - lport: 7002
-#          host: localhost
-#          rport: 7002
-#        - lport: 7003
-#          host: localhost
-#          rport: 7003
-#        - lport: 7004
-#          host: localhost
-#          rport: 7004
-#        - lport: 7005
-#          host: localhost
-#          rport: 7005
-#        - lport: 7006
-#          host: localhost
-#          rport: 7006
-#    server2:
-#      ssh-host: 192.168.206.130
-#      ssh-port: 22
-#      ssh-user: root
-#      private-key-path:  C:\Users\89394\Desktop\cloudflare密钥+证书\serverKey\192.168.206.130\sshkey
-#      private-key-passphrase:             # 私钥密码（无则空）
-#      reverses:
-#        - lport: 3307
-#          host: localhost
-#          rport: 3306
+#    必须建立ssh连接转发服务器端口到本地端口不然就用上面的链接自己的mysql服务
+    url: jdbc:mysql://localhost:3307/recycle?useUnicode=true&characterEncoding=UTF-8&serverTimezone=UTC
+    username: root
+    password: aLJH030428
+  data:
+    # redis配置
+    redis:
+      cluster:
+        #        集群节点，需要去连接SSH隧道
+        nodes: localhost:7001,localhost:7002,localhost:7003,localhost:7004,localhost:7005,localhost:7006
+      #        max-redirects: 3
+      # Redis数据库索引（默认为0）
+      database: 0
+      # 连接超时时间
+      timeout: 10s
+      lettuce:
+        pool:
+          # 连接池最大连接数
+          max-active: 200
+          # 连接池最大阻塞等待时间（使用负值表示没有限制）
+          max-wait: -1ms
+          # 连接池中的最大空闲连接
+          max-idle: 10
+          # 连接池中的最小空闲连接
+          min-idle: 0
+  cloud:
+    sentinel:
+      transport:
+        dashboard: localhost:9000
+        port: 8081
+  mail:
+    host: ******
+    username: ****@**.com
+    password: ***********
+    port: 587  # 端口（SMTP默认587，SSL默认465）
+    protocol: smtp  # 协议
+    default-encoding: UTF-8
+    properties:
+      mail:
+        smtp:
+          starttls:
+            enable: true
+  elasticsearch:
+    uris: http://192.168.3.105:9200
+#  rabbitmq:
+#    host: localhost
+#    port: 5672
+#    username: guest
+#    password: guest
+#    virtual-host: /
+mybatis-plus:
+  #  type-aliases-package: pojo
+  mapper-locations: classpath:mapper/*.xml
+  configuration:
+    map-underscore-to-camel-case: true
+    #    log-impl: org.apache.ibatis.logging.stdout.StdOutImpl
+    cache-enabled: true
+undertow:
+  websocket:
+    buffer-size: 1024
+    region-buffers: 100
+    max-idle-buffers: 20
+    max-direct-memory: 10485760
+logging:
+  level:
+    org.springframework.data.redis: ERROR
+canal:
+#  server: 192.168.3.105:11111
+#  可以使用本地的canal服务
+  server: 127.0.0.1:11111
+  destination: example
+  username: ''
+  password: ''
+
+ssh:
+  tunnels:
+    # 第一套SSH配置（对应原sshServer1 Bean）
+    server1:
+      ssh-host: 192.168.3.105
+      ssh-port: 22
+      ssh-user: root
+      private-key-path:  C:\Users\89394\.ssh\id_rsa
+      private-key-passphrase:             # 私钥密码（无则空）
+      reverses:
+        - lport: 7001
+          host: localhost
+          rport: 7001
+        - lport: 7002
+          host: localhost
+          rport: 7002
+        - lport: 7003
+          host: localhost
+          rport: 7003
+        - lport: 7004
+          host: localhost
+          rport: 7004
+        - lport: 7005
+          host: localhost
+          rport: 7005
+        - lport: 7006
+          host: localhost
+          rport: 7006
+    server2:
+      ssh-host: 192.168.206.130
+      ssh-port: 22
+      ssh-user: root
+      private-key-path:  C:\Users\89394\Desktop\cloudflare密钥+证书\serverKey\192.168.206.130\sshkey
+      private-key-passphrase:             # 私钥密码（无则空）
+      reverses:
+        - lport: 3307
+          host: localhost
+          rport: 3306
