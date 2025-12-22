@@ -39,7 +39,7 @@ public class WebLogAspect {
         // 记录请求内容
         log.info("URL(请求路径): " + request.getRequestURL().toString());
         log.info("HTTP_METHOD(请求): " + request.getMethod());
-        log.info("IP(请求IP): " + request.getRemoteAddr());
+        log.info("IP(请求IP): " + getClientIp(request));
         log.info("CLASS_METHOD(类方法): " + joinPoint.getSignature().getDeclaringTypeName() + "." + joinPoint.getSignature().getName());
         log.info("Args(请求参数): " + Arrays.toString(joinPoint.getArgs()));
     }
@@ -62,5 +62,16 @@ public class WebLogAspect {
         String name = joinPoint.getSignature().getDeclaringTypeName() + "." + joinPoint.getSignature().getName();
         // 记录异常信息
         log.info("Exception_Class_Method(异常类方法): {}, Exception_Message: {}", name, e.getMessage());
+    }
+    public static String getClientIp(HttpServletRequest request) {
+        String ip = request.getHeader("X-Forwarded-For");
+        if (ip != null && ip.length() != 0 && !"unknown".equalsIgnoreCase(ip)) {
+            return ip.split(",")[0];
+        }
+        ip = request.getHeader("X-Real-IP");
+        if (ip != null && !"unknown".equalsIgnoreCase(ip)) {
+            return ip;
+        }
+        return request.getRemoteAddr();
     }
 }
