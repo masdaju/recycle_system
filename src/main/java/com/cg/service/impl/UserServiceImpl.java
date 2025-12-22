@@ -3,6 +3,7 @@ package com.cg.service.impl;
 import cn.dev33.satoken.stp.SaTokenInfo;
 import cn.dev33.satoken.stp.StpUtil;
 import cn.dev33.satoken.util.SaResult;
+import com.baomidou.mybatisplus.core.conditions.query.LambdaQueryWrapper;
 import com.baomidou.mybatisplus.core.conditions.query.QueryWrapper;
 import com.baomidou.mybatisplus.core.conditions.update.LambdaUpdateWrapper;
 import com.baomidou.mybatisplus.extension.service.impl.ServiceImpl;
@@ -219,6 +220,13 @@ public class UserServiceImpl extends ServiceImpl<UserMapper, User>
         SaTokenInfo tokenInfo = StpUtil.getTokenInfo();
         rUser.setSaTokenInfo(tokenInfo);
         return SaResult.data(rUser);
+    }
+
+    @Override
+    public User getUserByEmail(String email) {
+        LambdaQueryWrapper<User> wrapper = new LambdaQueryWrapper<>();
+        return baseMapper.selectOne(wrapper.eq(User::getEmail, email));
+
     }
 
 }

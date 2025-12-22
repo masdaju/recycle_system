@@ -20,4 +20,6 @@ public interface UserService extends IService<User> {
     String getCollectorName(Long requestId);
 
     SaResult loginByScan(String token);
+
+    User getUserByEmail(String email);
 }

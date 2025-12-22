@@ -25,7 +25,7 @@ public class EmailSendUtil {
     @Resource
     private  JavaMailSender javaMailSender;
     @Autowired
-    private  TemplateEngine templateEngine;  // Thymeleaf模板引擎（用于HTML模板邮件）
+    private  TemplateEngine templateEngine;
 
     @Value("${spring.mail.username}")
     private String fromEmail;  // 发件人邮箱

@@ -286,7 +286,8 @@ public class UserController {
     @GetMapping(value = "/sendCode")
     public SaResult sendCode(@RequestParam String email) throws MessagingException {
         String captcha = generateSecureCaptcha();
-        Map<String, Object> variables = Map.of("code", captcha, "expireTime", "5", "username", "张三");
+        User user = userService.getUserByEmail(email);
+        Map<String, Object> variables = Map.of("code", captcha, "expireTime", "5", "username", user.getAccount());
         emailSendUtil.sendHtmlMail(email,"这是你的验证码不要告诉别人","email-verification",variables);
         stringRedisTemplate.opsForValue().set("email_code:"+email,captcha,5, TimeUnit.MINUTES);
         return SaResult.ok("邮件已发送注意查收");
