@@ -1,11 +1,8 @@
 package com.cg.docService.docs;
 
-import cn.hutool.core.date.DateTime;
-import com.alibaba.fastjson2.annotation.JSONField;
 import com.fasterxml.jackson.annotation.JsonFormat;
 import com.fasterxml.jackson.annotation.JsonProperty;
 import lombok.Data;
-import org.springframework.format.annotation.DateTimeFormat;
 
 import java.util.Date;
 @Data

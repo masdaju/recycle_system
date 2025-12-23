@@ -5,7 +5,6 @@ import com.baomidou.mybatisplus.core.conditions.query.LambdaQueryWrapper;
 import com.baomidou.mybatisplus.extension.plugins.pagination.Page;
 import com.baomidou.mybatisplus.extension.service.impl.ServiceImpl;
 import com.cg.entity.RequestWaste;
-import com.cg.entity.RoleResources;
 import com.cg.entity.WasteRequests;
 import com.cg.mapper.WasteRequestsMapper;
 import com.cg.service.RequestWasteService;
@@ -24,9 +23,6 @@ import static com.cg.utils.ListUtils.compare;
  * 该类实现了WasteRequestsService接口，处理与废品请求表相关的业务逻辑，
  * 包括保存废品请求、更新废品请求、分页查询废品请求等功能。
  * </p>
- *
- * @author 海カ布
- * @since 2024-12-27
  */
 @Service
 public class WasteRequestsServiceImpl extends ServiceImpl<WasteRequestsMapper, WasteRequests> implements WasteRequestsService {

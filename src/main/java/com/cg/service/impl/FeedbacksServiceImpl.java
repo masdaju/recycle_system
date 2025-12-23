@@ -14,9 +14,6 @@ import java.util.List;
  * <p>
  * 反馈表 服务实现类
  * </p>
- *
- * @author 海カ布
- * @since 2024-12-26
  */
 @Service
 public class FeedbacksServiceImpl extends ServiceImpl<FeedbacksMapper, Feedbacks> implements FeedbacksService {

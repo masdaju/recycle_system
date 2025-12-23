@@ -30,9 +30,6 @@ import java.util.concurrent.locks.ReentrantLock;
  * 每个申请Id对应的废品 服务实现类
  * 该类实现了 RequestWasteService 接口，处理与每个申请ID对应的废品相关的业务逻辑。
  * </p>
- *
- * @author 海カ布
- * @since 2024-12-26
  */
 @Service
 public class RequestWasteServiceImpl extends ServiceImpl<RequestWasteMapper, RequestWaste> implements RequestWasteService {

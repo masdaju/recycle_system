@@ -9,17 +9,12 @@ import co.elastic.clients.json.JsonData;
 import co.elastic.clients.json.JsonpMapper;
 import co.elastic.clients.transport.endpoints.BooleanResponse;
 import com.cg.docService.docs.WasteDocument;
-import com.cg.entity.Waste;
 import jakarta.json.JsonValue;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Component;
 
-import javax.naming.directory.SearchResult;
 import java.io.IOException;
-import java.math.BigDecimal;
-import java.util.*;
-import java.util.function.Consumer;
-import java.util.stream.Collectors;
+import java.util.List;
 
 import static com.cg.docService.elasticsearch.Utils.applyIf;
 

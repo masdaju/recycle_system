@@ -15,9 +15,7 @@ import java.util.List;
  * <p>
  * 反馈表 前端控制器
  * </p>
- *
- * @author 海カ布
- * @since 2024-12-26
+
  */
 @RestController
 @RequestMapping("/feedbacks")

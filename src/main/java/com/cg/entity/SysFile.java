@@ -14,9 +14,6 @@ import java.util.Date;
  * <p>
  * 文件表
  * </p>
- *
- * @author 海カ布
- * @since 2024-10-22
  */
 @Data
 @Accessors(chain = true)

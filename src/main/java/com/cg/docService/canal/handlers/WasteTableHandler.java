@@ -5,12 +5,9 @@ import co.elastic.clients.elasticsearch.core.DeleteResponse;
 import co.elastic.clients.elasticsearch.core.UpdateResponse;
 import com.alibaba.fastjson2.JSON;
 import com.alibaba.otter.canal.protocol.CanalEntry;
-
-
 import com.cg.docService.canal.CanalMessageHandler;
 import com.cg.docService.docs.WasteDocument;
 import com.cg.docService.elasticsearch.ESClient;
-import com.cg.entity.Waste;
 import com.google.common.collect.Lists;
 import lombok.extern.slf4j.Slf4j;
 import org.springframework.beans.BeanUtils;
@@ -25,11 +22,7 @@ import java.util.stream.Collectors;
 
 import static com.cg.docService.elasticsearch.Utils.moveStr;
 
-/**
- * 用户表数据变更处理器
- *
- * @author ken
- */
+
 @Slf4j
 @Component
 public class WasteTableHandler implements CanalMessageHandler {

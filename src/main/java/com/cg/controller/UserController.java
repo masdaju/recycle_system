@@ -38,9 +38,7 @@ import static com.cg.utils.SecureCaptchaGenerator.*;
  * <p>
  * 用户表 前端控制器
  * </p>
- *
- * @author 
- * @since 2024-10-13
+
  */
 @RestController
 @RequestMapping("/sys-user")

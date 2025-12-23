@@ -1,7 +1,7 @@
 package com.cg.mapper;
 
-import com.cg.entity.Waste;
 import com.baomidou.mybatisplus.core.mapper.BaseMapper;
+import com.cg.entity.Waste;
 
 /**
  * <p>

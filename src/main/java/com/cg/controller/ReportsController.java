@@ -15,9 +15,7 @@ import java.util.List;
  * 报告表 前端控制器
  * 该控制器负责处理与报告表相关的HTTP请求，包括报告的分页查询、根据ID查询、创建、批量删除和更新操作。
  * </p>
- *
- * @author 海カ布
- * @since 2024-12-26
+
  */
 @RestController
 @RequestMapping("/reports")

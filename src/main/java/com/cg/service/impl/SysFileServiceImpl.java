@@ -4,10 +4,6 @@ import com.baomidou.mybatisplus.extension.service.impl.ServiceImpl;
 import com.cg.entity.SysFile;
 import com.cg.mapper.SysFileMapper;
 import com.cg.service.SysFileService;
-import com.jcraft.jsch.jce.MD5;
-import org.apache.commons.codec.digest.Crypt;
-import org.apache.commons.codec.digest.DigestUtils;
-import org.apache.commons.codec.digest.Md5Crypt;
 import org.springframework.beans.factory.annotation.Value;
 import org.springframework.security.crypto.bcrypt.BCryptPasswordEncoder;
 import org.springframework.stereotype.Service;
@@ -22,9 +18,6 @@ import java.util.UUID;
  * <p>
  * 文件表 服务实现类
  * </p>
- *
- * @author 海カ布
- * @since 2024-10-22
  */
 @Service
 public class SysFileServiceImpl extends ServiceImpl<SysFileMapper, SysFile> implements SysFileService {

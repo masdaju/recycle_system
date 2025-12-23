@@ -2,23 +2,18 @@ package com.cg.docService.canal.handlers;
 
 import com.alibaba.fastjson2.JSON;
 import com.alibaba.otter.canal.protocol.CanalEntry;
-
-
 import com.cg.docService.canal.CanalMessageHandler;
 import com.cg.entity.User;
 import com.google.common.collect.Lists;
 import lombok.extern.slf4j.Slf4j;
 import org.springframework.stereotype.Component;
 import org.springframework.util.CollectionUtils;
+
 import java.util.List;
 import java.util.Map;
 import java.util.stream.Collectors;
 
-/**
- * 用户表数据变更处理器
- *
- * @author ken
- */
+
 @Slf4j
 @Component
 public class UserTableHandler implements CanalMessageHandler {

@@ -5,12 +5,11 @@ import com.alibaba.otter.canal.client.CanalConnectors;
 import org.springframework.beans.factory.annotation.Value;
 import org.springframework.context.annotation.Bean;
 import org.springframework.context.annotation.Configuration;
+
 import java.net.InetSocketAddress;
 
 /**
  * Canal客户端配置
- *
- * @author ken
  */
 @Configuration
 public class CanalClientConfig {

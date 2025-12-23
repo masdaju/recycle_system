@@ -1,17 +1,6 @@
 package com.cg.recycle_system;
 
 
-import com.cg.config.emil.EmailSendUtil;
-import com.cg.config.websocketServer.WebSocketConfig;
-import jakarta.mail.MessagingException;
-import org.junit.jupiter.api.Test;
-import org.springframework.beans.factory.annotation.Autowired;
-import org.springframework.boot.test.context.SpringBootTest;
-import org.springframework.context.annotation.ComponentScan;
-import org.springframework.context.annotation.FilterType;
-
-import java.util.Map;
-
 //
 //@SpringBootTest()
 //@ComponentScan(excludeFilters = {

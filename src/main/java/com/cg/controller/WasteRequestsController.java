@@ -23,9 +23,6 @@ import java.util.List;
  * <p>
  * 废品请求表 前端控制器
  * </p>
- *
- * @author 海カ布
- * @since 2024-12-27
  */
 @RestController
 @RequestMapping("/waste-requests")

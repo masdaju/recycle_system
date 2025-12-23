@@ -17,9 +17,6 @@ import java.util.concurrent.TimeUnit;
  * <p>
  * 废品分类表 前端控制器
  * </p>
- *
- * @author 海カ布
- * @since 2024-12-26
  */
 @RestController
 @RequestMapping("/waste-classify")

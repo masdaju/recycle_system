@@ -11,22 +11,18 @@ import com.cg.service.UserService;
 import com.cg.service.VWasteService;
 import com.cg.service.WasteRequestsService;
 import org.springframework.beans.factory.annotation.Autowired;
-import org.springframework.cache.annotation.CacheEvict;
 import org.springframework.web.bind.annotation.*;
 
 import java.math.BigDecimal;
 import java.util.List;
 import java.util.Map;
-import java.util.concurrent.locks.ReentrantLock;
 
 /**
  * <p>
  * 每个申请Id对应的废品 前端控制器
  * 该控制器主要处理与每个申请ID对应的废品相关的HTTP请求，包括查询、创建、删除、更新废品申请以及检查废品数量并更新用户金额等操作。
  * </p>
- *
- * @author 海カ布
- * @since 2024-12-26
+
  */
 @RestController
 @RequestMapping("/request-waste")

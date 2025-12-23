@@ -11,9 +11,7 @@ import org.springframework.web.bind.annotation.*;
  * <p>
  * 文件表 前端控制器
  * </p>
- *
- * @author 海カ布
- * @since 2024-10-22
+
  */
 @RestController
 @RequestMapping("/sys-file")

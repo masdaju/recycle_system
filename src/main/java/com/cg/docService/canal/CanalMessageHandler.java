@@ -7,8 +7,7 @@ import java.util.List;
 
 /**
  * Canal消息处理器接口
- *
- * @author ken
+
  */
 public interface CanalMessageHandler {
 

@@ -3,7 +3,6 @@ package com.cg.service;
 import cn.dev33.satoken.util.SaResult;
 import com.baomidou.mybatisplus.extension.service.IService;
 import com.cg.entity.User;
-import com.cg.entity.view.VUser;
 
 /**
 * @author MIZUGI

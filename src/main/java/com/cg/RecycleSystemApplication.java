@@ -1,6 +1,5 @@
 package com.cg;
 
-import com.cg.config.SshTunnel.core.SshInfo;
 import com.cg.docService.canal.CanalClientService;
 import lombok.extern.slf4j.Slf4j;
 import org.mybatis.spring.annotation.MapperScan;
@@ -9,10 +8,7 @@ import org.springframework.boot.CommandLineRunner;
 import org.springframework.boot.SpringApplication;
 import org.springframework.boot.autoconfigure.SpringBootApplication;
 import org.springframework.context.ApplicationContext;
-import org.springframework.context.annotation.ImportResource;
 import org.springframework.scheduling.annotation.EnableScheduling;
-
-import java.util.Map;
 
 @SpringBootApplication
 @MapperScan("com.cg.mapper")

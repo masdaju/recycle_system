@@ -1,9 +1,6 @@
 package com.cg.controller;
 
 import cn.dev33.satoken.util.SaResult;
-import co.elastic.clients.elasticsearch.core.SearchResponse;
-import co.elastic.clients.json.JsonData;
-import co.elastic.clients.json.JsonpMapper;
 import com.alibaba.fastjson2.JSON;
 import com.alibaba.fastjson2.JSONObject;
 import com.baomidou.mybatisplus.core.conditions.query.LambdaQueryWrapper;
@@ -23,8 +20,6 @@ import org.springframework.web.multipart.MultipartFile;
 
 import java.io.IOException;
 import java.util.List;
-
-import static com.cg.docService.elasticsearch.Utils.moveStr;
 
 /**
  * <p>

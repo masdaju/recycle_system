@@ -7,7 +7,6 @@ import com.baomidou.mybatisplus.annotation.TableName;
 import com.fasterxml.jackson.annotation.JsonIgnore;
 import lombok.Data;
 
-import javax.annotation.RegEx;
 import java.io.Serializable;
 import java.math.BigDecimal;
 import java.util.Date;

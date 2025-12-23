@@ -1,12 +1,12 @@
 package com.cg.service.impl;
 
 import com.baomidou.mybatisplus.core.conditions.query.LambdaQueryWrapper;
+import com.baomidou.mybatisplus.extension.service.impl.ServiceImpl;
 import com.cg.entity.SysFile;
 import com.cg.entity.Waste;
 import com.cg.mapper.WasteMapper;
 import com.cg.service.SysFileService;
 import com.cg.service.WasteService;
-import com.baomidou.mybatisplus.extension.service.impl.ServiceImpl;
 import com.cg.utils.StringUtils;
 import lombok.RequiredArgsConstructor;
 import org.springframework.beans.factory.annotation.Value;
@@ -22,9 +22,6 @@ import java.util.Date;
  * 该类实现了WasteService接口，负责处理与废品表相关的业务逻辑，
  * 包括保存废品信息并上传图片，以及更新废品信息时更新图片等操作。
  * </p>
- *
- * @author 海カ布
- * @since 2024-12-26
  */
 @Service
 @RequiredArgsConstructor

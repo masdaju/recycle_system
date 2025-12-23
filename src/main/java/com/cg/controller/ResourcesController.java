@@ -11,9 +11,6 @@ import org.springframework.web.bind.annotation.*;
  * <p>
  * 系统资源 前端控制器
  * </p>
- *
- * @author
- * @since 2024-10-13
  */
 @RestController
 @RequestMapping("/sys-resources")

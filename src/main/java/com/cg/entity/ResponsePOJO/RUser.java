@@ -1,7 +1,6 @@
 package com.cg.entity.ResponsePOJO;
 
 import cn.dev33.satoken.stp.SaTokenInfo;
-import com.baomidou.mybatisplus.annotation.TableField;
 import com.fasterxml.jackson.annotation.JsonIgnore;
 import lombok.Data;
 

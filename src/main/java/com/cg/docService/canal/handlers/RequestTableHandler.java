@@ -19,11 +19,7 @@ import java.util.stream.Collectors;
 
 import static com.cg.docService.elasticsearch.Utils.moveStr;
 
-/**
- * 用户表数据变更处理器
- *
- * @author ken
- */
+
 @Slf4j
 @Component
 public class RequestTableHandler implements CanalMessageHandler {

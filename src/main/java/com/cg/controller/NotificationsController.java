@@ -20,9 +20,6 @@ import java.util.List;
  * 消息通知表 前端控制器
  * 该控制器主要处理与消息通知相关的HTTP请求，包括查询、创建、删除和更新消息通知等操作。
  * </p>
- *
- * @author 海カ布
- * @since 2024-12-26
  */
 @RestController
 @RequestMapping("/notifications")
